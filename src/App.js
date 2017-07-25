@@ -7,7 +7,7 @@ class App extends Component {
 		}
 	}
 	componentDidMount() {
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre";
+		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?_embed";
 		fetch(dataURL)
 			.then(res => res.json())
 			.then(res => {
@@ -21,6 +21,7 @@ class App extends Component {
 			return <li key={index}>
 				<h2>{livre.title.rendered}</h2>
 				<ul>
+					<li><img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url} /></li>
 					<li>Extrait : <div dangerouslySetInnerHTML={ {__html: livre.excerpt.rendered} } /></li>
 					<li>Format : {livre.acf.format}</li>
 					<li>&Eacute;diteur : {livre.acf.editeur}</li>
