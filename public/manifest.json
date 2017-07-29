@@ -1,15 +1,23 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "lang": "fr",
+  "name":"Elbakin.net",
+  "short_name":"Elbakin.net",
+  "icons":[{
+    "type": "image/png",
+    "sizes": "152x152",
+    "src": "/152x152.png"
+  },
     {
-      "src": "favicon.ico",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ],
-  "start_url": "./index.html",
+      "type": "image/png",
+      "sizes": "114x114",
+      "src": "/114x114.png"
+    },
+    {
+      "type": "image/png",
+      "sizes": "96x96",
+      "src": "/96x96.png"
+    }],
+  "start_url": "/index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "orientation": "portrait"
 }
