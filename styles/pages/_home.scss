@@ -1,0 +1,238 @@
+@import "../vendors/include-media";
+
+/********************************************************************************************************************************************************************************
+********************* H O M E *****************
+/********************************************************************************************************************************************************************************/
+
+
+
+/* ============== B L O C   A S S O C I A T I O N
+========================================================== */
+
+#association {
+	background: #f3f3f3;
+	text-align: center;
+	padding: 2rem 0;
+	.btn {
+		margin: 1em auto 0;
+		clear: both;
+	}
+}
+
+/* ============== B L O C   P R I X   E L B A K I N . N E T
+======================================================================== */
+
+#prix_elbakin_net {
+	padding: 2rem 0;
+	transform: translate(0,0);
+	h3 {
+		@include rem(2);
+		font-weight: 400;
+		position: relative;
+		text-transform: uppercase;
+	}
+	p {
+		@include rem(1.8);
+		font-family: $font-stack-simili;
+		font-weight: 300;
+		.dropcaps {
+			color: white;
+			display: block;
+			float: left;
+			font-family: "Palatino Linotype", Palatino, $font-stack-simili;
+			font-size: 6.6em;
+			font-style: normal;
+			line-height: .67em;
+			margin: .08em .07em 0 0;
+		}
+	}
+	li {
+		h3 {
+			font-weight: 700;
+		}
+	}
+}
+.all_prices {
+	list-style: none none;
+	padding: 0;
+	margin: 6rem 0 0 40px;
+	position: relative;
+	height: 280px;
+	li {
+		position: absolute;
+		display: inline-block;
+		margin: 0;
+		&:nth-child(2) {
+			left: 113px;
+			top: 113px;
+		}
+		&:nth-child(3) {
+			left: 226px;
+			top: 0;
+		}
+		&:nth-child(4) {
+			left: 339px;
+			top: 113px;
+		}
+		&:nth-child(5) {
+			left: 453px;
+			top: 0;
+		}
+		&:nth-child(6) {
+			left: 566px;
+			top: 113px;
+		}
+		&:nth-child(7) {
+			opacity: .8;
+			left: 679px;
+			top: 0;
+		}
+	}
+	.le-prix {
+		transform: rotate(45deg);
+		background: white;
+		border: thick solid white;
+		height: 140px;
+		position: relative;
+		width: 140px;
+		overflow: hidden;
+		.contenu-prix {
+			transform: rotate(-45deg);
+			left: 0;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			width: 140px;
+			z-index: 10;
+			img {
+				position: absolute;
+				left: -40%;
+				transform: scale(1.4);
+				top: -20px;
+			}
+			.detail_price {
+				background: rgba(255,255,255,0.7);
+				left: -28%;
+				position: absolute;
+				top: 17px;
+				width: 120px;
+				&:hover {
+					background: white;
+					h3::after {
+						background: #ccc;
+					}
+				}
+				h3 {
+					font-family: $font-stack-simili;
+					color: $base-color-elbakin;
+					margin: 0;
+					&:after {
+						background: white;
+						bottom: 0;
+						content: '';
+						display: block;
+						height: 1px;
+						left: 10%;
+						position: absolute;
+						width: 80%;
+					}
+				}
+				a {
+					color: black;
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ============== B L O C   A G E N D A
+========================================================== */
+
+#agenda_parutions {
+	padding: 2rem 0 1rem 0;
+}
+
+/* ============== R E S P O N S I V E
+========================================================== */
+
+@include media('<=medium-plus-screen') {
+	#prix_elbakin_net {
+		background-attachment: scroll !important;
+	}
+}
+@include media('>tiny-plus-screen','<=small-plus-screen') {
+	#prix_elbakin_net {
+		.all_prices {
+			margin: 2rem auto 0;
+			height: auto;
+			width: 100%;
+			text-align: center;
+			li {
+				position: static;
+				display: inline-block;
+				transform: rotate(0);
+				.le-prix {
+					height: 200px;
+				}
+				.contenu-prix {
+					position: relative;
+					img {
+						position: static;
+						width: 100%;
+						height: auto;
+					}
+					.detail_price {
+						position: absolute;
+						left: -5px;
+						top: 10%;
+						width: 140px;
+					}
+				}
+				* {
+					transform: rotate(0);
+				}
+			}
+		}
+	}
+}
+@include media('<=tiny-plus-screen') {
+	#prix_elbakin_net {
+		.all_prices {
+			margin: 2rem auto 0;
+			height: auto;
+			width: 100%;
+			text-align: center;
+			li {
+				position: static;
+				display: inline-block;
+				transform: rotate(0);
+				.le-prix {
+					height: 200px;
+				}
+				.contenu-prix {
+					position: relative;
+					img {
+						position: static;
+						width: 100%;
+						height: auto;
+					}
+					.detail_price {
+						position: absolute;
+						left: -5px;
+						top: 10%;
+						width: 140px;
+					}
+				}
+				* {
+					transform: rotate(0);
+				}
+			}
+		}
+	}
+	#elbakin {
+		display: none;
+	}
+}

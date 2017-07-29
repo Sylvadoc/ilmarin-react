@@ -1,0 +1,144 @@
+// font sizes
+$base-font-size			: 14px; // if "14px" then 1em = 14px
+$line-height			: 1.5; // equiv line-height 1.5
+$al-size    			: 5rem; // equiv "32px"
+$h1-size				: 3.5rem; // equiv "32px"
+$h2-size				: 2.5rem; // equiv "28px"
+$h3-size				: 1.8rem; // equiv "24px"
+$h4-size				: 1.8rem; // equiv "20px"
+$h5-size				: 1.8rem; // equiv "18px"
+$h6-size				: 1.6rem; // equiv "16px"
+
+// sizes
+$row					: 91.429em; // equiv "1280px"
+
+// font stacks
+$font-stack-common		: 'Roboto', Helvetica, Arial, sans-serif; // common font
+$font-stack-condensed	: 'Roboto Condensed', 'Arial Narrow', sans-serif; // common font
+$font-stack-special		: 'Alegreya', Georgia, serif; // special font
+$font-stack-headings	: 'Montserrat', 'Roboto Condensed', 'Arial Narrow', sans-serif; // headings font
+$font-stack-caps		: 'Alegreya SC', Georgia, serif; // ornemental font
+$font-stack-simili		: 'Roboto Slab', serif; // title font
+$font-stack-monospace	: Consolas, 'DejaVu Sans Mono', Courier, monospace; // monospace font
+$font-stack-universal	: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; // universal stack
+
+// font colors
+$base-color				: #272727; // text color on body and content
+$primary-color			: #000; // text color on primary elements
+$secondary-color		: #000; // text color on secondary elements
+$headings-color			: #000; // text color on headings
+$base-color-link		: #333; // base links color
+$base-color-link-hover	: #000; // base hovered/focused links color
+$base-color-elbakin		: #BE2700; // the famous red color
+$orange-color-elbakin	: #FE9E00; // the famous orange elbakin color
+
+// backgrounds
+$base-background		: #fff; // body background color
+$news-background		: #fff; // body background color
+$primary-background		: #fff; // primary elements background color
+$secondary-background	: #fff; // secondary elements background color
+$navigation-background	: #000; // #141A1A main navigation background color
+
+// rotation degree ex: 0.5deg
+$rotate : 1deg;
+
+// social
+$youtube                : #cc181e; // couleur youtube
+$android                : #a4c639; // couleur android
+$itunes                 : dodgerblue; // couleur itunes
+$rss                    : darkorange; // couleur rss
+
+// icons
+$icon-cloud-download: "\e904";
+$icon-steam: "\e902";
+$icon-users: "\e903";
+$icon-apple: "\e900";
+$icon-android: "\e901";
+$icon-exclamation-triangle: "\e600";
+$icon-shield: "\e601";
+$icon-mail: "\e602";
+$icon-minus: "\e603";
+$icon-folder-minus: "\e604";
+$icon-cross: "\e605";
+$icon-folder-plus: "\e606";
+$icon-warning: "\e607";
+$icon-unlocked: "\e608";
+$icon-shield2: "\e609";
+$icon-lock: "\e60a";
+$icon-camera: "\e60b";
+$icon-linkedin: "\e60c";
+$icon-linkedin2: "\e60d";
+$icon-link: "\e60e";
+$icon-printer: "\e60f";
+$icon-list-numbered: "\e610";
+$icon-question: "\e611";
+$icon-arrow-left: "\e612";
+$icon-arrow-down: "\e613";
+$icon-arrow-up: "\e614";
+$icon-arrow-right: "\e615";
+$icon-lifebuoy: "\e616";
+$icon-price-tags: "\e617";
+$icon-price-tag: "\e618";
+$icon-bookmarks: "\e619";
+$icon-bookmark: "\e61a";
+$icon-star-half: "\e61b";
+$icon-star-full: "\e61c";
+$icon-star-empty: "\e61d";
+$icon-cog: "\e61e";
+$icon-bubbles: "\e61f";
+$icon-home: "\e620";
+$icon-share: "\e621";
+$icon-cart: "\e622";
+$icon-fire: "\e623";
+$icon-quotes-right: "\e624";
+$icon-quotes-left: "\e625";
+$icon-calendar: "\e626";
+$icon-user: "\e627";
+$icon-clock: "\e628";
+$icon-clock2: "\e629";
+$icon-search: "\e62a";
+$icon-feed: "\e62b";
+$icon-feed2: "\e62c";
+$icon-feed3: "\e62d";
+$icon-youtube: "\e62e";
+$icon-youtube2: "\e62f";
+$icon-youtube3: "\e630";
+$icon-image: "\e631";
+$icon-podcast: "\e632";
+$icon-book: "\e633";
+$icon-books: "\e634";
+$icon-plus: "\e635";
+$icon-quill: "\e636";
+$icon-trophy: "\e637";
+$icon-heart-broken: "\e638";
+$icon-heart: "\e639";
+$icon-twitter: "\e63a";
+$icon-twitter2: "\e63b";
+$icon-twitter3: "\e63c";
+$icon-facebook: "\e63d";
+$icon-facebook2: "\e63e";
+$icon-facebook3: "\e63f";
+$icon-google-plus: "\e640";
+$icon-google-plus2: "\e641";
+$icon-google-plus3: "\e642";
+$icon-plus2: "\e643";
+
+// breakpoints
+$breakpoints: (
+        tiny-screen                 :	320px,
+        tiny-plus-screen            :	480px,
+        small-screen                :	640px,
+        small-plus-screen           :	768px,
+        medium-screen               :	960px,
+        medium-plus-screen          :	1024px,
+        large-screen                :	1280px,
+        large-plus-screen           :	1440px,
+        extra-large-screen          :	1600px,
+        ultra-large-screen          :	1920px
+);
+$tiny-screen			: 480px; // tiny screens media query (less than 480px)
+$small-screen			: 768px; // screens between 481px and 768px
+$medium-screen			: 1024px; // screens between 769px and 1024px
+$large-screen			: 1280px; // screens between 1025px and 1280px
+$extra-large-screen		: 1600px; // screens between 1281px and 1600px
+$ultra-large-screen		: 1920px; // ultra large screens

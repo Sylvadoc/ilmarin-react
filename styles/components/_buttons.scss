@@ -1,0 +1,110 @@
+/********************************************************************************************************************************************************************************
+********************* B U T T O N S *****************
+/********************************************************************************************************************************************************************************/
+
+.btn {
+	border-radius: 4px;
+	@include rem(1.6);
+	transition: all .3s ease-out;
+	border: 0;
+	color: white;
+	cursor: pointer;
+	display: block;
+	font-family: $font-stack-headings;
+	line-height: 40px;
+	margin: 0 auto;
+	max-width: 27.5rem;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	&:hover {
+		color: white;
+		text-decoration: none;
+	}
+	&:active, &:focus {
+		color: white;
+		text-decoration: none;
+		position: relative;
+		top: 1px;
+	}
+}
+.inline_btn {
+	display: inline-block;
+	margin: 0 0 0 1em;
+}
+.btn_default {
+	background: $orange-color-elbakin;
+	&:hover {
+		background: $base-color-elbakin;
+	}
+	&:active {
+		background: $base-color-elbakin;
+	}
+}
+.btn_neutral {
+	background: #c8c2ae;
+	&:hover {
+		background: #afae98;
+	}
+	&:active {
+		background: #afae98;
+	}
+}
+.btn_simple {
+	background: $orange-color-elbakin;
+	color: white !important;
+	display: inline-block;
+	font-family: $font-stack-headings;
+	margin: 0;
+	padding: .5em 2em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	&:hover, &:focus {
+		background: $base-color-elbakin;
+		color: white;
+		text-decoration: none;
+	}
+	&:active {
+		position: relative;
+		top: 1px;
+	}
+}
+.btn_find {
+	border-radius: 0;
+	background-color: $base-color-elbakin;
+	font-family: $font-stack-headings;
+	margin: 0;
+	line-height: 55px;
+	height: 55px;
+	text-align: center;
+}
+.shadow-btn {
+	border-radius: 3px;
+	transition: all 150ms ease-out;
+	background: transparent;
+	display: inline-block;
+	font-family: $font-stack-condensed;
+	font-weight: 700;
+	padding: .5em 1.2em;
+	text-transform: uppercase;
+	&.light-shadow-btn {
+		border: 2px solid white;
+		color: white;
+		&:hover, &:focus, &:active {
+			background: white;
+			color: black;
+			text-decoration: none;
+		}
+	}
+	&.dark-shadow-btn {
+		border: 2px solid #666;
+		color: #666;
+		&:hover, &:focus, &:active {
+			border: 2px solid $base-color-elbakin;
+			background: $base-color-elbakin;
+			color: white;
+			text-decoration: none;
+		}
+	}
+}

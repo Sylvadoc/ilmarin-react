@@ -1,0 +1,111 @@
+@import "../vendors/include-media";
+
+/* ============== C H R O N O
+========================================================== */
+
+#chrono {
+	background: white;
+	border: 1px solid #ccc;
+	margin-bottom: 2rem;
+	.header_chrono {
+		background: #BE2700;
+		padding: 1rem;
+		* {
+			display: inline-block;
+			vertical-align: middle;
+		}
+        .filter-news {
+            background-color: white;
+        }
+		option {
+			display: block;
+		}
+		h2 {
+			@include rem(2.1);
+			color: white;
+			font-family: $font-stack-headings;
+			line-height: 1;
+			margin: 0 1rem 0 0;
+			padding: 0;
+			text-transform: uppercase;
+			.icon {
+				transform: scale(0.8);
+				vertical-align: top;
+			}
+		}
+		select {
+			border: 0;
+			font-family: $font-stack-condensed;
+			width: 55%;
+			margin: 0 1rem 0 0;
+		}
+		.rss {
+			color: white;
+		}
+	}
+	ul {
+		list-style: none none;
+		padding: 0;
+	}
+	.scroller_chrono {
+		abbr {
+			text-decoration: none;
+		}
+		li {
+			border-bottom: 1px solid #ccc;
+			@include rem(1.3);
+			padding: .5rem 0;
+			&:hover {
+				background: #efefef;
+			}
+		}
+		span, a {
+			display: inline-block;
+			vertical-align: text-top;
+		}
+		span {
+			font-weight: 700;
+			text-align: center;
+			width: 15%;
+		}
+		a {
+			width: 85%;
+		}
+	}
+	.footer_chrono {
+		overflow: hidden;
+		background: #efefef;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: 1rem;
+		.all-chrono {
+			@include rem(1.2);
+			background-color: $base-color-elbakin;
+			color: white;
+			display: inline-block;
+			padding: 2px 5px;
+			text-align: right;
+		}
+		ul {
+		    display: flex;
+		    flex-direction: row;
+		    flex-wrap: wrap;
+		}
+	}
+}
+
+/* ============== R E S P O N S I V E
+========================================================== */
+
+@include media('<=medium-plus-screen') {
+	#chrono {
+		margin-top: 2rem;
+		.header_chrono {
+			select {
+				width: 43%;
+			}
+		}
+	}
+}

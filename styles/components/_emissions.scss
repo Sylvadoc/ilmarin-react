@@ -1,0 +1,53 @@
+@import "../vendors/include-media";
+
+/* ============== B L O C   N O S   E M I S S I O N S
+========================================================== */
+
+#emissions {
+	padding: 2rem 0;
+	h2 {
+		@include rem(2.2);
+		color: $base-color-elbakin;
+		text-align: center;
+	}
+	h3 {
+		color: $base-color-elbakin;
+		text-transform: uppercase;
+		@include rem(1.7);
+		margin: 1em 0 0 0;
+		padding: 0;
+		font-weight: 300;
+	}
+	ul {
+		list-style: none none;
+		padding: 0;
+		margin: 0;
+		li {
+			display: block;
+			border-bottom: 1px solid #ccc;
+			a {
+				display: block;
+				padding: .5em 0;
+			}
+		}
+	}
+}
+
+/* ============== RESPONSIVE EMISSIONS
+========================================================== */
+
+@include media('<=small-plus-screen') {
+	.article_focus {
+		margin-bottom: 10px;
+	}
+}
+@include media('<=medium-plus-screen') {
+	#dmud {
+		.article_focus {
+			background: white none;
+		}
+		li:nth-last-child(-n+4) {
+			width: 100%;
+		}
+	}
+}

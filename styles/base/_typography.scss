@@ -1,0 +1,584 @@
+// Special fonts
+// usage
+// font-family: 'Droid Sans', sans-serif;
+// font-family: 'Droid Serif', serif;
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,300,300italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300);
+@import url(http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,900italic,400,700,900|Alegreya+SC:400,400italic,700,700italic,900,900italic);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100);
+
+$tempFont : 5678;
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('../../../ilmarin/ilmarin/fonts/special/icomoon.eot?$tempFont');
+	src:url('../../../ilmarin/ilmarin/fonts/special/icomoon.eot?#iefix$tempFont') format('embedded-opentype'),
+		url('../../../ilmarin/ilmarin/fonts/special/icomoon.woff?$tempFont') format('woff'),
+		url('../../../ilmarin/ilmarin/fonts/special/icomoon.ttf?$tempFont') format('truetype'),
+		url('../../../ilmarin/ilmarin/fonts/special/icomoon.svg?$tempFont#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/********************************************************************************************************************************************************************************
+********************* B A S E *****************
+/********************************************************************************************************************************************************************************/
+
+html {
+	font-size: 62.5%;
+	font-size: calc(1em * 0.625);
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+body {
+	/* set body font-size in em (1.4em equiv "14px") */
+	font-size: ($base-font-size / 10px) + em;
+	background-color: $base-background;
+	color: $base-color;
+	font-family: $font-stack-common;
+	line-height: $line-height;
+	// @include font-enhancements;
+}
+
+/* ============== D E F A U L T
+========================================================== */
+
+a {
+	color: $base-color-link;
+	text-decoration: none;
+	&:hover, &:focus, &:active {
+		color: $base-color-link-hover;
+		text-decoration: underline;
+	}
+}
+code, pre, samp, kbd {
+	white-space: pre-line;
+	white-space: pre-wrap;
+	font-family: $font-stack-monospace;
+	line-height: normal;
+}
+em, .italic, address, cite, dfn, i, var {
+	font-style: italic;
+}
+strong, b, .bold {
+	font-weight: bold;
+}
+small, sub, sup {
+	font-size: smaller;
+}
+sup, sub {
+   vertical-align: baseline;
+   position: relative;
+   top: -0.4em;
+}
+sub { top: 0.4em; }
+button {cursor: pointer;}
+.hidden {
+	@extend %visuallyhidden;
+}
+p, .p-like, ul, ol, dl, blockquote, pre, td, th, label, textarea, caption,
+details, figure {
+	margin: 0;
+	line-height: $line-height;
+}
+
+/* ============== T I T L E S
+========================================================== */
+
+h1, .h1-like {
+	font-family: $font-stack-headings;
+	font-size: $h1-size;
+	font-weight: 700;
+	// @include font-kerning;
+}
+h2, .h2-like {
+	font-family: $font-stack-headings;
+	font-size: $h2-size;
+	font-weight: 300;
+	// @include font-kerning;
+}
+h3, .h3-like {
+	font-family: $font-stack-headings;
+	font-size: $h3-size;
+	// @include font-kerning;
+}
+h4, .h4-like {
+	font-size: $h4-size;
+}
+h5, .h5-like {
+	font-size: $h5-size;
+}
+h6, .h6-like {
+	font-size: $h6-size;
+}
+p {
+	// @include font-kerning;
+}
+.simili-title {
+	display: block;
+	font-family: $font-stack-simili;
+	font-weight: 300;
+	font-size: $h1-size;
+	text-align: center;
+	margin: 0 0 1rem 0;
+	span {
+		font-family: $font-stack-caps;
+		font-style: italic;
+	}
+	strong {
+		font-weight: 700;
+	}
+}
+.more {
+	display: inline-block;
+	color: black;
+	padding: 0 .2em;
+	margin-left: .5em;
+	.icon {
+		color: $base-color-elbakin;
+	}
+}
+.section-jump {
+	@include gradient-h($base-color-elbakin,$orange-color-elbakin);
+	border: 0;
+	height: 2px;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+/* ============== I C O N O G R A P H Y
+========================================================== */
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon', sans-serif;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon {
+	display: none;
+}
+.fontface {
+	.icon {
+		display: inline-block;
+	}
+	.text {
+		@extend %visuallyhidden;
+	}
+	.icon-cloud-download {
+		&:before {
+			content: $icon-cloud-download;
+		}
+	}
+	.icon-steam {
+		&:before {
+			content: $icon-steam;
+		}
+	}
+	.icon-users {
+		&:before {
+			content: $icon-users;
+		}
+	}
+	.icon-apple {
+		&:before {
+			content: $icon-apple;
+		}
+	}
+	.icon-android {
+		&:before {
+			content: $icon-android;
+		}
+	}
+	.icon-exclamation-triangle {
+		&:before {
+			content: $icon-exclamation-triangle;
+		}
+	}
+	.icon-shield {
+		&:before {
+			content: $icon-shield;
+		}
+	}
+	.icon-mail {
+		&:before {
+			content: $icon-mail;
+		}
+	}
+	.icon-minus {
+		&:before {
+			content: $icon-minus;
+		}
+	}
+	.icon-folder-minus {
+		&:before {
+			content: $icon-folder-minus;
+		}
+	}
+	.icon-cross {
+		&:before {
+			content: $icon-cross;
+		}
+	}
+	.icon-folder-plus {
+		&:before {
+			content: $icon-folder-plus;
+		}
+	}
+	.icon-warning {
+		&:before {
+			content: $icon-warning;
+		}
+	}
+	.icon-unlocked {
+		&:before {
+			content: $icon-unlocked;
+		}
+	}
+	.icon-shield2 {
+		&:before {
+			content: $icon-shield2;
+		}
+	}
+	.icon-lock {
+		&:before {
+			content: $icon-lock;
+		}
+	}
+	.icon-camera {
+		&:before {
+			content: $icon-camera;
+		}
+	}
+	.icon-linkedin {
+		&:before {
+			content: $icon-linkedin;
+		}
+	}
+	.icon-linkedin2 {
+		&:before {
+			content: $icon-linkedin2;
+		}
+	}
+	.icon-link {
+		&:before {
+			content: $icon-link;
+		}
+	}
+	.icon-printer {
+		&:before {
+			content: $icon-printer;
+		}
+	}
+	.icon-list-numbered {
+		&:before {
+			content: $icon-list-numbered;
+		}
+	}
+	.icon-question {
+		&:before {
+			content: $icon-question;
+		}
+	}
+	.icon-arrow-left {
+		&:before {
+			content: $icon-arrow-left;
+		}
+	}
+	.icon-arrow-down {
+		&:before {
+			content: $icon-arrow-down;
+		}
+	}
+	.icon-arrow-up {
+		&:before {
+			content: $icon-arrow-up;
+		}
+	}
+	.icon-arrow-right {
+		&:before {
+			content: $icon-arrow-right;
+		}
+	}
+	.icon-lifebuoy {
+		&:before {
+			content: $icon-lifebuoy;
+		}
+	}
+	.icon-price-tags {
+		&:before {
+			content: $icon-price-tags;
+		}
+	}
+	.icon-price-tag {
+		&:before {
+			content: $icon-price-tag;
+		}
+	}
+	.icon-bookmarks {
+		&:before {
+			content: $icon-bookmarks;
+		}
+	}
+	.icon-bookmark {
+		&:before {
+			content: $icon-bookmark;
+		}
+	}
+	.icon-star-half {
+		&:before {
+			content: $icon-star-half;
+		}
+	}
+	.icon-star-full {
+		&:before {
+			content: $icon-star-full;
+		}
+	}
+	.icon-star-empty {
+		&:before {
+			content: $icon-star-empty;
+		}
+	}
+	.icon-cog {
+		&:before {
+			content: $icon-cog;
+		}
+	}
+	.icon-bubbles {
+		&:before {
+			content: $icon-bubbles;
+		}
+	}
+	.icon-home {
+		&:before {
+			content: $icon-home;
+		}
+	}
+	.icon-share {
+		&:before {
+			content: $icon-share;
+		}
+	}
+	.icon-cart {
+		&:before {
+			content: $icon-cart;
+		}
+	}
+	.icon-fire {
+		&:before {
+			content: $icon-fire;
+		}
+	}
+	.icon-quotes-right {
+		&:before {
+			content: $icon-quotes-right;
+		}
+	}
+	.icon-quotes-left {
+		&:before {
+			content: $icon-quotes-left;
+		}
+	}
+	.icon-calendar {
+		&:before {
+			content: $icon-calendar;
+		}
+	}
+	.icon-user {
+		&:before {
+			content: $icon-user;
+		}
+	}
+	.icon-clock {
+		&:before {
+			content: $icon-clock;
+		}
+	}
+	.icon-clock2 {
+		&:before {
+			content: $icon-clock2;
+		}
+	}
+	.icon-search {
+		&:before {
+			content: $icon-search;
+		}
+	}
+	.icon-feed {
+		&:before {
+			content: $icon-feed;
+		}
+	}
+	.icon-feed2 {
+		&:before {
+			content: $icon-feed2;
+		}
+	}
+	.icon-feed3 {
+		&:before {
+			content: $icon-feed3;
+		}
+	}
+	.icon-youtube {
+		&:before {
+			content: $icon-youtube;
+		}
+	}
+	.icon-youtube2 {
+		&:before {
+			content: $icon-youtube2;
+		}
+	}
+	.icon-youtube3 {
+		&:before {
+			content: $icon-youtube3;
+		}
+	}
+	.icon-image {
+		&:before {
+			content: $icon-image;
+		}
+	}
+	.icon-podcast {
+		&:before {
+			content: $icon-podcast;
+		}
+	}
+	.icon-book {
+		&:before {
+			content: $icon-book;
+		}
+	}
+	.icon-books {
+		&:before {
+			content: $icon-books;
+		}
+	}
+	.icon-plus {
+		&:before {
+			content: $icon-plus;
+		}
+	}
+	.icon-quill {
+		&:before {
+			content: $icon-quill;
+		}
+	}
+	.icon-trophy {
+		&:before {
+			content: $icon-trophy;
+		}
+	}
+	.icon-heart-broken {
+		&:before {
+			content: $icon-heart-broken;
+		}
+	}
+	.icon-heart {
+		&:before {
+			content: $icon-heart;
+		}
+	}
+	.icon-twitter {
+		&:before {
+			content: $icon-twitter;
+		}
+	}
+	.icon-twitter2 {
+		&:before {
+			content: $icon-twitter2;
+		}
+	}
+	.icon-twitter3 {
+		&:before {
+			content: $icon-twitter3;
+		}
+	}
+	.icon-facebook {
+		&:before {
+			content: $icon-facebook;
+		}
+	}
+	.icon-facebook2 {
+		&:before {
+			content: $icon-facebook2;
+		}
+	}
+	.icon-facebook3 {
+		&:before {
+			content: $icon-facebook3;
+		}
+	}
+	.icon-google-plus {
+		&:before {
+			content: $icon-google-plus;
+		}
+	}
+	.icon-google-plus2 {
+		&:before {
+			content: $icon-google-plus2;
+		}
+	}
+	.icon-google-plus3 {
+		&:before {
+			content: $icon-google-plus3;
+		}
+	}
+	.icon-plus2 {
+		&:before {
+			content: $icon-plus2;
+		}
+	}
+}
+
+	/* ============== I C O N   B U R G E R
+	========================================================== */
+
+	.icon-burger {
+	    transition: all .4s;
+		background-color: $base-color-link;
+		height: 2px;
+		width: 15px;
+		&:before, &:after {
+			background-color: $base-color-link;
+			content: '';
+			display: block;
+			width: 15px;
+			height: 2px;
+			position: relative;
+		}
+		&:before {
+			top: -4px;
+		}
+		&:after {
+			top: 2px;
+		}
+	}
+	.the-header {
+		.icon-burger {
+			position: relative;
+			top: -4px;
+			transition: transform 350ms;
+		}
+	}
+	.mp-pushed {
+		.icon-burger {
+		    transform: translate3d(30px,0,0) rotate(0deg);
+			&:before {
+                transform: translate3d(30px,4px,0) rotate(-45deg);
+			}
+			&:after {
+                transform: translate3d(30px,-4px,0) rotate(45deg);
+			}
+		}
+	}

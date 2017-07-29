@@ -1,0 +1,247 @@
+@import "../vendors/include-media";
+
+	/* ====== Concerning Logo
+	======================================= */
+
+	@keyframes LogoArrives {
+		0%   {
+			opacity: 0;
+			transform: translate3d(0,-2rem,0);
+		}
+		100% {
+			opacity: 1;
+			transform: translate3d(0,0,0);
+		}
+	}
+		/* ================================ */
+		@keyframes Appear {
+			0%   {
+				opacity: 0;
+				transform: scale(0);
+			}
+			100% {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+	/* ====== Concerning title logo
+	======================================= */
+
+	@keyframes ElbakinArrives {
+		0%   {
+			opacity: 0;
+			transform: translate3d(0,1rem,0);
+		}
+		100% {
+			opacity: 1;
+			transform: translate3d(0,-1rem,0);
+		}
+	}
+
+	/* ====== ShowPanel
+	======================================= */
+
+	@keyframes ShowPanel {
+		0%   {
+			opacity: 0;
+			transform: translate3d(0,-1rem,0);
+		}
+		100% {
+			opacity: 1;
+			transform: translate3d(0,0,0);
+		}
+	}
+
+	/* ====== HidePanel
+	======================================= */
+
+	@keyframes HidePanel {
+		0%   {
+			opacity: 1;
+			transform: translate3d(0,0,0);
+		}
+		100% {
+			opacity: 0;
+			transform: translate3d(0,1rem,0);
+		}
+	}
+
+/********************************************************************************************************************************************************************************
+********************* H E A D E R *****************
+/********************************************************************************************************************************************************************************/
+
+.the-header {
+	transition: height .3s;
+	@extend %clearfix;
+	position: relative;
+    margin-bottom: 1em;
+    @include media('>medium-plus-screen') {
+        clip-path: polygon(50% 100%, 100% 90%, 100% 0, 0 0, 0 90%);
+    }
+	.inner-wrap {
+		height: 190px;
+		overflow: hidden;
+
+	}
+	/* ====== LOGO
+	======================================= */
+	.branding {
+		display: block;
+		margin: 0 auto;
+		width: 150px;
+		position: relative;
+		.logotype {
+			animation: LogoArrives cubic-bezier(.68,-0.55,.27,1.55) 1s 1;
+		}
+		.elbakin {
+			animation: ElbakinArrives cubic-bezier(.68,-0.55,.27,1.55) 1s 1;
+			transform: translate3d(0,-1rem,0);
+		}
+		a {	display: block;	}
+	}
+	.appear {
+		animation: Appear .5s 1;
+	}
+
+	/* ====== MENU HEADER SIMPLE
+	======================================= */
+
+	ul {
+		list-style: none none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		li {
+			display: inline-block;
+		}
+		a {
+			display: block;
+			padding: .3rem .6rem;
+		}
+		a:hover, a:focus, a:visited { text-decoration: none; outline: 0; }
+	}
+	.visit {
+		left: 1rem;
+		position: absolute;
+		text-transform: uppercase;
+		top: 1rem;
+		z-index: 100;
+		li {
+			background: #fff;
+			margin-right: 1px;
+			&:last-child { margin: 0; }
+		}
+	}
+	.aside_menu {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+		text-transform: uppercase;
+		li {
+			background: #fff;
+			margin-left: 1px;
+			&:last-child { margin: 0;}
+		}
+		.social {
+			li { background: transparent; }
+			.icon-twitter {color: #55ACEE;}
+			.icon-facebook {color: #47639E;}
+			.icon-google-plus {color: #DD4B39;}
+		}
+	}
+	&.sticky {
+		background: rgba(white,0.95) !important;
+		height: 50px;
+		padding: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 100;
+		.inner-wrap {
+			background: none;
+			height: auto;
+		}
+		.aside_menu, .visit {
+			top: 1.3rem;
+		}
+		li {
+			background: transparent;
+		}
+		.visit {
+			span + span {
+				@extend %visuallyhidden;
+			}
+		}
+		.social, .network { display: none;}
+		.branding {
+			width: 50px;
+			.elbakin {
+				display: none;
+			}
+		}
+	}
+}
+
+/* ============== R E S P O N S I V E
+========================================================== */
+
+@include media('<=tiny-plus-screen') {
+	header {
+		&.sticky {
+			.panel {
+				padding: 0 9% 0 23%;
+			}
+		}
+	}
+}
+@include media('>tiny-plus-screen','<=small-plus-screen') {
+	header {
+		&.sticky {
+			.aside_menu {
+				span:first-child {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+/* ============== H E A D  S E C T I O N
+========================================================== */
+
+.header_section {
+	padding: 2rem 0;
+	.global-title {
+		font-family: $font-stack-simili;
+		font-size: $al-size;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		abbr {
+			border: 0;
+		}
+		& + p {
+			@include rem(1.8);
+			font-family: $font-stack-simili;
+			font-weight: 300;
+			margin-top: 1em;
+			.dropcaps {
+				font-family: "Palatino Linotype", Palatino, $font-stack-simili;
+				display: block;
+				font-style: normal;
+				font-size: 6.6em;
+				float: left;
+				margin: .08em .07em 0 0;
+				line-height: .67em;
+				color: white;
+			}
+		}
+	}
+	.more {
+		color: white;
+		.icon {
+			color: white;
+		}
+	}
+}

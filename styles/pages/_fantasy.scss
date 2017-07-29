@@ -1,0 +1,231 @@
+@import "../vendors/include-media";
+
+/********************************************************************************************************************************************************************************
+********************* S E C T I O N   F A N T A S Y *****************
+/********************************************************************************************************************************************************************************/
+
+.page-fantasy {
+	.the-header {
+		background: transparent;
+		.inner-wrap {
+			background: transparent;
+		}
+	}
+	#header_section {
+		padding-top: 190px;
+		margin-top: -190px;
+	}
+}
+
+/* ============== H E A D E R
+========================================================== */
+
+.fantasy_section {
+	height: 800px;
+	h1 {color: white;}
+	.columns {
+		position: relative;
+	}
+	.flipping-quote {
+		position: absolute;
+	}
+	.quote {
+		background: rgba(255,255,255,0.8);
+		color: $base-color;
+		margin-bottom: 1rem;
+		q {
+			display: block;
+			padding: 1rem 1rem 0;
+			text-align: justify;
+			&+ span {
+				display: block;
+				font-style: italic;
+				padding: 0 1rem 1rem;
+				text-align: right;
+			}
+		}
+	}
+	.more {
+		background-color: $orange-color-elbakin;
+		color: white;
+		display: inline-block;
+		font-family: $font-stack-headings;
+		margin: 0;
+		padding: 1rem;
+		text-transform: uppercase;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	.author {
+		transition: transform .3s;
+		display: block;
+		width: 135px;
+		padding: 5px;
+		background: white;
+		span {
+			display: block;
+			height: 100%;
+		}
+	}
+	.quote-01 {
+		top: 12rem;
+		left: 0.9375em;
+		width: 40%;
+		.quote {
+			margin-left: 145px;
+		}
+		.author {
+			transform: translate3d(0,0,0);
+			float: left;
+			height: 167px;
+			span {
+				background: transparent url('../../../ilmarin/ilmarin/images/illustrations/tolkien.jpg') no-repeat center top;
+			}
+		}
+		.more {
+			float: right;
+			text-align: right;
+			width: 45%;
+		}
+	}
+	.quote-02 {
+		top: 24rem;
+		left: auto;
+		right: 2em;
+		width: 40%;
+		.quote {
+			margin-right: 145px;
+		}
+		.author {
+			transform: translate3d(0,0,0);
+			float: right;
+			height: 209px;
+			span {
+				background: transparent url('../../../ilmarin/ilmarin/images/illustrations/gracq.jpg') no-repeat center top;
+			}
+		}
+		.more {
+			float: left;
+			text-align: left;
+			width: 65%;
+		}
+	}
+}
+
+/* ============== R E D E S I G N
+========================================================== */
+
+#begin_fantasy, #editorial_section {
+	padding: 2rem 0;
+}
+#begin_fantasy {
+	.medium-4 h2 {
+		border-radius: 5px 5px 0 0;
+		background: white;
+		color: #BE2700;
+		margin: 0;
+		padding: 1rem 1rem 0 1rem;
+	}
+	.article_focus {
+		border-radius: 0 0 5px 5px;
+		&+ .article_focus {
+			margin-top: 1rem;
+		}
+	}
+}
+#editorial_section {
+	h2, h2 a {
+		color: $base-color-elbakin;
+	}
+}
+
+/* ============== R E S P O N S I V E
+========================================================== */
+
+@include media('>=medium-plus-screen') {
+	.fantasy_section {
+		.flipping-quote {
+			perspective: 1000px;
+			transform-style: preserve-3d;
+			&:hover {
+				.quote {
+					transform: rotateY(0);
+				}
+				.author {
+                    transform: translate3d(0,-10px,0);
+				}
+				.more {
+					width: 100%;
+                    transform: rotateY(0);
+				}
+			}
+		}
+		.quote {
+			backface-visibility: hidden;
+			transform-style: preserve-3d;
+			transition: transform .3s;
+		}
+		.more {
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+			transition: all .3s;
+		}
+		.quote-01 {
+			.quote {
+				transform-origin: left top;
+				transform: rotateY(20.0001deg);
+			}
+			.more {
+				transform-origin: right top;
+				transform: rotateY(-20.0001deg);
+			}
+		}
+		.quote-02 {
+			.quote {
+				transform-origin: right top;
+				transform: rotateY(-20.0001deg);
+			}
+			.more {
+				transform-origin: left top;
+				transform: rotateY(20.0001deg);
+			}
+		}
+	}
+}
+@include media('>tiny-plus-screen','<=medium-plus-screen') {
+	.fantasy_section {
+		.flipping-quote {
+			position: static;
+		}
+		.quote-01 {
+			width: auto;
+			float: left;
+			margin-bottom: 2em;
+		}
+		.quote-02 {
+			clear: left;
+			float: right;
+			width: auto;
+		}
+	}
+}
+@include media('<=tiny-plus-screen') {
+	.fantasy_section {
+		height: 450px;
+		.flipping-quote {
+			position: static;
+			clear: both;
+			float: none;
+			width: 100%;
+			margin-bottom: 1em;
+			.author, .quote { display: none;}
+			.more {
+				display: block;
+				float: none;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+}

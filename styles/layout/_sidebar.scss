@@ -1,0 +1,27 @@
+/********************************************************************************************************************************************************************************
+********************* S I D E B A R *****************
+/********************************************************************************************************************************************************************************/
+.sidebar {
+	aside {
+		margin-bottom: 1em;
+	}
+}
+.sidebar_card {
+	background: white;
+	border: 1px solid #ccc;
+	margin-bottom: 2rem;
+	border-radius: 3px;
+	padding: 1rem;
+	h2 {
+		text-transform: uppercase;
+		margin: 0 0 1em 0;
+		padding: 0;
+		color: $base-color-elbakin;
+		@include rem(2);
+	}
+}
+.sidebar_fixed {
+	position: fixed;
+	top: 80px;
+	z-index: 1;
+}

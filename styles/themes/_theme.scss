@@ -1,0 +1,178 @@
+@import "../vendors/include-media";
+
+/* ============== P A G E S
+========================================================== */
+
+@include media('<=ultra-large-screen') {
+	.the-header {
+		background-color: transparent;
+		background-image: url('../../../ilmarin/ilmarin/images/simonetti_1920.jpg');
+		background-repeat: no-repeat;
+		background-position: 0 -380px;
+	}
+	#header_section {
+		&.tolkien_section, &.library_section, &.fantasy_section, &.emission_section {
+			background-color: transparent;
+			background-image: url('../../../ilmarin/ilmarin/images/simonetti_1920.jpg');
+			background-repeat: no-repeat;
+			background-position: 0 77%;
+			background-attachment: fixed;
+		}
+	}
+}
+@include media('<=large-screen') {
+	.the-header {
+		background-color: transparent;
+		background-image: url('../../../ilmarin/ilmarin/images/simonetti_1280.jpg');
+		background-repeat: no-repeat;
+		background-position: 0 -300px;
+	}
+	#header_section {
+		&.tolkien_section, &.library_section, &.fantasy_section, &.emission_section {
+			background-color: transparent;
+			background-image: url('../../../ilmarin/ilmarin/images/simonetti_1280.jpg');
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			background-attachment: fixed;
+		}
+	}
+}
+
+/* ============== S E C T I O N S
+========================================================== */
+
+section:nth-child(2n+2), #most, .m-page .grey-section {
+	@include gradient-h(#ECE9E6,#FFFFFF);
+}
+#header_section {
+	&.tolkien_section, &.library_section, &.emission_section {
+		.global-title {
+			color: white;
+			& + p {
+				color: white;
+			}
+		}
+	}
+}
+#all_new_chronique {
+	@include gradient-h(#4b6cb7,#182848);
+	color: white;
+	&.jeff {
+		@include gradient-h(#24C6DC,#514A9D);
+	}
+}
+#prix_elbakin_net, #palantir {
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: transparent;
+	background-image: url('../../../ilmarin/ilmarin/images/argonath.jpg');
+	background-repeat: no-repeat;
+	color: white;
+}
+#moreover, #all_libraries {
+	@include gradient-h(#2E1437,#948E99);
+}
+#discover, #social_block {
+	@include gradient-h(#24C6DC,#514A9D);
+	color: white;
+}
+#last_50, .m-page .colored-section {
+	// test
+	@include gradient-h(#24C6DC,#514A9D);
+	color: white;
+}
+#author_bibliography {
+	@include gradient-h(#24C6DC,#514A9D);
+	color: white;
+}
+#author_news, #editorial_section, #emissions {
+	@include gradient-h(#ECE9E6,#FFFFFF);
+}
+#agenda_parutions {
+	background: white;
+}
+#classement {
+	background: white;
+}
+#perfect {
+	@include gradient-h(#4b6cb7,#182848);
+	color: white;
+	&.jeff {
+		@include gradient-h(#24C6DC,#514A9D);
+	}
+}
+
+/* ============== F O O T E R   C O L O R S
+========================================================== */
+
+#footer {
+	background: #262626;
+	p {
+		color: white;
+	}
+	a {
+		color: #727272;
+		&:hover {
+			color: white;
+			text-decoration: none;
+		}
+	}
+	&[data-weather="sunny"], &[data-weather="cloudy"] {
+		@include gradient-h(#00BBFF,#00BBFF);
+		color: #f1f1f1;
+		a {
+			color: white;
+			&:hover {
+				color: white;
+				text-decoration: underline;
+			}
+		}
+		p, h2, #weather_city {color: white;}
+		#weather_city {
+			border-bottom: 2px solid white;
+		}
+	}
+	&[data-weather="rainy"], &[data-weather="rainbow"] {
+		@include gradient-h(#E6E6E6,#E6E6E6);
+		a {
+			color: #333;
+			&:hover {
+				color: #333;
+				text-decoration: underline;
+			}
+		}
+		p, h2, #weather_city {color: black;}
+		#weather_city {
+			border-bottom: 2px solid black;
+		}
+	}
+	&[data-weather="snowy"], &[data-weather="stormy"] {
+		@include gradient-h(#444444,#444444);
+		a {
+			color: #f1f1f1;
+			&:hover {
+				color: #fff;
+				text-decoration: underline;
+			}
+		}
+		p, h2, #weather_city {color: #fff;}
+		#weather_city {
+			border-bottom: 2px solid #fff;
+		}
+	}
+	&[data-weather="starry"] {
+		@include gradient-h(#222233,#222233);
+		color: #f1f1f1;
+		a {
+			color: white;
+			&:hover {
+				color: white;
+				text-decoration: underline;
+			}
+		}
+		p, h2, #weather_city {color: white;}
+		#weather_city {
+			border-bottom: 2px solid white;
+		}
+	}
+}

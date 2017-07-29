@@ -1,0 +1,123 @@
+/********************************************************************************************************************************************************************************
+********************* S E C T I O N   T O L K I E N *****************
+/********************************************************************************************************************************************************************************/
+
+.page-tolkien {
+	.the-header {
+		background: transparent;
+		.inner-wrap {
+			background: transparent;
+		}
+	}
+	#header_section {
+		padding-top: 190px;
+		margin-top: -190px;
+	}
+}
+
+/* ============== R E D E S I G N
+========================================================== */
+
+.tolkien_section {
+	abbr {
+		border: 0;
+	}
+}
+#tolkien_side, #tolkien_thoughts {
+	padding: 2rem 0;
+}
+#tolkien_news {
+	padding-top: 2rem;
+	h2 {
+		color: $base-color-elbakin;
+	}
+}
+#tolkien_side {
+	h2 {
+		color: $base-color-elbakin;
+	}	
+}
+#all_new_chronique {
+	.desc_item {
+		font-style: normal !important;
+		margin: 1em 0;
+	}
+}
+
+/* ============== L E G E N D A I R E
+========================================================== */
+
+#tolkien_thoughts {
+	h2 {
+		color: $base-color-elbakin;
+		margin: .5em 0 1em 0;
+		padding: 0;
+	}
+	.basic_list {
+		margin-top: 1em;
+	}
+}
+
+/* ============== N E W S
+========================================================== */
+
+#last_news {
+	@extend %clearfix;
+	padding: 1em 0;
+}
+.other_news {
+	li {
+		&:nth-child(4n+1) {
+			clear: left;
+		}
+	}
+}
+
+/* ============== T O L K I E N D I L
+========================================================== */
+
+#tolkiendil {
+	.article_focus {
+
+	}
+}
+
+/* ============== Q U I Z
+========================================================== */
+
+#quiz {
+	.btn {
+		margin-top: 1em;
+	}
+}
+
+/* ============== C O R R E C T I O N S
+========================================================== */
+
+#corrections {
+	.btn {
+		margin-top: 1em;
+	}
+}
+
+/* ============== P E T E R  J A C K S O N
+========================================================== */
+
+#tolkien_by_pj {
+	ul {
+		@extend %clearfix;
+		list-style: none none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		li {
+			a {
+				display: block;
+			}
+			img {
+				width: 100%;
+				height: 150px;
+			}
+		}
+	}
+}
