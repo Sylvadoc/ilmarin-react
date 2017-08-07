@@ -1,0 +1,1 @@
+export const BIBLIOTHEQUE = 'bibliotheque';
