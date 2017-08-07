@@ -1,23 +1,21 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import Router from 'react-router';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import store, { history } from './store'
+
+// application
+import App from './App'
 
 import registerServiceWorker from './registerServiceWorker';
 
-import createRoutes from './routes';
-import configureStore from './store';
-
-// Create Redux store with initial state (from a global injected into server-generated HTML)
-const store = configureStore(window.__INITIAL_STATE__);
-
-// Routes
-const routes = createRoutes(store);
+const target = document.querySelector('#root')
 
 render(
 	<Provider store={store}>
-		<Router routes={routes}	/>
-	</Provider>,
-	document.getElementById('root')
+		<ConnectedRouter history={history}>
+			<App />
+		</ConnectedRouter>
+	</Provider>, target
 );
 registerServiceWorker();

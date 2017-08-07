@@ -1,27 +1,27 @@
-// Etat central de l'application (géré par Redux)
-// ==============================================
-// http://redux.js.org/docs/basics/Store.html
+import { createStore, applyMiddleware, compose } from 'redux'
+import { routerMiddleware } from 'react-router-redux'
+import thunk from 'redux-thunk'
+import createHistory from 'history/createBrowserHistory'
+import rootReducer from './reducers/root.reducer'
 
-import { createStore } from 'redux';
+export const history = createHistory();
 
-// reducer consolidé, qui combine tous les autres reducers
-import rootReducer from './reducers/root.reducer';
+const initialState = {};
+const enhancers = [];
+const middleware = [
+	thunk,
+	routerMiddleware(history)
+];
 
-// état par defaut de l'application
-export const DEFAULT_STATE = {
-	// etat du store
-};
+const composedEnhancers = compose(
+	applyMiddleware(...middleware),
+	...enhancers
+);
 
-export default function configureStore(preloadedState, enhancer) {
+const store = createStore(
+	rootReducer,
+	initialState,
+	composedEnhancers
+);
 
-	const initialState = preloadedState ? preloadedState : DEFAULT_STATE;
-
-	// création du store, en lui passant en paramètre :
-	// * le reducer consolidé (qui gère l'ensemble des changements d'état de l'application)
-	// * l'état initial de l'application
-	// * la pile de middlewares
-	const store = createStore(rootReducer, initialState, enhancer);
-
-	return store;
-}
-
+export default store
