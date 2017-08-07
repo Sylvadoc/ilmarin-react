@@ -1,45 +1,27 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import Router from 'react-router';
+import { routerMiddleware } from 'react-router-redux';
+
+import createRoutes from './routes';
+import configureStore from './store';
+
+// Create Redux store with initial state (from a global injected into server-generated HTML)
+const store = configureStore(window.__INITIAL_STATE__);
+
+// Routes
+const routes = createRoutes(store);
+
 class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-			livres: []
-		}
-	}
-	componentDidMount() {
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?_embed";
-		fetch(dataURL)
-			.then(res => res.json())
-			.then(res => {
-				this.setState({
-					livres: res
-				})
-			})
-	}
+
 	render() {
-		let livres = this.state.livres.map((livre, index) => {
-			return <li key={index}>
-				<h2>{livre.title.rendered}</h2>
-				<ul>
-					{livre._embedded['wp:featuredmedia'] && <li><img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} /></li> }
-					<li>Extrait : <div dangerouslySetInnerHTML={ {__html: livre.excerpt.rendered} } /></li>
-					<li>Format : {livre.acf.format}</li>
-					<li>&Eacute;diteur : {livre.acf.editeur}</li>
-					<li>Collection : {livre.acf.collection}</li>
-					<li>Illustration : {livre.acf.illustration}</li>
-					<li>Traduction : {livre.acf.traduction}</li>
-					<li>ISBN : {livre.acf.isbn_13}</li>
-					<li>Note : {livre.acf.note} / 10</li>
-				</ul>
-			</li>
-		});
 		return (
-			<div>
-				<h1>react from a wordpress backoffice</h1>
-				<ul>
-					{livres}
-				</ul>
-			</div>
+			// 1. on enrobe le composant central par le Provider de Redux
+			// afin que le store soit accessible à travers toute l'arborescence de composants
+			// 2. le composant 'Router' permet d'intégrer le composant 'routes' où sont définies les routes gérées par React
+			<Provider store={store}>
+				<Router routes={routes}	/>
+			</Provider>, document.getElementById('root')
 		)
 	}
 }

@@ -1,3 +1,10 @@
+// Squelette de la page Bibliotheque : version desktop
+// =============================================
+
+// imports React
+import React, { Component } from 'react';
+
+// imports des composants
 import Header from './../../header';
 import Navigation from './../../navigation';
 import ContainerAllChroniques from './../list-all-chroniques.container';

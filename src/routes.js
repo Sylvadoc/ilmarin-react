@@ -12,7 +12,7 @@ import React from 'react';
 import Route from 'react-router/lib/Route';
 import IndexRoute from 'react-router/lib/IndexRoute';
 
-import App from './app';
+import IndexApp from './index.app';
 import Home from './components/home/home.root';
 import Bibliotheque from './components/bibliotheque/bibliotheque.root';
 import { BIBLIOTHEQUE } from './constants/pathname';
@@ -21,7 +21,7 @@ import { BIBLIOTHEQUE } from './constants/pathname';
 const CommonRoutes = () => {
 
 	return (
-		<Route path="/" component={App}>
+		<Route path="/" component={IndexApp}>
 			<IndexRoute component={Home}/>
 			<Route path={BIBLIOTHEQUE} component={Bibliotheque}/>
 		</Route>
