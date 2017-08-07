@@ -6,16 +6,11 @@
 // ReactRouter => 1 route = 1 composant
 // Ce composant 'app' correspond à l'IndexRoute
 
-import React, { Component, PropTypes } from 'react';
+import { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-
 class IndexApp extends Component {
-
-	constructor(props) {
-		super(props);
-	}
 
 	componentWillMount() {
 		// On communique par le store, c'est pourquoi on récupère les params pour le setter dans le store
@@ -28,9 +23,13 @@ class IndexApp extends Component {
 	}
 
 	render() {
-		// on retourne le children injecté par React router
 		return this.props.children;
 	}
 }
 
-export default IndexApp;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators(dispatch);
+};
+export default connect(mapStateToProps, mapDispatchToProps)(IndexApp);
