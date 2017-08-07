@@ -5,7 +5,7 @@ class Bibliotheque extends Component {
 	render() {
 		return (
 			<div id="page-library">
-				{DesktopSkeleton}
+				section biblio
 			</div>
 		)
 	}
