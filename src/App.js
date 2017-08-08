@@ -1,3 +1,7 @@
+// Composant conteneur de tout le site
+// =============================================
+
+// methodes et fonctions react ou associées
 import React from 'react';
 import { Route } from 'react-router-dom'
 

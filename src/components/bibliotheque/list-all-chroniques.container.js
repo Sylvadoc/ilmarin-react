@@ -1,4 +1,4 @@
-// Composant Liste des critères
+// Composant Liste des dernières chroniques
 // =============================================
 
 import React, { Component } from 'react';
