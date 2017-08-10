@@ -4,28 +4,17 @@
 @import "helpers/helpers";
 @import "helpers/mixins";
 
-// Base stuff
-@import "base/reset";
-@import "base/typography";
-
 // Layout related stylesheets
-@import "layout/grid";
-@import "layout/header";
-@import "layout/footer";
-@import "layout/sidebar";
 
 // Components and modules
-@import "components/buttons";
 @import "components/card";
 @import "components/mainNews";
 @import "components/chrono";
-@import "components/navigation";
 
 // Page-specific stylesheets
 @import "pages/article";
 
 // Vendors and external stylesheets
-@import "vendors/weather";
 
 // Themes Elbakin
 @import "themes/theme";

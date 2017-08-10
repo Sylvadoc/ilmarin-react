@@ -9,15 +9,15 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100);
 
-$tempFont : 5678;
+$tempFont : 91011112;
 
 @font-face {
 	font-family: 'icomoon';
-	src:url('../../../ilmarin/ilmarin/fonts/special/icomoon.eot?$tempFont');
-	src:url('../../../ilmarin/ilmarin/fonts/special/icomoon.eot?#iefix$tempFont') format('embedded-opentype'),
-		url('../../../ilmarin/ilmarin/fonts/special/icomoon.woff?$tempFont') format('woff'),
-		url('../../../ilmarin/ilmarin/fonts/special/icomoon.ttf?$tempFont') format('truetype'),
-		url('../../../ilmarin/ilmarin/fonts/special/icomoon.svg?$tempFont#icomoon') format('svg');
+	src:url('/fonts/special/icomoon.eot?$tempFont');
+	src:url('/fonts/special/icomoon.eot?#iefix$tempFont') format('embedded-opentype'),
+		url('/fonts/special/icomoon.woff?$tempFont') format('woff'),
+		url('/fonts/special/icomoon.ttf?$tempFont') format('truetype'),
+		url('/fonts/special/icomoon.svg?$tempFont#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -164,10 +164,6 @@ p {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.icon {
-	display: none;
-}
-.fontface {
 	.icon {
 		display: inline-block;
 	}
@@ -539,7 +535,6 @@ p {
 			content: $icon-plus2;
 		}
 	}
-}
 
 	/* ============== I C O N   B U R G E R
 	========================================================== */

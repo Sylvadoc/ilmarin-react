@@ -25,6 +25,7 @@ var SASS_FILES_PATH = SASS_FILES_DIR + '/**/*.scss';
 var BUNDLED_CSS_FILES_PATH = './public/css';
 var ASSETS_FILES_PATH = './assets/**/*';
 var BUNDLED_ASSETS_FILES_PATH = './public';
+var ASSETS_FONTS_PATH = './assets/fonts/**/*';
 var ASSETS_IMGS_PATH = './assets/img/**/*';
 var ASSETS_SVGS_ICONS_PATH = './assets/svg/icons/**/*.svg';
 var OPT_ASSETS_IMGS_PATH = './public/img';
@@ -93,6 +94,16 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest(BUNDLED_CSS_FILES_PATH))
 });
 
+gulp.task('copy_foundation', function () {
+	return gulp.src(SASS_FILES_DIR + '/foundation.min.css')
+		.pipe(gulp.dest(BUNDLED_CSS_FILES_PATH));
+});
+
+gulp.task('copy_fonts', function () {
+	return gulp.src(ASSETS_FONTS_PATH)
+		.pipe(gulp.dest(BUNDLED_ASSETS_FILES_PATH));
+});
+
 // Images
 gulp.task('images', function() {
 	return gulp.src(ASSETS_IMGS_PATH)
@@ -108,8 +119,8 @@ gulp.task('build_svg', function () {
 });
 
 // Default task
-gulp.task('default', ['clean'], function() {
-  gulp.start('assets','styles', 'images');
+gulp.task('default', function() {
+  gulp.start('assets','styles', 'copy_foundation', 'copy_fonts', 'images');
 });
 
 // Watch
