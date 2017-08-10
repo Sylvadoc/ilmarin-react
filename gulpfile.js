@@ -93,19 +93,6 @@ gulp.task('styles', function() {
 		.pipe(gulp.dest(BUNDLED_CSS_FILES_PATH))
 });
 
-// Scripts
-/*gulp.task('scripts', function() {
-  return gulp.src('scripts/src/!**!/!*.js')
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
-    .pipe(concat('main.js'))
-    .pipe(gulp.dest('dist/scripts'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(uglify())
-    .pipe(gulp.dest('dist/scripts'))
-    .pipe(notify({ message: 'Scripts task complete' }));
-});*/
-
 // Images
 gulp.task('images', function() {
 	return gulp.src(ASSETS_IMGS_PATH)

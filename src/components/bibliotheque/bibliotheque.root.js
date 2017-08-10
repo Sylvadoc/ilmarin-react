@@ -11,7 +11,7 @@ import DesktopSkeleton from './skeletons/bibliotheque-desktop.skeleton';
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
 
-class Bibliotheque extends Component {
+class BibliothequeRoot extends Component {
 	render() {
 		return (
 			<div className="page-library">
@@ -26,4 +26,4 @@ class Bibliotheque extends Component {
 		)
 	}
 }
-export default Bibliotheque;
+export default BibliothequeRoot;

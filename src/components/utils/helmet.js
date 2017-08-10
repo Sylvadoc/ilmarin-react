@@ -1,7 +1,7 @@
 // Module utilitaire pour les balises du head (générées via react-helmet)
 // ======================================================================
 
-const DOMAIN_URL = 'http://www.elbakin.net';
+//const DOMAIN_URL = 'http://www.elbakin.net';
 
 //
 // Détermine le chemin vers le css de page à charger par helmet
