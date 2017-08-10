@@ -6,7 +6,11 @@ import rootReducer from './reducers/root.reducer'
 
 export const history = createHistory();
 
-const initialState = {};
+const initialState = {
+	header: {
+		burgerIsDisplayed: false
+	}
+};
 const enhancers = [];
 const middleware = [
 	thunk,

@@ -3,7 +3,10 @@
 
 // generation de la page
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { toggleBurger } from '../action-creators';
 
 // composants inherents à la composition de la page
 
@@ -24,13 +27,13 @@ class Header extends Component {
 					</div>
 					<ul className="visit">
 						<li>
-							<a href="/" className="menu-trigger" id="trigger" title="Parcourir le menu du site">
+							<button className="menu-trigger" id="trigger" title="Parcourir le menu du site" onClick={this.props.toggleBurger}>
 								<span className="icon icon-burger" aria-hidden="true"></span>
 								<span>Explorer</span>
-							</a>
+							</button>
 						</li>
 						<li>
-							<a href="#" title="Visiter le forum">
+							<a href="/forum" title="Visiter le forum">
 								<span className="icon icon-bubbles" aria-hidden="true"></span>
 								<span>Forum</span>
 							</a>
@@ -71,4 +74,11 @@ class Header extends Component {
 		)
 	}
 }
-export default Header;
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({ toggleBurger }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

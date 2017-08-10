@@ -2,8 +2,9 @@
 // =============================================
 
 // methodes et fonctions react ou associées
-import React from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 // composants en commun
 import Header from './components/header'
@@ -17,21 +18,32 @@ import Tolkien from './components/tolkien/tolkien.root'
 import Fantasy from './components/fantasy/fantasy.root'
 import Emissions from './components/emissions/emissions.root'
 
-const App = () => (
-	<div>
-		<Navigation />
-		<div className="m-scene">
-			<Header />
-			<main>
-				<Route exact path="/" component={Home} />
-				<Route exact path="/bibliotheque" component={Bibliotheque} />
-				<Route exact path="/tolkien" component={Tolkien} />
-				<Route exact path="/fantasy" component={Fantasy} />
-				<Route exact path="/emissions" component={Emissions} />
-			</main>
-			<Footer />
-		</div>
-	</div>
-)
+class App extends Component {
 
-export default App
+	render() {
+
+		const { burgerIsDisplayed } = this.props;
+
+		return (
+			<div>
+				<Navigation />
+				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
+					<Header />
+					<main>
+						<Route exact path="/" component={Home}/>
+						<Route exact path="/bibliotheque" component={Bibliotheque}/>
+						<Route exact path="/tolkien" component={Tolkien}/>
+						<Route exact path="/fantasy" component={Fantasy}/>
+						<Route exact path="/emissions" component={Emissions}/>
+					</main>
+					<Footer />
+				</div>
+			</div>
+		)
+	}
+}
+
+
+const mapStateToProps = ({ header }) => ({ burgerIsDisplayed: header.burgerIsDisplayed });
+
+export default connect(mapStateToProps)(App);

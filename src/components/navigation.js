@@ -4,14 +4,18 @@
 // generation de la page
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 // composants inherents à la composition de la page
 
 
 class Navigation extends Component {
 	render() {
+
+		const { burgerIsDisplayed } = this.props;
+
 		return (
-			<nav id="garde" className="overlay">
+			<nav id="garde" className={"overlay " + (burgerIsDisplayed ? 'open lock-overflow' : '')}>
 				<div className="flex-enhanced-navigation">
 					<button className="menu-close" title="Fermer le menu"><span className="icon icon-cross"></span></button>
 					<div className="nav-logo">
@@ -139,4 +143,7 @@ class Navigation extends Component {
 		)
 	}
 }
-export default Navigation;
+
+const mapStateToProps = ({ header }) => ({ burgerIsDisplayed: header.burgerIsDisplayed });
+
+export default connect(mapStateToProps)(Navigation);
