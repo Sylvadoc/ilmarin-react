@@ -14,12 +14,13 @@ class HomeDesktop2Skeleton extends Component {
 	render() {
 
 		const { burgerIsDisplayed } = this.props;
+		const page = "page-home"
 
 		return (
 			<div>
 				<Navigation />
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
-					<Header />
+					<Header page={page} />
 					<main>
 						page home
 					</main>

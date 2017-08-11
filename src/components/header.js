@@ -5,26 +5,45 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import { toggleBurger } from '../action-creators';
 
 // composants inherents à la composition de la page
 
 class Header extends Component {
 	render() {
+
+		const { page } = this.props;
+
+		let brand;
+		if (page === 'page-home') {
+			brand =
+				<div className="branding appear" role="heading">
+					<div className="logotype">
+						<img src="/img/logo_elbakin.png" alt="Elbakin.net, la fantasy au quotiden" />
+					</div>
+					<div className="elbakin">
+						<img src="/img/elbakin_txt.png" alt="Elbakin.net" />
+					</div>
+				</div>;
+		} else {
+			brand =
+				<div className="branding appear" role="heading">
+					<div className="logotype">
+						<a href="/">
+							<img src="/img/logo_elbakin.png" alt="Elbakin.net, la fantasy au quotiden" />
+						</a>
+					</div>
+					<div className="elbakin">
+						<img src="/img/elbakin_txt.png" alt="Elbakin.net" />
+					</div>
+				</div>;
+		}
+
 		return (
 			<header role="banner" className="the-header m-header">
 				<div className="inner-wrap">
-					<div className="branding appear" role="heading">
-						<div className="logotype">
-							<Link to="/">
-								<img src="/img/logo_elbakin.png" alt="Elbakin.net, la fantasy au quotiden" />
-							</Link>
-						</div>
-						<div className="elbakin">
-							<img src="/img/elbakin_txt.png" alt="Elbakin.net" />
-						</div>
-					</div>
+					{brand}
 					<ul className="visit">
 						<li>
 							<button className="menu-trigger" id="trigger" title="Parcourir le menu du site" onClick={this.props.toggleBurger}>

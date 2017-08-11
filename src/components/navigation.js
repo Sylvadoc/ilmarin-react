@@ -4,12 +4,15 @@
 // generation de la page
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
+import { toggleBurger } from '../action-creators';
 
 // composants inherents à la composition de la page
 
 
 class Navigation extends Component {
+
 	render() {
 
 		const { burgerIsDisplayed } = this.props;
@@ -17,7 +20,7 @@ class Navigation extends Component {
 		return (
 			<nav id="garde" className={"overlay " + (burgerIsDisplayed ? 'open lock-overflow' : '')}>
 				<div className="flex-enhanced-navigation">
-					<button className="menu-close" title="Fermer le menu"><span className="icon icon-cross"></span></button>
+					<button className="menu-close" title="Fermer le menu" onClick={this.props.toggleBurger}><span className="icon icon-cross"></span></button>
 					<div className="nav-logo">
 						<img src="/img/logo_elbakin_nav.png" alt="Elbakin.net" />
 					</div>
@@ -146,4 +149,8 @@ class Navigation extends Component {
 
 const mapStateToProps = ({ header }) => ({ burgerIsDisplayed: header.burgerIsDisplayed });
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({ toggleBurger }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
