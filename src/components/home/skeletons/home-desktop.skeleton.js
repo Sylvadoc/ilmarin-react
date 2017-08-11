@@ -4,6 +4,8 @@
 // methodes et fonctions react ou associées
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { closeBurger } from '../../../action-creators';
 
 // composants
 import Header from '../../header'
@@ -11,17 +13,22 @@ import Footer from '../../footer'
 import Navigation from '../../navigation'
 
 class HomeDesktop2Skeleton extends Component {
+
+	componentDidMount() {
+		this.props.closeBurger();
+	}
+
 	render() {
 
 		const { burgerIsDisplayed } = this.props;
-		const page = "page-home"
+		const page = "page-home";
 
 		return (
 			<div>
 				<Navigation />
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header page={page} />
-					<main>
+					<main role="main" className="m-page">
 						page home
 					</main>
 					<Footer />
@@ -33,4 +40,8 @@ class HomeDesktop2Skeleton extends Component {
 
 const mapStateToProps = ({ header }) => ({ burgerIsDisplayed: header.burgerIsDisplayed });
 
-export default connect(mapStateToProps)(HomeDesktop2Skeleton);
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({ closeBurger }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeDesktop2Skeleton);

@@ -12,12 +12,16 @@ import Tolkien from './components/tolkien/tolkien.root'
 import Fantasy from './components/fantasy/fantasy.root'
 import Emissions from './components/emissions/emissions.root'
 
+// composants divers
+import SpriteSvg from './components/sprite-svg'
+
 class App extends Component {
 
 	render() {
 
 		return (
-			<div>
+			<div id="app">
+				<SpriteSvg />
 				<Route exact path="/" component={Home}/>
 				<Route exact path="/bibliotheque" component={Bibliotheque}/>
 				<Route exact path="/tolkien" component={Tolkien}/>
