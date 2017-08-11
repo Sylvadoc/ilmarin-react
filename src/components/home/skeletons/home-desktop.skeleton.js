@@ -1,4 +1,4 @@
-// Squelette de la page Bibliotheque : version desktop
+// Squelette de la page Home : version desktop
 // =============================================
 
 // methodes et fonctions react ou associées
@@ -9,9 +9,8 @@ import { connect } from 'react-redux';
 import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
-import ContainerAllChroniques from './../list-all-chroniques.container';
 
-class BibliothequeDesktop2Skeleton extends Component {
+class HomeDesktop2Skeleton extends Component {
 	render() {
 
 		const { burgerIsDisplayed } = this.props;
@@ -22,8 +21,7 @@ class BibliothequeDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
 					<main>
-						page section bibliotheque
-						<ContainerAllChroniques />
+						page home
 					</main>
 					<Footer />
 				</div>
@@ -34,4 +32,4 @@ class BibliothequeDesktop2Skeleton extends Component {
 
 const mapStateToProps = ({ header }) => ({ burgerIsDisplayed: header.burgerIsDisplayed });
 
-export default connect(mapStateToProps)(BibliothequeDesktop2Skeleton);
+export default connect(mapStateToProps)(HomeDesktop2Skeleton);

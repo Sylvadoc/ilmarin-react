@@ -1,10 +1,12 @@
-// Composant conteneur de la page bibliotheque
+// Composant conteneur de la page Home
 // =============================================
 
 // generation de la page
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import Helmet from "react-helmet";
+
+// les composants de la page
+import DesktopHomeSkeleton from './skeletons/home-desktop.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
@@ -19,10 +21,7 @@ class Home extends Component {
 					]}
 					title="Fantasy, actualité littéraire, cinéma, fantasy et merveilleux | Elbakin.net"
 				/>
-				<ul>
-					<li>ceci est la Home</li>
-					<li><Link to="/bibliotheque">page bibliotheque</Link></li>
-				</ul>
+				<DesktopHomeSkeleton />
 			</div>
 		)
 	}

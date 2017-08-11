@@ -1,16 +1,35 @@
 // Squelette de la page Emissions : version desktop
 // =============================================
 
-// imports React
+// methodes et fonctions react ou associées
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+// composants
+import Header from '../../header'
+import Footer from '../../footer'
+import Navigation from '../../navigation'
 
 class EmissionsDesktop2Skeleton extends Component {
 	render() {
+
+		const { burgerIsDisplayed } = this.props;
+
 		return (
 			<div>
-				Emissions desktop skeleton
+				<Navigation />
+				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
+					<Header />
+					<main>
+						page section emissions
+					</main>
+					<Footer />
+				</div>
 			</div>
 		)
 	}
 }
-export default EmissionsDesktop2Skeleton;
+
+const mapStateToProps = ({ header }) => ({ burgerIsDisplayed: header.burgerIsDisplayed });
+
+export default connect(mapStateToProps)(EmissionsDesktop2Skeleton);
