@@ -8,9 +8,7 @@ export class ContainerAllChroniques extends Component {
 
 	constructor() {
 		super();
-		// définition de l'état par défaut du composant
 		this.state = {
-			// on stocke toutes les infos du livre dans ce tableau
 			livres: []
 		}
 	}
@@ -22,7 +20,6 @@ export class ContainerAllChroniques extends Component {
 			.then(res => res.json())
 			.then(res => {
 				this.setState({
-					// on remplit l'état du composant par la réponse du json
 					livres: res
 				})
 			})
@@ -33,7 +30,7 @@ export class ContainerAllChroniques extends Component {
 		// construction de la chronique
 		let livres = this.state.livres.map((livre, index) => {
 			return <li key={index}>
-				<h2><Link to={"/bibliotheque/:" + livre.id}>{livre.title.rendered}</Link></h2>
+				<h2><Link to={"/bibliotheque/" + livre.id}>{livre.title.rendered}</Link></h2>
 				<ul>
 					{livre._embedded['wp:featuredmedia'] && <li><img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt="*" /></li> }
 					<li>Extrait : <div dangerouslySetInnerHTML={ {__html: livre.excerpt.rendered} } /></li>

@@ -17,13 +17,13 @@ import Navigation from '../../../navigation'
 class LivreDesktop2Skeleton extends Component {
 
 	componentDidMount() {
+		console.log('did mount');
 		this.props.closeBurger();
 	}
 
 	render() {
 
 		const { burgerIsDisplayed, item } = this.props;
-		console.log(item);
 
 		return (
 			<div>
@@ -31,7 +31,7 @@ class LivreDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
 					<main role="main" className="m-page">
-						page du livre
+						page du livre {item.title.rendered}
 					</main>
 					<Footer />
 				</div>
