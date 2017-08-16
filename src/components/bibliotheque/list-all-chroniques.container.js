@@ -2,6 +2,7 @@
 // =============================================
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 export class ContainerAllChroniques extends Component {
 
@@ -32,7 +33,7 @@ export class ContainerAllChroniques extends Component {
 		// construction de la chronique
 		let livres = this.state.livres.map((livre, index) => {
 			return <li key={index}>
-				<h2>{livre.title.rendered}</h2>
+				<h2><Link to={"/bibliotheque/:" + livre.id}>{livre.title.rendered}</Link></h2>
 				<ul>
 					{livre._embedded['wp:featuredmedia'] && <li><img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt="*" /></li> }
 					<li>Extrait : <div dangerouslySetInnerHTML={ {__html: livre.excerpt.rendered} } /></li>

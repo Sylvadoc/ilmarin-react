@@ -12,6 +12,9 @@ import Tolkien from './components/tolkien/tolkien.root'
 import Fantasy from './components/fantasy/fantasy.root'
 import Emissions from './components/emissions/emissions.root'
 
+// les différentes pages
+import PageLivre from './components/bibliotheque/livres/livres.root'
+
 // composants divers
 import SpriteSvg from './components/sprite-svg'
 
@@ -24,6 +27,7 @@ class App extends Component {
 				<SpriteSvg />
 				<Route exact path="/" component={Home}/>
 				<Route exact path="/bibliotheque" component={Bibliotheque}/>
+				<Route path="/bibliotheque/:itemId" component={PageLivre} />
 				<Route exact path="/tolkien" component={Tolkien}/>
 				<Route exact path="/fantasy" component={Fantasy}/>
 				<Route exact path="/emissions" component={Emissions}/>
