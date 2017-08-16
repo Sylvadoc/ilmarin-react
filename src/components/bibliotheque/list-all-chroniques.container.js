@@ -30,18 +30,7 @@ export class ContainerAllChroniques extends Component {
 		// construction de la chronique
 		let livres = this.state.livres.map((livre, index) => {
 			return <li key={index}>
-				<h2><Link to={"/bibliotheque/" + livre.id}>{livre.title.rendered}</Link></h2>
-				<ul>
-					{livre._embedded['wp:featuredmedia'] && <li><img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt="*" /></li> }
-					<li>Extrait : <div dangerouslySetInnerHTML={ {__html: livre.excerpt.rendered} } /></li>
-					<li>Format : {livre.acf.format}</li>
-					<li>&Eacute;diteur : {livre.acf.editeur}</li>
-					<li>Collection : {livre.acf.collection}</li>
-					<li>Illustration : {livre.acf.illustration}</li>
-					<li>Traduction : {livre.acf.traduction}</li>
-					<li>ISBN : {livre.acf.isbn_13}</li>
-					<li>Note : {livre.acf.note} / 10</li>
-				</ul>
+				<Link to={"/bibliotheque/" + livre.id}>{livre.title.rendered}</Link>
 			</li>
 		});
 

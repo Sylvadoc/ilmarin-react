@@ -18,12 +18,11 @@ class LivreRoot extends Component {
 		this.state = {
 			livre: undefined
 		}
-
 	}
 
 	componentDidMount() {
 		const itemId = this.props.match.params.itemId;
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre/" + itemId;
+		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre/" + itemId + "?_embed";
 		fetch(dataURL)
 			.then(res => res.json())
 			.then(res => {
@@ -37,15 +36,17 @@ class LivreRoot extends Component {
 
 		if (this.state.livre) {
 
+			const item = this.state.livre;
+
 			return (
-				<div className="page-library">
+				<div className="page-roman">
 					<Helmet
 						link={[
 							getPageCss('chronique')
 						]}
-						title="Le livre"
+						title={item.title.rendered}
 					/>
-					<DesktopSkeleton item={this.state.livre}/>
+					<DesktopSkeleton item={item}/>
 				</div>
 			)
 		}
