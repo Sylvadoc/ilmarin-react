@@ -34,8 +34,6 @@ class LivreRoot extends Component {
 
 	render() {
 
-		console.log(this.props);
-
 		if (this.state.livre) {
 
 			const item = this.state.livre;
