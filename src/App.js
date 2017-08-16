@@ -27,7 +27,7 @@ class App extends Component {
 				<SpriteSvg />
 				<Route exact path="/" component={Home}/>
 				<Route exact path="/bibliotheque" component={Bibliotheque}/>
-				<Route path="/bibliotheque/:slug-:itemId" component={PageLivre} />
+					<Route path="/bibliotheque/:itemId/:slug" component={PageLivre} />
 				<Route exact path="/tolkien" component={Tolkien}/>
 				<Route exact path="/fantasy" component={Fantasy}/>
 				<Route exact path="/emissions" component={Emissions}/>

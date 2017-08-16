@@ -30,7 +30,7 @@ export class ContainerAllChroniques extends Component {
 		// construction de la chronique
 		let livres = this.state.livres.map((livre, index) => {
 			return <li key={index}>
-				<Link to={"/bibliotheque/" + livre.slug + '-' + livre.id}>{livre.title.rendered}</Link>
+				<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug}>{livre.title.rendered}</Link>
 			</li>
 		});
 
