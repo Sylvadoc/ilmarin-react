@@ -15,7 +15,7 @@ export class ContainerAllGenres extends Component {
 
     componentDidMount() {
         // appel du json de wordpress consacré à la taxonomie "genre"
-        let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/genre";
+        let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/genre?per_page=20";
         fetch(dataURL)
             .then(res => res.json())
             .then(res => {

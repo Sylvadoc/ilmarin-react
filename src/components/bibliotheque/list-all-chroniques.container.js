@@ -15,7 +15,7 @@ export class ContainerAllChroniques extends Component {
 
 	componentDidMount() {
 		// appel du json de wordpress consacré aux livres
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?_embed";
+		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?_embed=1&per_page=25";
 		fetch(dataURL)
 			.then(res => res.json())
 			.then(res => {
@@ -36,7 +36,7 @@ export class ContainerAllChroniques extends Component {
                             {livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
 							<p><span>{livre.title.rendered}</span></p>
 						</Link>
-						<p className="genre">Aux éditions {livre.acf.editeur}</p>
+                        {livre._embedded['wp:term'] ? <p className="genre">{livre._embedded['wp:term'][1][0].name}</p> : 'pas de genre' }
 						<div className="entry-meta">
 							par <Link to={"/profil/" + livre._embedded.author[0].id + '/' + livre._embedded.author[0].slug}>{livre._embedded.author[0].slug}</Link>
 						</div>
