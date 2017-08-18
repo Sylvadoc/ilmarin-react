@@ -22,7 +22,7 @@ export class ContainerAllChroniques extends Component {
 				this.setState({
 					livres: res
 				})
-			})
+			});
 	}
 
 	render() {
@@ -57,6 +57,5 @@ export class ContainerAllChroniques extends Component {
 		);
 	}
 }
-
 
 export default ContainerAllChroniques;

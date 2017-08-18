@@ -28,7 +28,9 @@ class LivreDesktop2Skeleton extends Component {
 
         const { item } = this.props;
 
+		// fermeture préventive de la navigation
 		this.props.closeBurger();
+
         // appel du json de wordpress consacré aux maisons d'éditions
         let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/maison_edition/" + item.maison_edition;
         fetch(dataURL)
