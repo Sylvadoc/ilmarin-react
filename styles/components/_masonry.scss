@@ -3,13 +3,13 @@
 .flex-list {
 	display: flex;
 	flex-direction: row;
-	align-items: flex-start;
+	align-items: center;
+	align-content: center;
 	flex-wrap: wrap;
+	justify-content: center;
 	.flex-item {
 		display: flex;
-		flex: 1 0 auto;
 		width: 18%;
-		margin: 0 1%;
 	}
 }
 
