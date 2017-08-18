@@ -6,7 +6,7 @@
 	align-items: center;
 	align-content: center;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-between;
 	.flex-item {
 		display: flex;
 		width: 18%;
@@ -43,6 +43,7 @@
 		border-radius: 5px;
 		background: white;
 		margin-bottom: 2em;
+		width: 100%;
 		img {
 			height: auto;
 			width: 100%;
