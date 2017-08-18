@@ -31,7 +31,7 @@ export class ContainerAllGenres extends Component {
         let listGenres = this.state.genres.map((genre, index) => {
             return (
                 <li key={index}>
-                    <Link to="/">{genre.name}</Link>
+                    <Link to={"/genre/" + genre.id + "/" + genre.slug}>{genre.name}</Link>
                 </li>
             )
         });

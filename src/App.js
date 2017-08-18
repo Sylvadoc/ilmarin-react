@@ -16,6 +16,7 @@ import Emissions from './components/emissions/emissions.root'
 import PageLivre from './components/bibliotheque/livres/livres.root'
 import PageMaisonEdition from './components/taxonomies/maison-edition.root'
 import PageTheme from './components/taxonomies/theme.root'
+import PageGenre from './components/taxonomies/genre.root'
 
 // composants divers
 import SpriteSvg from './components/sprite-svg'
@@ -32,6 +33,7 @@ class App extends Component {
 					<Route path="/bibliotheque/:itemId/:slug" component={PageLivre} />
 					<Route path="/edition/:itemId/:slug" component={PageMaisonEdition} />
                     <Route path="/theme/:itemId/:slug" component={PageTheme} />
+                    <Route path="/genre/:itemId/:slug" component={PageGenre} />
 				<Route exact path="/tolkien" component={Tolkien}/>
 				<Route exact path="/fantasy" component={Fantasy}/>
 				<Route exact path="/emissions" component={Emissions}/>
