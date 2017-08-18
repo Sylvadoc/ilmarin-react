@@ -1,4 +1,4 @@
-// Composant conteneur de la page Maison d'édition
+// Composant conteneur de la page Thème
 // =============================================
 
 // generation de la page
@@ -6,49 +6,49 @@ import React, { Component } from 'react';
 import Helmet from "react-helmet";
 
 // les composants de la page
-import EditionSkeleton from './skeletons/maison-edition.skeleton';
+import ThemeSkeleton from './skeletons/theme.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
 
-class MaisonEditionRoot extends Component {
+class ThemeRoot extends Component {
 
     constructor() {
         super();
         this.state = {
-            edition: undefined,
-            allBooksByHouse: []
+            theme: undefined,
+            allBooksByTheme: []
         }
     }
 
     componentDidMount() {
         const itemId = this.props.match.params.itemId;
-        // liste de tous les livres de la maison d'édition X
-        let allBooksByHouseURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?maison_edition=" + itemId;
-        fetch(allBooksByHouseURL)
+        // liste de tous les livres du theme X
+        let allBooksByThemeURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?themes=" + itemId;
+        fetch(allBooksByThemeURL)
             .then(res => res.json())
             .then(res => {
                 this.setState({
-                    allBooksByHouse: res
+                    allBooksByTheme: res
                 })
             });
-        // Définition de la maison d'édition X
-        let maisonURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/maison_edition/" + itemId;
-        fetch(maisonURL)
+        // Définition du thème X
+        let themeURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/themes/" + itemId;
+        fetch(themeURL)
             .then(res => res.json())
             .then(res => {
                 this.setState({
-                    edition: res
+                    theme: res
                 })
             });
     }
 
     render() {
 
-        if (this.state.edition) {
+        if (this.state.theme) {
 
-            const maison = this.state.edition;
-            const allBooksByHouse = this.state.allBooksByHouse;
+            const theme = this.state.theme;
+            const allBooksByTheme = this.state.allBooksByTheme;
 
             return (
                 <div className="page-taxonomie">
@@ -56,9 +56,9 @@ class MaisonEditionRoot extends Component {
                         link={[
                             getPageCss('chronique')
                         ]}
-                        title={"Tous les livres de la maison d'édition " + maison.name}
+                        title={"Tous les livres du thème " + theme.name}
                     />
-                    <EditionSkeleton allBooksByHouse={allBooksByHouse} maison={maison} />
+                    <ThemeSkeleton allBooksByTheme={allBooksByTheme} theme={theme} />
                 </div>
             )
         }
@@ -68,4 +68,4 @@ class MaisonEditionRoot extends Component {
     }
 }
 
-export default MaisonEditionRoot;
+export default ThemeRoot;

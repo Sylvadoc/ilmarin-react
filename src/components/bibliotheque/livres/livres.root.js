@@ -21,15 +21,16 @@ class LivreRoot extends Component {
 	}
 
 	componentDidMount() {
+        // data du livre X
 		const itemId = this.props.match.params.itemId;
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre/" + itemId + "?_embed";
-		fetch(dataURL)
+		let dataLivreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre/" + itemId + "?_embed";
+		fetch(dataLivreURL)
 			.then(res => res.json())
 			.then(res => {
 				this.setState({
 					livre: res
 				})
-			})
+			});
 	}
 
 	render() {
@@ -46,7 +47,7 @@ class LivreRoot extends Component {
 						]}
 						title={item.title.rendered}
 					/>
-					<DesktopSkeleton item={item}/>
+					<DesktopSkeleton item={item} />
 				</div>
 			)
 		}

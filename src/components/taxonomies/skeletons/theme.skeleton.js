@@ -1,4 +1,4 @@
-// Squelette de la page Maison d'édition
+// Squelette de la page Thème
 // =============================================
 
 // methodes et fonctions react ou associées
@@ -16,7 +16,7 @@ import Navigation from '../../navigation'
 // special
 
 
-class EditionSkeleton extends Component {
+class ThemeSkeleton extends Component {
 
     componentDidMount() {
         // fermeture préventive de la navigation
@@ -25,13 +25,13 @@ class EditionSkeleton extends Component {
 
     render() {
 
-        const { burgerIsDisplayed, allBooksByHouse, maison } = this.props;
+        const { burgerIsDisplayed, allBooksByTheme, theme } = this.props;
 
         // construction de la preview
-        const itemByHouse = allBooksByHouse.map((livre, index) => {
+        const itemByTheme = allBooksByTheme.map((livre, index) => {
             return (
                 <li key={index}>
-                    <Link to={"/bibliotheque/" + livre.id + "/" + livre.slug}>{livre.acf.titre_original}</Link>
+                    <Link to={"/bibliotheque/" + livre.id + '/' + livre.slug}>{livre.acf.titre_original}</Link>
                 </li>
             )
         });
@@ -42,10 +42,10 @@ class EditionSkeleton extends Component {
                 <div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
                     <Header />
                     <main role="main" className="m-page">
-                        <h1>Tous les livres de la maison d'édition {maison.name}</h1>
-                        <p>{maison.description}</p>
+                        <h1>Tous les livres du thème {theme.name}</h1>
+                        <p>{theme.description}</p>
                         <ul>
-                            {itemByHouse}
+                            {itemByTheme}
                         </ul>
                     </main>
                     <Footer />
@@ -61,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ closeBurger }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditionSkeleton);
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeSkeleton);
