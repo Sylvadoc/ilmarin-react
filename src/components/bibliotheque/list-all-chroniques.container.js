@@ -27,20 +27,33 @@ export class ContainerAllChroniques extends Component {
 
 	render() {
 
-		// construction de la chronique
+		// construction de la preview
 		let livres = this.state.livres.map((livre, index) => {
-			return <li key={index}>
-				<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug}>{livre.title.rendered}</Link>
-			</li>
+			return (
+				<div className="flex-item" key={index}>
+					<article>
+						<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug} className="entry-header">
+                            {livre._embedded['wp:featuredmedia']? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
+							<p><span>{livre.title.rendered}</span></p>
+						</Link>
+						<p className="genre">Aux éditions {livre.acf.editeur}</p>
+						<div className="entry-meta">
+							par <Link to={"/profil/" + livre._embedded.author[0].id + '/' + livre._embedded.author[0].slug}>{livre._embedded.author[0].slug}</Link>
+						</div>
+					</article>
+				</div>
+			)
 		});
 
 		return (
-			<div>
-				<h1>Les dernières chroniques</h1>
-				<ul>
-					{livres}
-				</ul>
-			</div>
+			<section id="last_50" className="liste_ouvrage">
+				<div className="row">
+					<span className="simili-title">Les derniers ajouts dans la <strong>bibliothèque</strong></span>
+					<div className="flex-list">
+						{livres}
+					</div>
+				</div>
+			</section>
 		);
 	}
 }

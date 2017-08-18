@@ -32,7 +32,7 @@ class LivreDesktop2Skeleton extends Component {
 					<main role="main" className="m-page">
 						page du livre {item.title.rendered}
 						<ul>
-							{item._embedded['wp:featuredmedia'] && <li><img src={item._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt="*" /></li> }
+							{item._embedded['wp:featuredmedia'] && <li><img src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt="*" /></li> }
 							<li>Extrait : <div dangerouslySetInnerHTML={ {__html: item.excerpt.rendered} } /></li>
 							<li>Format : {item.acf.format}</li>
 							<li>&Eacute;diteur : {item.acf.editeur}</li>
