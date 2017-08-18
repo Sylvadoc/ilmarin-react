@@ -33,7 +33,7 @@ export class ContainerAllChroniques extends Component {
 				<div className="flex-item" key={index}>
 					<article>
 						<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug} className="entry-header">
-                            {livre._embedded['wp:featuredmedia']? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
+                            {livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
 							<p><span>{livre.title.rendered}</span></p>
 						</Link>
 						<p className="genre">Aux éditions {livre.acf.editeur}</p>

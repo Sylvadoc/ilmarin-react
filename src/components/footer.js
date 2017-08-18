@@ -99,7 +99,7 @@ export class Footer extends Component {
 					<div className="small-12 medium-6 large-3 columns">
 						<h2>Restons en contact !</h2>
 						<form className="newsletterform" method="get" action="/">
-							<label for="email">Abonnez-vous à notre newletter :</label>
+							<label htmlFor="email">Abonnez-vous à notre newletter :</label>
 							<input type="email" id="email" name="email" placeholder="Votre e-mail" />
 							<button className="btn-submit">ok</button>
 						</form>

@@ -35,9 +35,11 @@ class LivreDesktop2Skeleton extends Component {
 							{item._embedded['wp:featuredmedia'] && <li><img src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt="*" /></li> }
 							<li>Extrait : <div dangerouslySetInnerHTML={ {__html: item.excerpt.rendered} } /></li>
 							<li>Format : {item.acf.format}</li>
+                            {item.acf.cycle[0] && <li>Cycle : {item.acf.cycle[0].post_title}</li>}
 							<li>&Eacute;diteur : {item.acf.editeur}</li>
 							<li>Collection : {item.acf.collection}</li>
-							<li>Illustration : {item.acf.illustration}</li>
+                            {item.acf.auteur[0] && <li>Auteur : {item.acf.auteur[0].post_title}</li>}
+                            {item.acf.illustration[0] && <li>Illustration : {item.acf.illustration[0].post_title}</li>}
 							<li>Traduction : {item.acf.traduction}</li>
 							<li>ISBN : {item.acf.isbn_13}</li>
 							<li>Note : {item.acf.note} / 10</li>
