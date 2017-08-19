@@ -85,7 +85,7 @@ class LivreDesktop2Skeleton extends Component {
                                         </div>
                                     </div>
                                     <div className="small-12 medium-5 large-9 details columns">
-                                        <p className="author"><Link to="/" itemProp="author">{item.acf.auteur[0] && item.acf.auteur[0].post_title}</Link> {item.acf.traduction && <span className="translated">traduit par {item.acf.traduction}</span>}</p>
+                                        <p className="author">{item.acf.auteur[0] && <Link to={"/auteur/" + item.acf.auteur[0].ID + "/" + item.acf.auteur[0].post_name} itemProp="author">{item.acf.auteur[0].post_title}</Link>} {item.acf.traduction && <span className="translated">traduit par {item.acf.traduction}</span>}</p>
                                         <h1 className="book-title" itemProp="name"><span dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span></h1>
                                         <p className="isbn"><span>ISBN :</span> <span itemProp="isbn">{item.acf.isbn_13}</span> | <span>&Eacute;dité par :</span> {itemAllHouses}</p>
                                         <div className="meta">

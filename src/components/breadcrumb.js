@@ -41,6 +41,20 @@ class Breadcrumb extends Component {
                         <meta itemProp="position" content="1" />
                     </li>
                 </ol>;
+        } else if(page === "page-auteur") {
+            breadcrumbContent =
+                <ol itemScope itemType="http://schema.org/BreadcrumbList" className="unstyled">
+                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                        <Link to="/">Accueil</Link>
+                    </li>
+                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                        <Link to="/bibliotheque/">Bibliothèque</Link>
+                    </li>
+                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                        <span itemProp="name" dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span>
+                        <meta itemProp="position" content="1" />
+                    </li>
+                </ol>;
         } else {
             return null;
         }

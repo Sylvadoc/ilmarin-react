@@ -17,6 +17,7 @@ import HeaderBiblio from './../header-bibliotheque.container';
 import ContainerAllChroniques from './../list-all-chroniques.container';
 import ContainerListAllGenres from './../list-all-by-genre.container'
 import ContainerListAllThemes from './../list-all-by-theme.container'
+import ContainerListAllAuthors from './../list-all-authors.container'
 
 class BibliothequeDesktop2Skeleton extends Component {
 
@@ -47,32 +48,7 @@ class BibliothequeDesktop2Skeleton extends Component {
 									<ContainerListAllThemes />
 								</div>
 								<div className="small-12 medium-12 large-4 columns">
-									<aside className="classement">
-										<h2>Par auteur</h2>
-										<select id="les_auteurs">
-											<optgroup label="A">
-												<option value="value_01">Aaron Rachel</option>
-												<option value="value_02">Aaronovitch Ben</option>
-											</optgroup>
-											<optgroup label="B">
-												<option value="value_03">Bâchet Jean-Pierre</option>
-												<option value="value_04">Bacigalupi Paolo</option>
-											</optgroup>
-										</select>
-										<h3>Dernières mises à jour</h3>
-										<ul className="basic_list">
-											<li><a href="/">Carta Paul</a></li>
-											<li><a href="/">Colin Fabrice</a></li>
-											<li><a href="/">Jaworski Jean-Philippe</a></li>
-											<li><a href="/">Joyce Graham</a></li>
-											<li><a href="/">Lynch Scott</a></li>
-											<li><a href="/">Moorcock Michael</a></li>
-											<li><a href="/">Page Martin</a></li>
-											<li><a href="/">Pevel Pierre</a></li>
-											<li><a href="/">Rouaud Antoine</a></li>
-											<li><a href="/">Vigot Dominique</a></li>
-										</ul>
-									</aside>
+									<ContainerListAllAuthors />
 								</div>
 							</div>
 						</section>

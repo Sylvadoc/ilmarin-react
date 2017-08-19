@@ -14,6 +14,7 @@ import Emissions from './components/emissions/emissions.root'
 
 // les différentes pages
 import PageLivre from './components/bibliotheque/livres/livres.root'
+import PageAuteur from './components/bibliotheque/auteurs/author.root'
 import PageMaisonEdition from './components/taxonomies/maison-edition.root'
 import PageTheme from './components/taxonomies/theme.root'
 import PageGenre from './components/taxonomies/genre.root'
@@ -31,7 +32,8 @@ class App extends Component {
 				<Route exact path="/" component={Home}/>
 				<Route exact path="/bibliotheque" component={Bibliotheque}/>
 					<Route path="/bibliotheque/:itemId/:slug" component={PageLivre} />
-					<Route path="/edition/:itemId/:slug" component={PageMaisonEdition} />
+                    <Route path="/auteur/:itemId/:slug" component={PageAuteur} />
+                    <Route path="/edition/:itemId/:slug" component={PageMaisonEdition} />
                     <Route path="/theme/:itemId/:slug" component={PageTheme} />
                     <Route path="/genre/:itemId/:slug" component={PageGenre} />
 				<Route exact path="/tolkien" component={Tolkien}/>
