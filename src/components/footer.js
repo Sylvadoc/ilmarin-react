@@ -51,7 +51,7 @@ export class Footer extends Component {
         let pagesContactList = this.state.pagesContact.map((page, index) => {
             return (
                 <li key={"page-" +index}>
-                    <Link to={"/" + page.id + "/" + page.slug}>{page.title.rendered}</Link>
+                    <Link to={"/" + page.id + "/" + page.slug}><span dangerouslySetInnerHTML={ {__html: page.title.rendered} }></span></Link>
                 </li>
             )
         });
@@ -60,7 +60,7 @@ export class Footer extends Component {
         let pagesSiteList = this.state.pagesLeSite.map((page, index) => {
             return (
                 <li key={"page-" +index}>
-                    <Link to={"/" + page.id + "/" + page.slug}>{page.title.rendered}</Link>
+                    <Link to={"/" + page.id + "/" + page.slug}><span dangerouslySetInnerHTML={ {__html: page.title.rendered} }></span></Link>
                 </li>
             )
         });

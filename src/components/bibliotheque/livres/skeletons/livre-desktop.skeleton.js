@@ -26,29 +26,38 @@ class LivreDesktop2Skeleton extends Component {
 
 	componentDidMount() {
 
-        const { item } = this.props;
-
 		// fermeture préventive de la navigation
 		this.props.closeBurger();
 
-        // appel du json de wordpress consacré aux maisons d'éditions
-        let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/maison_edition/" + item.maison_edition;
-        fetch(dataURL)
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    maisonEdition: res
-                })
-            })
 	}
 
 	render() {
 
 		const { burgerIsDisplayed, item } = this.props;
 
-        // construction du lien de la maison d'édition
-		const maison = this.state.maisonEdition;
-        const maisonEditionLink = <Link to={"/edition/" + maison.id + "/" + maison.slug}>{maison.name}</Link>;
+        // construction de tous les genres
+        const allGenres = item._embedded['wp:term'][1];
+        const itemAllGenres = allGenres.map((genre, index) => {
+            return (
+                <Link to={"/genre/" + genre.id + '/' + genre.slug} key={"genre" + index}>{genre.name}</Link>
+            )
+        });
+
+        // construction de tous les thèmes
+        const allThemes = item._embedded['wp:term'][2];
+        const itemAllThemes = allThemes.map((theme, index) => {
+            return (
+                <Link to={"/theme/" + theme.id + '/' + theme.slug} key={"theme" + index}>{theme.name}</Link>
+            )
+        });
+
+        // construction de toutes les maisons d'éditions
+        const allHouses = item._embedded['wp:term'][3];
+        const itemAllHouses = allHouses.map((house, index) => {
+            return (
+                <Link to={"/edition/" + house.id + '/' + house.slug} key={"maison" + index}>{house.name}</Link>
+            )
+        });
 
 		return (
 			<div>
@@ -56,19 +65,82 @@ class LivreDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
 					<main role="main" className="m-page">
-						page du livre {item.title.rendered}
-						<ul>
-							{item._embedded['wp:featuredmedia'] && <li><img src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt="*" /></li> }
-							<li>Extrait : <div dangerouslySetInnerHTML={ {__html: item.excerpt.rendered} } /></li>
-							<li>Format : {item.acf.format}</li>
-                            {item.acf.cycle[0] && <li>Cycle : {item.acf.cycle[0].post_title}</li>}
-							<li>&Eacute;diteur : {maisonEditionLink}</li>
-                            {item.acf.auteur[0] && <li>Auteur : {item.acf.auteur[0].post_title}</li>}
-                            {item.acf.illustration[0] && <li>Illustration : {item.acf.illustration[0].post_title}</li>}
-							<li>Traduction : {item.acf.traduction}</li>
-							<li>ISBN : {item.acf.isbn_13}</li>
-							<li>Note : {item.acf.note} / 10</li>
-						</ul>
+
+                        <div className="row">
+                            <div className="small-12 medium-10 large-9 small-centered columns">
+                                <article id="la_chronique" className="row" itemScope itemType="http://schema.org/Book">
+                                    <div className="small-12 medium-4 large-4 columns">
+                                        <div className="preview">
+                                            {item._embedded['wp:featuredmedia'] && <img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} />}
+                                            <ul className="toolbar">
+                                                <li>
+                                                    <a className="print" href="/" title="Imprimer un avis">
+                                                        <span className="icon icon-printer" aria-hidden="true"></span><span className="text">imprimer</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            {item.acf.cycle[0] && <h2>{item.acf.cycle[0].post_title}</h2>}
+                                        </div>
+                                    </div>
+                                    <div className="small-12 medium-5 large-8 details columns">
+                                        <p className="author"><Link to="/" itemProp="author">{item.acf.auteur[0] && item.acf.auteur[0].post_title}</Link> {item.acf.traduction && <span className="translated">traduit par {item.acf.traduction}</span>}</p>
+                                        <h1 className="book-title" itemProp="name"><span dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span></h1>
+                                        <p className="isbn"><span>ISBN :</span> <span itemProp="isbn">{item.acf.isbn_13}</span> | <span>&Eacute;dité par :</span> {itemAllHouses}</p>
+                                        <div className="meta">
+                                            <ul>
+                                                {item.acf.cycle[0] && <li><strong>Cycle :</strong> {item.acf.cycle[0].post_title}</li>}
+                                                <li><strong>Genre :</strong> {itemAllGenres} | <strong>Thèmes:</strong> <span itemProp="keywords">{itemAllThemes}</span></li>
+                                                {item.acf.illustration[0] && <li><strong>Illustré par</strong> <Link to="/">{item.acf.illustration[0].post_title}</Link></li>}
+                                            </ul>
+                                        </div>
+                                        <div className="awards">
+                                            <h2>Récompenses</h2>
+                                            <ul className="basic_list">
+                                                <li><a href="/">Prix Imaginales 2014</a></li>
+                                                <li><a href="/">Prix Elbakin.net 2015</a></li>
+                                                <li><a href="/">Prix Toutatis &amp; Belenos du meilleur roman gaulois de l'année 2013</a></li>
+                                            </ul>
+                                        </div>
+                                        <div className="extract" itemProp="citation">
+                                            <div dangerouslySetInnerHTML={ {__html: item.excerpt.rendered} } />
+                                        </div>
+                                    </div>
+                                    <section itemProp="review" itemScope itemType="http://schema.org/Review" className="small-12 medium-12 large-12 columns body-chronique" id="review-all">
+                                        <ul className="tabs">
+                                            <li>
+                                                <a className="active" href="#the-review" title="Voir la chronique">
+                                                    <span className="include">
+                                                        <span className="icon icon-star-full" aria-hidden="true"></span>
+                                                        <span>{item.acf.note}</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div className="row row_tab_all">
+                                            <div className="row_tab open" id="the-review">
+                                                <div className="rating" itemProp="reviewRating" itemScope itemType="http://schema.org/Rating">
+                                                    <span className="none" itemProp="worstRating">0</span>
+                                                    <span itemProp="ratingValue" className="note">{item.acf.note}</span>
+                                                    <span className="sur">/</span>
+                                                    <span itemProp="bestRating" className="end_note">10</span>
+                                                </div>
+                                                <p className="reviewed_by"><em>Chronique par <a href="/">Gillossen</a></em></p>
+                                                <div className="review" itemProp="reviewBody">
+                                                    <div dangerouslySetInnerHTML={ {__html: item.content.rendered} } />
+                                                </div>
+                                            </div>
+                                            <div className="row_tab" id="display-like-people">
+                                                <span className="simili-title"><strong>XXX</strong> personnes <strong>apprécient</strong></span>
+                                            </div>
+                                            <div className="row_tab" id="display-dislike-people">
+                                                <span className="simili-title"><strong>XX</strong> personnes <strong>n'apprécient pas</strong></span>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </article>
+                            </div>
+                        </div>
+
 					</main>
 					<Footer />
 				</div>

@@ -34,7 +34,7 @@ export class ContainerAllChroniques extends Component {
 					<article>
 						<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug} className="entry-header">
                             {livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
-							<p><span>{livre.title.rendered}</span></p>
+							<p><span dangerouslySetInnerHTML={ {__html: livre.title.rendered} }></span></p>
 						</Link>
                         {livre._embedded['wp:term'] ? <p className="genre">{livre._embedded['wp:term'][1][0].name}</p> : 'pas de genre' }
 						<div className="entry-meta">
