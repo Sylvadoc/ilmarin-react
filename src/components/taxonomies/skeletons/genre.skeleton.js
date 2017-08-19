@@ -12,6 +12,7 @@ import { closeBurger } from '../../../action-creators';
 import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
+import Breadcrumb from '../../breadcrumb'
 
 // special
 
@@ -26,6 +27,7 @@ class GenreSkeleton extends Component {
     render() {
 
         const { burgerIsDisplayed, allBooksByGenre, genre } = this.props;
+        const page = "page-taxonomie-bib";
 
         // construction de la preview
         const itemByGenre = allBooksByGenre.map((livre, index) => {
@@ -42,6 +44,7 @@ class GenreSkeleton extends Component {
                 <div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
                     <Header />
                     <main role="main" className="m-page">
+                        <Breadcrumb page={page} item={genre} />
                         <h1>Tous les livres du genre {genre.name}</h1>
                         <p>{genre.description}</p>
                         <ul>

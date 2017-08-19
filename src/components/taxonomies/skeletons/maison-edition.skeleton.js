@@ -12,6 +12,7 @@ import { closeBurger } from '../../../action-creators';
 import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
+import Breadcrumb from '../../breadcrumb'
 
 // special
 
@@ -26,6 +27,7 @@ class EditionSkeleton extends Component {
     render() {
 
         const { burgerIsDisplayed, allBooksByHouse, maison } = this.props;
+        const page = "page-taxonomie-bib";
 
         // construction de la preview
         const itemByHouse = allBooksByHouse.map((livre, index) => {
@@ -42,6 +44,7 @@ class EditionSkeleton extends Component {
                 <div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
                     <Header />
                     <main role="main" className="m-page">
+                        <Breadcrumb page={page} item={maison} />
                         <h1>Tous les livres de la maison d'édition {maison.name}</h1>
                         <p>{maison.description}</p>
                         <ul>

@@ -20,10 +20,24 @@ class Breadcrumb extends Component {
                         <Link to="/">Accueil</Link>
                     </li>
                     <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-                        <Link to="/bibliotheque/">Bibliotheque</Link>
+                        <Link to="/bibliotheque/">Bibliothèque</Link>
                     </li>
                     <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
                         <span itemProp="name" dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span>
+                        <meta itemProp="position" content="1" />
+                    </li>
+                </ol>;
+        } else if(page === "page-taxonomie-bib") {
+            breadcrumbContent =
+                <ol itemScope itemType="http://schema.org/BreadcrumbList" className="unstyled">
+                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                        <Link to="/">Accueil</Link>
+                    </li>
+                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                        <Link to="/bibliotheque/">Bibliothèque</Link>
+                    </li>
+                    <li itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                        <span itemProp="name">{item.name}</span>
                         <meta itemProp="position" content="1" />
                     </li>
                 </ol>;
