@@ -41,7 +41,7 @@
 /* ============== S E C T I O N S
 ========================================================== */
 
-section:nth-child(2n+2), #most, .m-page .grey-section {
+#most, .m-page .grey-section {
 	@include gradient-h(#ECE9E6,#FFFFFF);
 }
 #header_section {

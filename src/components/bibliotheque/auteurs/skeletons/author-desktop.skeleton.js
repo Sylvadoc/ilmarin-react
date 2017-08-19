@@ -18,10 +18,25 @@ import Breadcrumb from '../../../breadcrumb'
 
 class AuthorDesktop2Skeleton extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            hisBooks: []
+        }
+    }
+
     componentDidMount() {
+
+        // recuperation de toute la fiche auteur
+        const { item } = this.props;
 
         // fermeture préventive de la navigation
         this.props.closeBurger();
+
+        // recuperation de tous ses livres
+        const allOfHisBooks = item.acf['bibliographie'].map((sonLivre) => {
+            return sonLivre.ID
+        });
 
     }
 
@@ -45,13 +60,15 @@ class AuthorDesktop2Skeleton extends Component {
                 <div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
                     <Header />
                     <main role="main" className="m-page">
+                        
                         <Breadcrumb page={page} item={item} />
+                        
                         <section id="author_biography">
                             <div className="row clearfix" itemScope itemType="http://schema.org/Person">
                                 <div className="small-12 medium-4 large-5 columns">
                                     <div className="portrait">
                                         <div className="blason">
-                                            <img src={item.acf['photophoto-auteur-auteur'].sizes.medium_large} alt={"" + item.acf['photophoto-auteur-auteur'].description + "" + item.acf['photophoto-auteur-auteur'].caption} />
+                                            <img src={item.acf['photophoto-auteur-auteur'].sizes.medium_large} alt={"" + item.acf['photophoto-auteur-auteur'].description + " " + item.acf['photophoto-auteur-auteur'].caption} />
                                         </div>
                                         <div className="ruban">
                                             <span className="ruban-text" dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span>
@@ -67,11 +84,20 @@ class AuthorDesktop2Skeleton extends Component {
                                         {item.acf.site_web && <li><strong>Site web :</strong> <span itemProp="mainEntityOfPage"><a href={item.acf.site_web} target="_blank" rel="noopener noreferrer" title={"Site web de " + item.title.rendered + " (nouvelle fenêtre)"}>{item.acf.site_web}</a></span></li>}
                                         <li><strong>Pays :</strong> <span itemProp="nationality">{item.acf.pays_auteur}</span></li>
                                     </ul>
-                                    <div className="bio" itemProp="description" dangerouslySetInnerHTML={ {__html: item.content.rendered} }>
-                                    </div>
+                                    <div className="bio" itemProp="description" dangerouslySetInnerHTML={ {__html: item.content.rendered} } />
                                 </div>
                             </div>
                         </section>
+
+                        <section id="author_bibliography" className="liste_ouvrage">
+                            <div className="row clearfix">
+                                <span className="simili-title">Sa <strong>bibliographie</strong></span>
+                                <div className="flex-list">
+                                    flex items
+                                </div>
+                            </div>
+                        </section>
+                        
                     </main>
                     <Footer />
                 </div>
