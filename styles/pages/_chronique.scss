@@ -115,6 +115,15 @@
 		margin: 0;
 		padding: 0;
 	}
+    .tag-theme:not(:last-child) {
+      margin-right: .5rem;
+    }
+    .tag-genre:not(:last-child) {
+      margin-right: .5rem;
+    }
+    .tag-edition:not(:last-child) {
+      margin-right: .5rem;
+    }
 }
 .extract {
 	margin: 1.5em 0 4em 0;

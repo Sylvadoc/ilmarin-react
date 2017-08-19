@@ -1,0 +1,24 @@
+@import "../vendors/include-media";
+
+/* ============== F I L  D ' A R I A N E
+========================================================== */
+
+.breadcrumb {
+    .unstyled {
+        list-style: none none;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+        li:not(:last-child) {
+            margin-right: .5rem;
+            &:after {
+                content: "\203A";
+                color: inherit;
+                display: inline;
+                padding-left: .5rem;
+            }
+        }
+    }
+ }

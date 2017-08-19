@@ -12,6 +12,7 @@ import { closeBurger } from '../../../../action-creators';
 import Header from '../../../header'
 import Footer from '../../../footer'
 import Navigation from '../../../navigation'
+import Breadcrumb from '../../../breadcrumb'
 
 // special
 
@@ -34,12 +35,13 @@ class LivreDesktop2Skeleton extends Component {
 	render() {
 
 		const { burgerIsDisplayed, item } = this.props;
+        const page = "page-livre";
 
         // construction de tous les genres
         const allGenres = item._embedded['wp:term'][1];
         const itemAllGenres = allGenres.map((genre, index) => {
             return (
-                <Link to={"/genre/" + genre.id + '/' + genre.slug} key={"genre" + index}>{genre.name}</Link>
+                <span className="tag-genre" key={"genre" + index}><Link to={"/genre/" + genre.id + '/' + genre.slug}>{genre.name}</Link></span>
             )
         });
 
@@ -47,7 +49,7 @@ class LivreDesktop2Skeleton extends Component {
         const allThemes = item._embedded['wp:term'][2];
         const itemAllThemes = allThemes.map((theme, index) => {
             return (
-                <Link to={"/theme/" + theme.id + '/' + theme.slug} key={"theme" + index}>{theme.name}</Link>
+                <span className="tag-theme" key={"theme" + index}><Link to={"/theme/" + theme.id + '/' + theme.slug}>{theme.name}</Link></span>
             )
         });
 
@@ -55,7 +57,7 @@ class LivreDesktop2Skeleton extends Component {
         const allHouses = item._embedded['wp:term'][3];
         const itemAllHouses = allHouses.map((house, index) => {
             return (
-                <Link to={"/edition/" + house.id + '/' + house.slug} key={"maison" + index}>{house.name}</Link>
+                <span className="tag-edition" key={"maison" + index}><Link to={"/edition/" + house.id + '/' + house.slug}>{house.name}</Link></span>
             )
         });
 
@@ -65,13 +67,13 @@ class LivreDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
 					<main role="main" className="m-page">
-
+                        <Breadcrumb page={page} item={item} />
                         <div className="row">
-                            <div className="small-12 medium-10 large-9 small-centered columns">
+                            <div className="small-12 medium-10 large-12 small-centered columns">
                                 <article id="la_chronique" className="row" itemScope itemType="http://schema.org/Book">
-                                    <div className="small-12 medium-4 large-4 columns">
+                                    <div className="small-12 medium-4 large-3 columns">
                                         <div className="preview">
-                                            {item._embedded['wp:featuredmedia'] && <img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} />}
+                                            {item._embedded['wp:featuredmedia'] && <img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} />}
                                             <ul className="toolbar">
                                                 <li>
                                                     <a className="print" href="/" title="Imprimer un avis">
@@ -82,7 +84,7 @@ class LivreDesktop2Skeleton extends Component {
                                             {item.acf.cycle[0] && <h2>{item.acf.cycle[0].post_title}</h2>}
                                         </div>
                                     </div>
-                                    <div className="small-12 medium-5 large-8 details columns">
+                                    <div className="small-12 medium-5 large-9 details columns">
                                         <p className="author"><Link to="/" itemProp="author">{item.acf.auteur[0] && item.acf.auteur[0].post_title}</Link> {item.acf.traduction && <span className="translated">traduit par {item.acf.traduction}</span>}</p>
                                         <h1 className="book-title" itemProp="name"><span dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span></h1>
                                         <p className="isbn"><span>ISBN :</span> <span itemProp="isbn">{item.acf.isbn_13}</span> | <span>&Eacute;dité par :</span> {itemAllHouses}</p>
@@ -105,7 +107,7 @@ class LivreDesktop2Skeleton extends Component {
                                             <div dangerouslySetInnerHTML={ {__html: item.excerpt.rendered} } />
                                         </div>
                                     </div>
-                                    <section itemProp="review" itemScope itemType="http://schema.org/Review" className="small-12 medium-12 large-12 columns body-chronique" id="review-all">
+                                    <section itemProp="review" itemScope itemType="http://schema.org/Review" className="small-12 medium-12 large-8 large-pull-2 columns body-chronique" id="review-all">
                                         <ul className="tabs">
                                             <li>
                                                 <a className="active" href="#the-review" title="Voir la chronique">

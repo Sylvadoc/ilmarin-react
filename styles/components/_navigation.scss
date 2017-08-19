@@ -50,52 +50,6 @@
 	}
 }
 
-/* ============== B R E A D C R U M B   +  S H A R E
-========================================================== */
-
-.tools {
-	@extend %clearfix;
-	background: #f3f3f3;
-	border-bottom: 1px solid #ccc;
-	border-top: 1px solid #ccc;
-	padding: .5em 0;
-	width: 100%;
-	ul {
-		list-style: none none;
-		margin: 0;
-		padding: 0;
-		@extend %clearfix;
-	}
-}
-.breadcrumb, .share {
-	li {
-		display: inline-block;
-	}
-}
-.breadcrumb {
-	li {
-		&:first-child {
-			&:before {
-				font-family: 'icomoon', sans-serif;
-				content: "\e62a";
-				vertical-align: top;
-				margin-right: .5em;
-			}
-		}
-		&:after {
-			font-family: 'icomoon', sans-serif;
-			content: "\e618";
-			vertical-align: middle;
-		}
-		&:last-child {
-			&:after {
-				content: "";
-			}
-			font-style: italic;
-		}
-	}
-}
-
 /* ============== P A G E   D E   G A R D E (voir _grid pour les tailles et l'opening)
 ============================================================================================== */
 
