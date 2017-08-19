@@ -1,0 +1,15 @@
+@import "../vendors/include-media";
+
+/* ============== T A X O N O M Y
+========================================================== */
+
+#list-taxonomies {
+  .def-taxo {
+    border: .1rem solid rgba(black,0.2);
+    border-radius: .3rem;
+    background-color: rgba(white,0.5);
+    padding: 1em;
+    margin: 0 0 2em 0;
+    color: $base-color;
+  }
+}

@@ -30,7 +30,7 @@ export class ContainerAllChroniques extends Component {
 		// construction de la preview
 		let livres = this.state.livres.map((livre, index) => {
 			return (
-				<div className="flex-item" key={index}>
+				<div className="flex-item" key={"flex-" + index}>
 					<article>
 						<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug} className="entry-header">
                             {livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }

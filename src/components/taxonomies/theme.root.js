@@ -24,7 +24,7 @@ class ThemeRoot extends Component {
     componentDidMount() {
         const itemId = this.props.match.params.itemId;
         // liste de tous les livres du theme X
-        let allBooksByThemeURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?themes=" + itemId;
+        let allBooksByThemeURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?themes=" + itemId + "&_embed=1";
         fetch(allBooksByThemeURL)
             .then(res => res.json())
             .then(res => {

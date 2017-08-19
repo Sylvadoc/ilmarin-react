@@ -3,10 +3,10 @@
 .flex-list {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
-	align-content: center;
 	flex-wrap: wrap;
 	justify-content: space-between;
+    padding: 0;
+    list-style: none none;
 	.flex-item {
 		display: flex;
 		width: 18%;

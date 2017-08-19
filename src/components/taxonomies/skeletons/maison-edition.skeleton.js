@@ -32,9 +32,18 @@ class EditionSkeleton extends Component {
         // construction de la preview
         const itemByHouse = allBooksByHouse.map((livre, index) => {
             return (
-                <li key={index}>
-                    <Link to={"/bibliotheque/" + livre.id + "/" + livre.slug}>{livre.acf.titre_original}</Link>
-                </li>
+                <div className="flex-item" key={"tax-m-" + index}>
+                    <article>
+                        <Link to={"/bibliotheque/" + livre.id + '/' + livre.slug} className="entry-header">
+                            {livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
+                            <p><span dangerouslySetInnerHTML={ {__html: livre.title.rendered} }></span></p>
+                        </Link>
+                        {livre.acf.auteur[0] && <p className="genre">de {livre.acf.auteur[0].post_title}</p>}
+                        <div className="entry-meta">
+                            par <Link to={"/profil/" + livre._embedded.author[0].id + '/' + livre._embedded.author[0].slug}>{livre._embedded.author[0].slug}</Link>
+                        </div>
+                    </article>
+                </div>
             )
         });
 
@@ -45,11 +54,21 @@ class EditionSkeleton extends Component {
                     <Header />
                     <main role="main" className="m-page">
                         <Breadcrumb page={page} item={maison} />
-                        <h1>Tous les livres de la maison d'édition {maison.name}</h1>
-                        <p>{maison.description}</p>
-                        <ul>
-                            {itemByHouse}
-                        </ul>
+
+                        <section id="list-taxonomies" className="liste_ouvrage">
+                            <div className="row">
+                                <h1 className="simili-title">Tous les livres de la maison d'édition <strong>{maison.name}</strong></h1>
+                                <div className="small-12 medium-10 large-12 columns">
+                                    <div className="def-taxo">
+                                        <p>{maison.description}</p>
+                                    </div>
+                                    <ul className="flex-list">
+                                        {itemByHouse}
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
                     </main>
                     <Footer />
                 </div>

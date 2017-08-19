@@ -24,7 +24,7 @@ class GenreRoot extends Component {
     componentDidMount() {
         const itemId = this.props.match.params.itemId;
         // liste de tous les livres du genre X
-        let allBooksByGenreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?genre=" + itemId;
+        let allBooksByGenreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?genre=" + itemId + "&_embed=1";
         fetch(allBooksByGenreURL)
             .then(res => res.json())
             .then(res => {

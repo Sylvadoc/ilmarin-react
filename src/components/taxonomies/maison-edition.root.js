@@ -24,7 +24,7 @@ class MaisonEditionRoot extends Component {
     componentDidMount() {
         const itemId = this.props.match.params.itemId;
         // liste de tous les livres de la maison d'édition X
-        let allBooksByHouseURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?maison_edition=" + itemId;
+        let allBooksByHouseURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?maison_edition=" + itemId + "&_embed=1";
         fetch(allBooksByHouseURL)
             .then(res => res.json())
             .then(res => {
