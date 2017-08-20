@@ -41,7 +41,7 @@ class LivreDesktop2Skeleton extends Component {
         const allGenres = item._embedded['wp:term'][1];
         const itemAllGenres = allGenres.map((genre, index) => {
             return (
-                <span className="tag-genre" key={"genre" + index}><Link to={"/genre/" + genre.id + '/' + genre.slug}>{genre.name}</Link></span>
+                <span className="tag-genre" key={"genre" + index}><Link to={"/genre/" + genre.id + '/' + genre.slug} title={"Rechercher tous les livres du genre : " + genre.name}>{genre.name}</Link></span>
             )
         });
 
@@ -49,7 +49,7 @@ class LivreDesktop2Skeleton extends Component {
         const allThemes = item._embedded['wp:term'][2];
         const itemAllThemes = allThemes.map((theme, index) => {
             return (
-                <span className="tag-theme" key={"theme" + index}><Link to={"/theme/" + theme.id + '/' + theme.slug}>{theme.name}</Link></span>
+                <span className="tag-theme" key={"theme" + index}><Link to={"/theme/" + theme.id + '/' + theme.slug} title={"Rechercher tous les livres ayant pour thème : " + theme.name}>{theme.name}</Link></span>
             )
         });
 
@@ -57,9 +57,12 @@ class LivreDesktop2Skeleton extends Component {
         const allHouses = item._embedded['wp:term'][3];
         const itemAllHouses = allHouses.map((house, index) => {
             return (
-                <span className="tag-edition" key={"maison" + index}><Link to={"/edition/" + house.id + '/' + house.slug}>{house.name}</Link></span>
+                <span className="tag-edition" key={"maison" + index}><Link to={"/edition/" + house.id + '/' + house.slug} title={"Rechercher tous les livres de la maison d'édition " + house.name}>{house.name}</Link></span>
             )
         });
+
+        // construction de l'image
+        const itemImage = item._embedded['wp:featuredmedia'][0].media_details.sizes.medium ? <span><img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span> : <span><img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span>;
 
 		return (
 			<div>
@@ -73,7 +76,7 @@ class LivreDesktop2Skeleton extends Component {
                                 <article id="la_chronique" className="row" itemScope itemType="http://schema.org/Book">
                                     <div className="small-12 medium-4 large-3 columns">
                                         <div className="preview">
-                                            {item._embedded['wp:featuredmedia'] && <img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium_large.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} />}
+                                            {itemImage}
                                             <ul className="toolbar">
                                                 <li>
                                                     <a className="print" href="/" title="Imprimer un avis">
@@ -85,7 +88,7 @@ class LivreDesktop2Skeleton extends Component {
                                         </div>
                                     </div>
                                     <div className="small-12 medium-5 large-9 details columns">
-                                        <p className="author">{item.acf.auteur[0] && <Link to={"/auteur/" + item.acf.auteur[0].ID + "/" + item.acf.auteur[0].post_name} itemProp="author">{item.acf.auteur[0].post_title}</Link>} {item.acf.traduction && <span className="translated">traduit par {item.acf.traduction}</span>}</p>
+                                        <p className="author">{item.acf.auteur[0] && <Link to={"/auteur/" + item.acf.auteur[0].ID + "/" + item.acf.auteur[0].post_name} itemProp="author" title={"Lire la fiche de " + item.acf.auteur[0].post_title}>{item.acf.auteur[0].post_title}</Link>} {item.acf.traduction && <span className="translated">traduit par {item.acf.traduction}</span>}</p>
                                         <h1 className="book-title" itemProp="name"><span dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span></h1>
                                         <p className="isbn"><span>ISBN :</span> <span itemProp="isbn">{item.acf.isbn_13}</span> | <span>&Eacute;dité par :</span> {itemAllHouses}</p>
                                         <div className="meta">

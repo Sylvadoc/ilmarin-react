@@ -55,7 +55,7 @@ class ThemeSkeleton extends Component {
                     <main role="main" className="m-page">
                         <Breadcrumb page={page} item={theme} />
 
-                        <section id="list-taxonomies" className="liste_ouvrage">
+                        <section id="list-taxonomies" className="liste_ouvrage grey-section">
                             <div className="row">
                                 <h1 className="simili-title">Tous les livres du thème <strong>{theme.name}</strong></h1>
                                 <div className="small-12 medium-10 large-12 columns">
