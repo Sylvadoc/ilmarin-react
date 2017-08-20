@@ -27,16 +27,8 @@ class AuthorDesktop2Skeleton extends Component {
 
     componentDidMount() {
 
-        // recuperation de toute la fiche auteur
-        const { item } = this.props;
-
         // fermeture préventive de la navigation
         this.props.closeBurger();
-
-        // recuperation de tous ses livres
-        const allOfHisBooks = item.acf['bibliographie'].map((sonLivre) => {
-            return sonLivre.ID
-        });
 
     }
 
@@ -46,13 +38,16 @@ class AuthorDesktop2Skeleton extends Component {
         const page = "page-auteur";
 
         let sexe;
-        if(item.acf.genre === "homme") {
+        if(item.acf.genre === "Homme") {
             sexe = "&Eacute;crivain"
-        } else if(item.acf.genre === "femme") {
+        } else if(item.acf.genre === "Femme") {
             sexe = "&Eacute;crivaine"
         } else {
             sexe = "&Eacute;crivain"
         }
+
+        // construction de l'image
+        const itemImage = item.acf['photophoto-auteur-auteur'].sizes.medium_large ? <span><img itemProp="image" src={item.acf['photophoto-auteur-auteur'].sizes.medium_large} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span> : <span><img itemProp="image" src={item.acf['photophoto-auteur-auteur'].sizes.large} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span>;
 
         return (
             <div>
@@ -68,7 +63,7 @@ class AuthorDesktop2Skeleton extends Component {
                                 <div className="small-12 medium-4 large-5 columns">
                                     <div className="portrait">
                                         <div className="blason">
-                                            <img src={item.acf['photophoto-auteur-auteur'].sizes.medium_large} alt={"" + item.acf['photophoto-auteur-auteur'].description + " " + item.acf['photophoto-auteur-auteur'].caption} />
+                                            {itemImage}
                                         </div>
                                         <div className="ruban">
                                             <span className="ruban-text" dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span>

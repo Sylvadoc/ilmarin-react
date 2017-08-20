@@ -61,6 +61,14 @@ class LivreDesktop2Skeleton extends Component {
             )
         });
 
+        // construction de toutes les récompenses
+        const allAwards = item._embedded['wp:term'][4];
+        const itemAllAwards = allAwards.map((award, index) => {
+            return (
+                <li className="tag-award" key={"award" + index}><Link to={"/recompense/" + award.id + '/' + award.slug} title={"Rechercher tous les récompenses du " + award.name}>{award.name}</Link></li>
+            )
+        });
+
         // construction de l'image
         const itemImage = item._embedded['wp:featuredmedia'][0].media_details.sizes.medium ? <span><img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span> : <span><img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span>;
 
@@ -88,9 +96,9 @@ class LivreDesktop2Skeleton extends Component {
                                         </div>
                                     </div>
                                     <div className="small-12 medium-5 large-9 details columns">
-                                        <p className="author">{item.acf.auteur[0] && <Link to={"/auteur/" + item.acf.auteur[0].ID + "/" + item.acf.auteur[0].post_name} itemProp="author" title={"Lire la fiche de " + item.acf.auteur[0].post_title}>{item.acf.auteur[0].post_title}</Link>} {item.acf.traduction && <span className="translated">traduit par {item.acf.traduction}</span>}</p>
+                                        <p className="author">{item.acf.auteur[0] && <Link to={"/auteur/" + item.acf.auteur[0].ID + "/" + item.acf.auteur[0].post_name} itemProp="author" title={"Lire la fiche de " + item.acf.auteur[0].post_title}>{item.acf.auteur[0].post_title}</Link>}</p>
                                         <h1 className="book-title" itemProp="name"><span dangerouslySetInnerHTML={ {__html: item.title.rendered} }></span></h1>
-                                        <p className="isbn"><span>ISBN :</span> <span itemProp="isbn">{item.acf.isbn_13}</span> | <span>&Eacute;dité par :</span> {itemAllHouses}</p>
+                                        <p className="isbn"><span>ISBN :</span> <span itemProp="isbn">{item.acf.isbn_13}</span> | <span>&Eacute;dité par :</span> {itemAllHouses} {item.acf.traduction && <span className="translated"> avec une traduction de <span className="translator">{item.acf.traduction}</span></span>}</p>
                                         <div className="meta">
                                             <ul>
                                                 {item.acf.cycle[0] && <li><strong>Cycle :</strong> {item.acf.cycle[0].post_title}</li>}
@@ -98,14 +106,14 @@ class LivreDesktop2Skeleton extends Component {
                                                 {item.acf.illustration[0] && <li><strong>Illustré par</strong> <Link to="/">{item.acf.illustration[0].post_title}</Link></li>}
                                             </ul>
                                         </div>
-                                        <div className="awards">
-                                            <h2>Récompenses</h2>
-                                            <ul className="basic_list">
-                                                <li><a href="/">Prix Imaginales 2014</a></li>
-                                                <li><a href="/">Prix Elbakin.net 2015</a></li>
-                                                <li><a href="/">Prix Toutatis &amp; Belenos du meilleur roman gaulois de l'année 2013</a></li>
-                                            </ul>
-                                        </div>
+                                        {allAwards.length > 0 &&
+                                            <div className="awards">
+                                                <h2>Récompenses</h2>
+                                                <ul className="basic_list">
+                                                    {itemAllAwards}
+                                                </ul>
+                                            </div>
+                                        }
                                         <div className="extract" itemProp="citation">
                                             <div dangerouslySetInnerHTML={ {__html: item.excerpt.rendered} } />
                                         </div>

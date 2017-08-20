@@ -97,6 +97,9 @@
 	.isbn {
 		color: #666;
 	}
+    .translator {
+        color: #333;
+    }
 	.book-title {
 		color: $base-color-elbakin;
 		@include rem(6);
@@ -116,18 +119,18 @@
 		padding: 0;
 	}
     .tag-theme:not(:last-child) {
-      margin-right: .5rem;
-      &:after {
-        display: inline;
-        content: ',';
-        color: inherit;
-      }
+        margin-right: .5rem;
+        &:after {
+            display: inline;
+            content: ',';
+            color: inherit;
+        }
     }
     .tag-genre:not(:last-child) {
-      margin-right: .5rem;
+        margin-right: .5rem;
     }
     .tag-edition:not(:last-child) {
-      margin-right: .5rem;
+        margin-right: .5rem;
     }
 }
 .extract {
@@ -143,6 +146,7 @@
 	margin-top: 1.5em;
 	padding: 1rem 1rem 1rem 10rem;
 	position: relative;
+    min-height: 10rem;
 	li:last-child {
 		border: 0;
 	}

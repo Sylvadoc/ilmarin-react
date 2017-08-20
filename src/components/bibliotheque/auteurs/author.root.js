@@ -21,10 +21,10 @@ class AuthorRoot extends Component {
     }
 
     componentDidMount() {
-        // data du livre X
+        // data de auteur X
         const itemId = this.props.match.params.itemId;
-        let dataLivreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/auteur/" + itemId + "?_embed";
-        fetch(dataLivreURL)
+        let dataAuteurURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/auteur/" + itemId + "?_embed";
+        fetch(dataAuteurURL)
             .then(res => res.json())
             .then(res => {
                 this.setState({
