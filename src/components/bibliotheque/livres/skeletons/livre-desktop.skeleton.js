@@ -13,6 +13,7 @@ import Header from '../../../header'
 import Footer from '../../../footer'
 import Navigation from '../../../navigation'
 import Breadcrumb from '../../../breadcrumb'
+import DiscoverAlso from '../discover-also.container'
 
 // special
 
@@ -21,7 +22,7 @@ class LivreDesktop2Skeleton extends Component {
     constructor() {
         super();
         this.state = {
-            maisonEdition: []
+            genreMain: 172
         }
     }
 
@@ -73,6 +74,7 @@ class LivreDesktop2Skeleton extends Component {
         const itemImage = item._embedded['wp:featuredmedia'][0].media_details.sizes.medium ? <span><img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span> : <span><img itemProp="image" src={item._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url} alt={item._embedded['wp:featuredmedia'][0].alt_text} /></span>;
 
 		return (
+
 			<div>
 				<Navigation />
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
@@ -158,6 +160,9 @@ class LivreDesktop2Skeleton extends Component {
                         </div>
 
 					</main>
+
+					<DiscoverAlso genre={this.state.genreMain} />
+					
 					<Footer />
 				</div>
 			</div>
