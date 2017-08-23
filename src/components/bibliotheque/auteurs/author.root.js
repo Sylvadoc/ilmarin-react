@@ -52,7 +52,7 @@ class AuthorRoot extends Component {
                         link={[
                             getPageCss('chronique')
                         ]}
-                        title={item.author.rendered}
+                        title={"Fiche de " + item.title.rendered}
                     />
                     <DesktopSkeleton item={item} bibliographie={bibliographie} />
                 </div>
