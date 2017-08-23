@@ -19,13 +19,6 @@ import DiscoverAlso from '../discover-also.container'
 
 class LivreDesktop2Skeleton extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            genreMain: 172
-        }
-    }
-
 	componentDidMount() {
 
 		// fermeture préventive de la navigation
@@ -35,7 +28,7 @@ class LivreDesktop2Skeleton extends Component {
 
 	render() {
 
-		const { burgerIsDisplayed, item } = this.props;
+		const { burgerIsDisplayed, item, genreMain } = this.props;
         const page = "page-livre";
 
         // construction de tous les genres
@@ -161,7 +154,7 @@ class LivreDesktop2Skeleton extends Component {
 
 					</main>
 
-					<DiscoverAlso genre={this.state.genreMain} />
+					<DiscoverAlso genre={genreMain} />
 					
 					<Footer />
 				</div>

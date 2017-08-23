@@ -38,6 +38,7 @@ class LivreRoot extends Component {
 		if (this.state.livre) {
 
 			const item = this.state.livre;
+			const genreMain = item.genre[0];
 
 			return (
 				<div className="page-roman">
@@ -47,7 +48,7 @@ class LivreRoot extends Component {
 						]}
 						title={item.title.rendered}
 					/>
-					<DesktopSkeleton item={item} />
+					<DesktopSkeleton item={item} genreMain={genreMain} />
 				</div>
 			)
 		}
