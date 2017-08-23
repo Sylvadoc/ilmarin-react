@@ -118,7 +118,10 @@ class LivreDesktop2Skeleton extends Component {
                                             <div dangerouslySetInnerHTML={ {__html: item.excerpt.rendered} } />
                                         </div>
                                     </div>
-                                    <section itemProp="review" itemScope itemType="http://schema.org/Review" className="small-12 medium-12 large-8 large-pull-2 columns body-chronique" id="review-all">
+
+                                    <hr className="clear" />
+
+                                    <section itemProp="review" itemScope itemType="http://schema.org/Review" className="small-12 medium-12 large-8 large-push-2 columns body-chronique" id="review-all">
                                         <ul className="tabs">
                                             <li>
                                                 <a className="active" href="#the-review" title="Voir la chronique">
