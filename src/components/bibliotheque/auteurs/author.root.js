@@ -16,7 +16,8 @@ class AuthorRoot extends Component {
     constructor() {
         super();
         this.state = {
-            author: undefined
+            author: undefined,
+            bibliographie: []
         }
     }
 
@@ -30,14 +31,20 @@ class AuthorRoot extends Component {
                 this.setState({
                     author: res
                 })
-            });
+            })
+			.then(res => {
+				this.setState({
+					bibliographie: this.state.author.acf.bibliographie
+				});
+			});
     }
 
     render() {
 
-        if (this.state.author) {
+        if (this.state.author && this.state.bibliographie) {
 
             const item = this.state.author;
+            const bibliographie = this.state.bibliographie;
 
             return (
                 <div className="page-auteur">
@@ -47,7 +54,7 @@ class AuthorRoot extends Component {
                         ]}
                         title={item.author.rendered}
                     />
-                    <DesktopSkeleton item={item} />
+                    <DesktopSkeleton item={item} bibliographie={bibliographie} />
                 </div>
             )
         }
