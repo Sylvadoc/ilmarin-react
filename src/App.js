@@ -18,6 +18,7 @@ import PageAuteur from './components/bibliotheque/auteurs/author.root'
 import PageMaisonEdition from './components/taxonomies/maison-edition.root'
 import PageTheme from './components/taxonomies/theme.root'
 import PageGenre from './components/taxonomies/genre.root'
+import PageRecompense from './components/taxonomies/recompense.root'
 
 // composants divers
 import SpriteSvg from './components/sprite-svg'
@@ -36,6 +37,7 @@ class App extends Component {
                     <Route path="/edition/:itemId/:slug" component={PageMaisonEdition} />
                     <Route path="/theme/:itemId/:slug" component={PageTheme} />
                     <Route path="/genre/:itemId/:slug" component={PageGenre} />
+					<Route path="/recompense/:itemId/:slug" component={PageRecompense} />
 				<Route exact path="/tolkien" component={Tolkien}/>
 				<Route exact path="/fantasy" component={Fantasy}/>
 				<Route exact path="/emissions" component={Emissions}/>
