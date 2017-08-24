@@ -305,7 +305,7 @@ p {
 			content: $icon-arrow-right;
 		}
 	}
-	.icon-lifebuoy {
+	.icon-lifebuoy, .icon-du-conseil {
 		&:before {
 			content: $icon-lifebuoy;
 		}
@@ -390,7 +390,7 @@ p {
 			content: $icon-calendar;
 		}
 	}
-	.icon-user {
+	.icon-user, .icon-des-adherents {
 		&:before {
 			content: $icon-user;
 		}
@@ -440,7 +440,7 @@ p {
 			content: $icon-youtube3;
 		}
 	}
-	.icon-image {
+	.icon-image, .icon-une-exposition {
 		&:before {
 			content: $icon-image;
 		}
@@ -470,7 +470,7 @@ p {
 			content: $icon-quill;
 		}
 	}
-	.icon-trophy {
+	.icon-trophy, .icon-un-prix {
 		&:before {
 			content: $icon-trophy;
 		}

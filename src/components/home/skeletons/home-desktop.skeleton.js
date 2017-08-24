@@ -11,6 +11,8 @@ import { closeBurger } from '../../../action-creators';
 import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
+import LastNewItemBiblio from '../discover-new-bibliotheque.container'
+import DiscoverAssociation from '../discover-association.container'
 
 class HomeDesktop2Skeleton extends Component {
 
@@ -29,7 +31,8 @@ class HomeDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header page={page} />
 					<main role="main" className="m-page">
-						page home
+						<LastNewItemBiblio />
+						<DiscoverAssociation />
 					</main>
 					<Footer />
 				</div>
