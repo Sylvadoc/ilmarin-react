@@ -13,6 +13,7 @@ import Footer from '../../footer'
 import Navigation from '../../navigation'
 import LastNewItemBiblio from '../discover-new-bibliotheque.container'
 import DiscoverAssociation from '../discover-association.container'
+import LastEmissions from '../last-emissions.container'
 
 class HomeDesktop2Skeleton extends Component {
 
@@ -32,6 +33,7 @@ class HomeDesktop2Skeleton extends Component {
 					<Header page={page} />
 					<main role="main" className="m-page">
 						<LastNewItemBiblio />
+						<LastEmissions />
 						<DiscoverAssociation />
 					</main>
 					<Footer />
