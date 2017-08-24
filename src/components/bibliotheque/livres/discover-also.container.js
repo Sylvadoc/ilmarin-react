@@ -14,17 +14,11 @@ export class ContainerDiscoverAlso extends Component {
 			DerniersLivres: []
 		};
 		this.selectSubnav = this.selectSubnav.bind(this);
-		this.viewDetailPreview = this.viewDetailPreview.bind(this);
 	}
 
 	// selectionner un onglet
 	selectSubnav(index) {
 		this.setState({ selected: index });
-	}
-
-	viewDetailPreview(e) {
-		let element = e.target;
-		console.log('hover', element);
 	}
 
 	componentDidMount() {
@@ -59,7 +53,7 @@ export class ContainerDiscoverAlso extends Component {
 		// construction de la preview des livres du même genre
 		let livresGenre = this.state.livresParGenre.map((livre, index) => {
 			return (
-				<li className="small-4 medium-3 large-2 columns" key={"pargenre-" + index} onMouseEnter={(e) => this.viewDetailPreview(e)}>
+				<li className="small-4 medium-3 large-2 columns" key={"pargenre-" + index}>
 					<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug}>
 						{livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} className="preview-cover" /> : 'pas de couverture' }
 					</Link>
@@ -72,7 +66,7 @@ export class ContainerDiscoverAlso extends Component {
 		// construction de la preview des derniers livres chroniqués
 		let derniersLivres = this.state.DerniersLivres.map((livre, index) => {
 			return (
-				<li className="small-4 medium-3 large-2 columns" key={"derniers-" + index} onMouseEnter={(e) => this.viewDetailPreview(e)}>
+				<li className="small-4 medium-3 large-2 columns" key={"derniers-" + index}>
 					<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug}>
 						{livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} className="preview-cover" /> : 'pas de couverture' }
 					</Link>
@@ -87,10 +81,6 @@ export class ContainerDiscoverAlso extends Component {
 				<div className="row">
 					<span className="simili-title"><strong>&Agrave; découvrir</strong> également</span>
 					<aside id="chroniques" className="small-12 medium-12 large-12 columns">
-						<div className="desc_crit">
-							<h2 className="h2_like">titre du livre</h2>
-							<p className="desc_item">description du livre</p>
-						</div>
 						<Link className="shadow-btn light-shadow-btn" to="/bibliotheque">Toutes les chroniques</Link>
 						<ul className="tabs">
 							<li><a onClick={() => this.selectSubnav(0)} className={"btn-tab " + (whichSelected === 0 ? 'active' : '')} href="#par_genre">Du même genre</a></li>
