@@ -29,7 +29,7 @@ export class ContainerLastEmissions extends Component {
 
 	render() {
 
-		// construction de la preview des différentes catégories
+		// construction du cartouche des différentes catégories
 		let allEmissions = this.state.catEmissions.map((emission, index) => {
 
 			return (
