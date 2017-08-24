@@ -9,9 +9,22 @@ export class ContainerDiscoverAlso extends Component {
 	constructor() {
 		super();
 		this.state = {
+			selected: 0,
 			livresParGenre: [],
 			DerniersLivres: []
-		}
+		};
+		this.selectSubnav = this.selectSubnav.bind(this);
+		this.viewDetailPreview = this.viewDetailPreview.bind(this);
+	}
+
+	// selectionner un onglet
+	selectSubnav(index) {
+		this.setState({ selected: index });
+	}
+
+	viewDetailPreview(e) {
+		let element = e.target;
+		console.log('hover', element);
 	}
 
 	componentDidMount() {
@@ -41,15 +54,17 @@ export class ContainerDiscoverAlso extends Component {
 
 	render() {
 
+		let whichSelected = this.state.selected;
+
 		// construction de la preview des livres du même genre
 		let livresGenre = this.state.livresParGenre.map((livre, index) => {
 			return (
-				<li className="small-4 medium-3 large-2 columns" key={"pargenre-" + index}>
+				<li className="small-4 medium-3 large-2 columns" key={"pargenre-" + index} onMouseEnter={(e) => this.viewDetailPreview(e)}>
 					<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug}>
-						{livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
+						{livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} className="preview-cover" /> : 'pas de couverture' }
 					</Link>
 					<span></span>
-					<p><em>(Bilbo) le hobbit</em> est sans doute l’un des livres de fantasy les plus célèbres et les plus lus au monde.<br />Sauf qu’en vérité, ce n’est pas un livre qui se lit ; c’est un conte que se laisse écouter, suspendu au discours bienveillant de l’auteur qui nous fait la grâce de ses commentaires. Il arrivera fréquemment que le lecteur soit directement l’interlocuteur attentif d’un narrateur omniscient qui ne dévoile que ce qu’il convient de savoir.</p>
+					<div dangerouslySetInnerHTML={ {__html: livre.excerpt.rendered} } />
 				</li>
 			)
 		});
@@ -57,12 +72,12 @@ export class ContainerDiscoverAlso extends Component {
 		// construction de la preview des derniers livres chroniqués
 		let derniersLivres = this.state.DerniersLivres.map((livre, index) => {
 			return (
-				<li className="small-4 medium-3 large-2 columns" key={"pargenre-" + index}>
+				<li className="small-4 medium-3 large-2 columns" key={"derniers-" + index} onMouseEnter={(e) => this.viewDetailPreview(e)}>
 					<Link to={"/bibliotheque/" + livre.id + '/' + livre.slug}>
-						{livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
+						{livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} className="preview-cover" /> : 'pas de couverture' }
 					</Link>
 					<span></span>
-					<p><em>(Bilbo) le hobbit</em> est sans doute l’un des livres de fantasy les plus célèbres et les plus lus au monde.<br />Sauf qu’en vérité, ce n’est pas un livre qui se lit ; c’est un conte que se laisse écouter, suspendu au discours bienveillant de l’auteur qui nous fait la grâce de ses commentaires. Il arrivera fréquemment que le lecteur soit directement l’interlocuteur attentif d’un narrateur omniscient qui ne dévoile que ce qu’il convient de savoir.</p>
+					<div dangerouslySetInnerHTML={ {__html: livre.excerpt.rendered} } />
 				</li>
 			)
 		});
@@ -78,16 +93,16 @@ export class ContainerDiscoverAlso extends Component {
 						</div>
 						<Link className="shadow-btn light-shadow-btn" to="/bibliotheque">Toutes les chroniques</Link>
 						<ul className="tabs">
-							<li><a className="active" href="#par_genre">Du même genre</a></li>
-							<li><a href="#dernieres_chroniques">Les dernières chroniques</a></li>
+							<li><a onClick={() => this.selectSubnav(0)} className={"btn-tab " + (whichSelected === 0 ? 'active' : '')} href="#par_genre">Du même genre</a></li>
+							<li><a onClick={() => this.selectSubnav(1)} className={"btn-tab " + (whichSelected === 1 ? 'active' : '')} href="#dernieres_chroniques">Les dernières chroniques</a></li>
 						</ul>
 						<div className="row row_tab_all">
-							<div className="row_tab open" id="par_genre">
+							<div className={"row_tab " + (whichSelected === 0 ? 'open' : '')} id="par_genre">
 								<ul className="critiques">
 									{livresGenre}
 								</ul>
 							</div>
-							<div className="row_tab" id="dernieres_chroniques">
+							<div className={"row_tab " + (whichSelected === 1 ? 'open' : '')} id="dernieres_chroniques">
 								<ul className="critiques">
 									{derniersLivres}
 								</ul>
