@@ -435,7 +435,7 @@ p {
 			content: $icon-youtube2;
 		}
 	}
-	.icon-youtube3 {
+	.icon-youtube3, .icon-dessine-moi-un-dragon, .icon-culture-particuliere {
 		&:before {
 			content: $icon-youtube3;
 		}
@@ -445,7 +445,7 @@ p {
 			content: $icon-image;
 		}
 	}
-	.icon-podcast {
+	.icon-podcast, .icon-podcasts, .icon-procrastination {
 		&:before {
 			content: $icon-podcast;
 		}

@@ -20,7 +20,7 @@ export class ContainerLastEmissions extends Component {
 		// appel du json de wordpress consacré aux catégories
 		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
 		// seulement les pages dont le parent est "nos émissions"
-		fetch(dataURL + "?parent=163&orderby=count")
+		fetch(dataURL + "?parent=163&order=desc")
 			.then(res => res.json())
 			.then(res => {
 				this.setState({

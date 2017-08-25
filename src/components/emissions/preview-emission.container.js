@@ -33,7 +33,7 @@ export class ContainerLastEmissions extends Component {
 		// appel du json de wordpress consacré aux articles pour tel catégorie
 		let dataPostsURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/posts";
 		// seulement les pages dont le parent est "nos émissions"
-		fetch(dataPostsURL + "?categories=" + categorie + "&orderby=date&_embed=1")
+		fetch(dataPostsURL + "?categories=" + categorie + "&orderby=date&_embed=1&per_page=6")
 			.then(res => res.json())
 			.then(res => {
 				this.setState({
@@ -69,7 +69,7 @@ export class ContainerLastEmissions extends Component {
 
 			return (
 				<aside id={"categorie-" + catSlug} className="flex-item">
-					<h2><span className={"icon icon-podcast icon-" + catSlug}></span> {catName}</h2>
+					<h2><span className={"icon icon-" + catSlug}></span> {catName}</h2>
 					<article className="article_focus">
 						{MainPost}
 						<h3>Les derniers articles :</h3>
