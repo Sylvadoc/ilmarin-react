@@ -49,12 +49,12 @@ export class ContainerLastEmissions extends Component {
 			const posts = this.state.postsEmissions;
 			const catName = this.state.catEmission.name;
 			const catSlug = this.state.catEmission.slug;
-			//const catId = this.state.catEmission.id;
+			const catId = this.state.catEmission.id;
 
 			// construction de l'article mis en avant
 			const MainPost =
 				<div className="inner_content">
-					<Link to="/">
+					<Link to={"/emissions/" + posts[0].id + "/" + posts[0].slug}>
 						{posts[0]._embedded['wp:featuredmedia'] ? <img src={posts[0]._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={posts[0]._embedded['wp:featuredmedia'][0].alt_text} /> : 'pas de couverture' }
 						<p><span dangerouslySetInnerHTML={ {__html: posts[0].title.rendered} } /></p>
 					</Link>
@@ -63,13 +63,13 @@ export class ContainerLastEmissions extends Component {
 			// construction de la liste d'articles
 			let allPostsByEmissions = this.state.postsEmissions.map((post) => {
 				return (
-					<li><Link to="/"><span dangerouslySetInnerHTML={ {__html: post.title.rendered} } /></Link></li>
+					<li><Link to={"/emissions/" + post.id + "/" + post.slug}><span dangerouslySetInnerHTML={ {__html: post.title.rendered} } /></Link></li>
 				)
 			});
 
 			return (
 				<aside id={"categorie-" + catSlug} className="flex-item">
-					<h2><span className={"icon icon-" + catSlug}></span> {catName}</h2>
+					<h2><span className={"icon icon-" + catSlug}></span><Link to={"/emissions/" + catId + "/" + catSlug}>{catName}</Link></h2>
 					<article className="article_focus">
 						{MainPost}
 						<h3>Les derniers articles :</h3>
