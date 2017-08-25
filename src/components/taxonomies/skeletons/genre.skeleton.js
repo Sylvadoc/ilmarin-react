@@ -36,7 +36,7 @@ class GenreSkeleton extends Component {
                     <article>
                         <Link to={"/bibliotheque/" + livre.id + '/' + livre.slug} className="entry-header">
                             {livre._embedded['wp:featuredmedia'] ? <img src={livre._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + livre.title.rendered} /> : 'pas de couverture' }
-                            <p><span dangerouslySetInnerHTML={ {__html: livre.title.rendered} }></span></p>
+                            <p><span dangerouslySetInnerHTML={ {__html: livre.title.rendered} } /></p>
                         </Link>
                         {livre.acf.auteur[0] && <p className="genre">de {livre.acf.auteur[0].post_title}</p>}
                         <div className="entry-meta">

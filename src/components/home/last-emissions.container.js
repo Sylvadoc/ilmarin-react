@@ -3,13 +3,15 @@
 
 import React, { Component } from 'react';
 
+// composants
+import PreviewEmissionContainer from '../emissions/preview-emission.container'
+
 export class ContainerLastEmissions extends Component {
 
 	constructor() {
 		super();
 		this.state = {
-			catEmissions: [],
-			catPodcast: []
+			catEmissions: []
 		}
 	}
 
@@ -29,36 +31,29 @@ export class ContainerLastEmissions extends Component {
 
 	render() {
 
-		// construction du cartouche des différentes catégories
-		let allEmissions = this.state.catEmissions.map((emission, index) => {
+		if (this.state.catEmissions) {
+
+			// construction du cartouche des différentes catégories
+			let allEmissions = this.state.catEmissions.map((emission, index) => {
+				return (
+					<PreviewEmissionContainer categorie={emission.id} key={"container-emission-" + index} />
+				)
+			});
 
 			return (
-				<aside id={"categorie-" + emission.slug} className="small-12 medium-6 large-3 columns" key={"cat-em-" + index}>
-					<h2><span className={"icon icon-podcast icon-" + emission.slug}></span> {emission.name}</h2>
-					<article className="article_focus">
-						<div className="inner_content">
-							<a href="/">
-								<img src="/img/illustrations/combat.jpg" alt="ALT" />
-								<p><span>1er art de la cat {emission.name}</span></p>
-							</a>
-						</div>
-						<h3>Les derniers podcasts :</h3>
-						<ul>
-							<li><a href="/">Liste du reste des articles</a></li>
-						</ul>
-					</article>
-				</aside>
-			)
-		});
+				<section id="emissions">
+					<div className="row">
+						<span className="simili-title">Nos <strong>émissions</strong></span>
+						{allEmissions}
+					</div>
+				</section>
+			);
 
-		return (
-			<section id="emissions">
-				<div className="row">
-					<span className="simili-title">Nos <strong>émissions</strong></span>
-					{allEmissions}
-				</div>
-			</section>
-		);
+		} else {
+
+			return null;
+
+		}
 	}
 }
 

@@ -1,0 +1,88 @@
+// Composant Liste des dernières chroniques sur la Home
+// ==========================================================
+
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
+
+export class ContainerLastEmissions extends Component {
+
+	constructor() {
+		super();
+		this.state = {
+			postsEmissions: [],
+			catEmission: undefined
+		}
+	}
+
+	componentDidMount() {
+
+		// recuperation de l'information idoine
+		const { categorie } = this.props;
+
+		// appel du json de wordpress consacré à la catégorie
+		let dataCatURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
+		// seulement les pages dont le parent est "nos émissions"
+		fetch(dataCatURL + "/" + categorie)
+			.then(res => res.json())
+			.then(res => {
+				this.setState({
+					catEmission: res
+				})
+			});
+
+		// appel du json de wordpress consacré aux articles pour tel catégorie
+		let dataPostsURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/posts";
+		// seulement les pages dont le parent est "nos émissions"
+		fetch(dataPostsURL + "?categories=" + categorie + "&orderby=date&_embed=1")
+			.then(res => res.json())
+			.then(res => {
+				this.setState({
+					postsEmissions: res
+				})
+			});
+	}
+
+	render() {
+
+		if (this.state.postsEmissions.length > 0 && this.state.catEmission) {
+
+			const posts = this.state.postsEmissions;
+			const catName = this.state.catEmission.name;
+			const catSlug = this.state.catEmission.slug;
+			//const catId = this.state.catEmission.id;
+
+			// construction de l'article mis en avant
+			const MainPost =
+				<div className="inner_content">
+					<Link to="/">
+						<img src="/img/illustrations/combat.jpg" alt="ALT" />
+						<p><span dangerouslySetInnerHTML={ {__html: posts[0].title.rendered} } /></p>
+					</Link>
+				</div>;
+
+			// construction de la liste d'articles
+			let allPostsByEmissions = this.state.postsEmissions.map((post) => {
+				return (
+					<li><Link to="/"><span dangerouslySetInnerHTML={ {__html: post.title.rendered} } /></Link></li>
+				)
+			});
+
+			return (
+				<aside id={"categorie-" + catSlug} className="small-12 medium-6 large-3 columns">
+					<h2><span className={"icon icon-podcast icon-" + catSlug}></span> {catName}</h2>
+					<article className="article_focus">
+						{MainPost}
+						<h3>Les derniers articles :</h3>
+						<ul>
+							{allPostsByEmissions}
+						</ul>
+					</article>
+				</aside>
+			);
+		} else {
+			return null;
+		}
+	}
+}
+
+export default ContainerLastEmissions;
