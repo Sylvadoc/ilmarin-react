@@ -49,8 +49,6 @@ export class ContainerYearPrix extends Component {
 
 			const posts = this.state.postsPrix;
 			const catName = this.state.catPrix.name;
-			const catSlug = this.state.catPrix.slug;
-			const catId = this.state.catPrix.id;
 
 			return (
 				<li>
