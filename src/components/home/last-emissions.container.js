@@ -1,4 +1,4 @@
-// Composant Liste des dernières chroniques sur la Home
+// Composant Liste de toutes les émissions sur la Home
 // ==========================================================
 
 import React, { Component } from 'react';

@@ -11,9 +11,12 @@ import { closeBurger } from '../../../action-creators';
 import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
+
+// specifique page
 import LastNewItemBiblio from '../discover-new-bibliotheque.container'
 import DiscoverAssociation from '../discover-association.container'
 import LastEmissions from '../last-emissions.container'
+import ContainerPrix from '../prix.container'
 
 class HomeDesktop2Skeleton extends Component {
 
@@ -34,6 +37,7 @@ class HomeDesktop2Skeleton extends Component {
 					<main role="main" className="m-page">
 						<LastNewItemBiblio />
 						<LastEmissions />
+						<ContainerPrix />
 						<DiscoverAssociation />
 					</main>
 					<Footer />

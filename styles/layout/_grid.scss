@@ -154,6 +154,8 @@ body {
 			img {
 				width: 100%;
 				height: auto;
+				// en attendant de pouvoir mettre des miniatures differentes par catégories
+                max-height: 200px;
 			}
 			p {
 				display: block;

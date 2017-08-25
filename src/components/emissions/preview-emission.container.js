@@ -1,10 +1,10 @@
-// Composant Liste des dernières chroniques sur la Home
+// Composant Liste des dernières article d'une émission
 // ==========================================================
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-export class ContainerLastEmissions extends Component {
+export class ContainerPostsEmissions extends Component {
 
 	constructor() {
 		super();
@@ -61,9 +61,9 @@ export class ContainerLastEmissions extends Component {
 				</div>;
 
 			// construction de la liste d'articles
-			let allPostsByEmissions = this.state.postsEmissions.map((post) => {
+			let allPostsByEmissions = this.state.postsEmissions.map((post, index) => {
 				return (
-					<li><Link to={"/emissions/" + post.id + "/" + post.slug}><span dangerouslySetInnerHTML={ {__html: post.title.rendered} } /></Link></li>
+					<li key={"em-li-" + index}><Link to={"/emissions/" + post.id + "/" + post.slug}><span dangerouslySetInnerHTML={ {__html: post.title.rendered} } /></Link></li>
 				)
 			});
 
@@ -85,4 +85,4 @@ export class ContainerLastEmissions extends Component {
 	}
 }
 
-export default ContainerLastEmissions;
+export default ContainerPostsEmissions;

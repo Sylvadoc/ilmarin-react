@@ -9,6 +9,10 @@
 		@include rem(2.2);
 		color: $base-color-elbakin;
 		text-align: center;
+		a {
+            color: $base-color-elbakin;
+            margin-left: 1rem;
+		}
 	}
 	h3 {
 		color: $base-color-elbakin;

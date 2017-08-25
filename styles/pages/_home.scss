@@ -34,6 +34,9 @@
 		position: relative;
 		text-transform: uppercase;
 	}
+	.description-categorie {
+	    margin-bottom: 6rem;
+	}
 	p {
 		@include rem(1.8);
 		font-family: $font-stack-simili;
@@ -58,9 +61,10 @@
 .all_prices {
 	list-style: none none;
 	padding: 0;
-	margin: 6rem 0 0 40px;
+	margin: 2rem 0 2rem 4rem;
 	position: relative;
 	height: 280px;
+	clear: both;
 	li {
 		position: absolute;
 		display: inline-block;
@@ -90,6 +94,11 @@
 			left: 679px;
 			top: 0;
 		}
+        &:nth-child(8) {
+            opacity: .8;
+            left: 792px;
+            top: 113px;
+        }
 	}
 	.le-prix {
 		transform: rotate(45deg);
