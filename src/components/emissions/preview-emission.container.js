@@ -55,7 +55,7 @@ export class ContainerLastEmissions extends Component {
 			const MainPost =
 				<div className="inner_content">
 					<Link to="/">
-						<img src="/img/illustrations/combat.jpg" alt="ALT" />
+						{posts[0]._embedded['wp:featuredmedia'] ? <img src={posts[0]._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={posts[0]._embedded['wp:featuredmedia'][0].alt_text} /> : 'pas de couverture' }
 						<p><span dangerouslySetInnerHTML={ {__html: posts[0].title.rendered} } /></p>
 					</Link>
 				</div>;
@@ -68,7 +68,7 @@ export class ContainerLastEmissions extends Component {
 			});
 
 			return (
-				<aside id={"categorie-" + catSlug} className="small-12 medium-6 large-3 columns">
+				<aside id={"categorie-" + catSlug} className="flex-item">
 					<h2><span className={"icon icon-podcast icon-" + catSlug}></span> {catName}</h2>
 					<article className="article_focus">
 						{MainPost}

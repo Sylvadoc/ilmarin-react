@@ -44,7 +44,9 @@ export class ContainerLastEmissions extends Component {
 				<section id="emissions">
 					<div className="row">
 						<span className="simili-title">Nos <strong>émissions</strong></span>
-						{allEmissions}
+						<div className="flex-list">
+							{allEmissions}
+						</div>
 					</div>
 				</section>
 			);
