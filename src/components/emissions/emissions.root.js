@@ -1,4 +1,4 @@
-// Composant conteneur de la page Fantasy
+// Composant conteneur de la page Emission
 // =============================================
 
 // generation de la page
@@ -12,18 +12,50 @@ import DesktopEmissionsSkeleton from './skeletons/emissions-desktop.skeleton';
 import { getPageCss } from '../utils/helmet';
 
 class EmissionsRoot extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            categorie: undefined
+        }
+    }
+
+    componentDidMount() {
+        const catId = this.props.match.params.catId;
+
+        // Définition de la categorie X
+        let dataCatURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
+        fetch(dataCatURL + "/" + catId)
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    categorie: res
+                })
+            });
+    }
+
 	render() {
-		return (
-			<div className="page-emission">
-				<Helmet
-					link={[
-						getPageCss('emissions')
-					]}
-					title="Les émissions & podcasts ~ Elbakin.net"
-				/>
-				<DesktopEmissionsSkeleton />
-			</div>
-		)
+
+        const catSlug = this.props.match.params.catId;
+
+        if (this.state.categorie) {
+
+            const categorie = this.state.categorie;
+
+            return (
+                <div className="page-emission">
+                    <Helmet
+                        link={[
+                            getPageCss('emissions')
+                        ]}
+                        title="Les émissions & podcasts ~ Elbakin.net"
+                    />
+                    <DesktopEmissionsSkeleton categorie={categorie} categorieSlug={catSlug} />
+                </div>
+            )
+        } else {
+            return null;
+        }
 	}
 }
 export default EmissionsRoot;

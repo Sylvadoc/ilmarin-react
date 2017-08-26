@@ -20,7 +20,7 @@ class EmissionsDesktop2Skeleton extends Component {
 
 	render() {
 
-		const { burgerIsDisplayed } = this.props;
+		const { burgerIsDisplayed, categorie } = this.props;
 
 		return (
 			<div>
@@ -28,7 +28,7 @@ class EmissionsDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
 					<main role="main" className="m-page">
-						page section emissions
+						page section {categorie.name}
 					</main>
 					<Footer />
 				</div>

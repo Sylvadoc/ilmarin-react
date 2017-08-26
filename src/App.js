@@ -40,7 +40,7 @@ class App extends Component {
 					<Route path="/recompense/:itemId/:slug" component={PageRecompense} />
 				<Route exact path="/tolkien" component={Tolkien}/>
 				<Route exact path="/fantasy" component={Fantasy}/>
-				<Route exact path="/emissions" component={Emissions}/>
+				<Route exact path="/emissions/:catId/:slug" component={Emissions}/>
 			</div>
 		)
 	}

@@ -54,7 +54,7 @@ export class ContainerPostsEmissions extends Component {
 			// construction de l'article mis en avant
 			const MainPost =
 				<div className="inner_content">
-					<Link to={"/emissions/" + posts[0].id + "/" + posts[0].slug}>
+					<Link to={"/emissions/articles/" + posts[0].id + "/" + posts[0].slug}>
 						{posts[0]._embedded['wp:featuredmedia'] ? <img src={posts[0]._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={posts[0]._embedded['wp:featuredmedia'][0].alt_text} /> : 'pas de couverture' }
 						<p><span dangerouslySetInnerHTML={ {__html: posts[0].title.rendered} } /></p>
 					</Link>
@@ -63,7 +63,7 @@ export class ContainerPostsEmissions extends Component {
 			// construction de la liste d'articles
 			let allPostsByEmissions = this.state.postsEmissions.map((post, index) => {
 				return (
-					<li key={"em-li-" + index}><Link to={"/emissions/" + post.id + "/" + post.slug}><span dangerouslySetInnerHTML={ {__html: post.title.rendered} } /></Link></li>
+					<li key={"em-li-" + index}><Link to={"/emissions/articles/" + post.id + "/" + post.slug}><span dangerouslySetInnerHTML={ {__html: post.title.rendered} } /></Link></li>
 				)
 			});
 
