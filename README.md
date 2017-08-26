@@ -12,4 +12,5 @@
 
 ## Utilisation
 
+### `gulp default`
 ### `npm start`
