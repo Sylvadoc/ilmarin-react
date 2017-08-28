@@ -34,7 +34,7 @@ export class ContainerDiscoverAssociation extends Component {
 				<div className="flex-item" key={"page-asso-" +index}>
 					<aside className="some_card">
 						<span className={"icon icon-" + page.slug}></span>
-						<h2><a href="http://association.elbakin.net" target="_blank" rel="noopener noreferrer"><span dangerouslySetInnerHTML={ {__html: page.title.rendered} }></span></a></h2>
+						<h2><a href="http://www.association-elbakin.net/" target="_blank" rel="noopener noreferrer"><span dangerouslySetInnerHTML={ {__html: page.title.rendered} }></span></a></h2>
 						<div dangerouslySetInnerHTML={ {__html: page.content.rendered} } />
 					</aside>
 				</div>
@@ -48,7 +48,7 @@ export class ContainerDiscoverAssociation extends Component {
 					<div className="flex-list">
 						{descAssociation}
 					</div>
-					<a className="btn btn_default" href="http://association.elbakin.net" target="_blank" rel="noopener noreferrer"><span className="icon icon-keyboard-arrow-right"></span> Adhérer à l'association</a>
+					<a className="btn btn_default" href="http://www.association-elbakin.net/" target="_blank" rel="noopener noreferrer"><span className="icon icon-keyboard-arrow-right"></span> Adhérer à l'association</a>
 				</div>
 			</section>
 		);
