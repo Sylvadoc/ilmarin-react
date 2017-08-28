@@ -19,6 +19,7 @@ import PageMaisonEdition from './components/taxonomies/maison-edition.root'
 import PageTheme from './components/taxonomies/theme.root'
 import PageGenre from './components/taxonomies/genre.root'
 import PageRecompense from './components/taxonomies/recompense.root'
+import PageArticleEmission from './components/emissions/article.emissions.root'
 
 // composants divers
 import SpriteSvg from './components/sprite-svg'
@@ -41,6 +42,7 @@ class App extends Component {
 				<Route exact path="/tolkien" component={Tolkien}/>
 				<Route exact path="/fantasy" component={Fantasy}/>
 				<Route exact path="/emissions/:catId/:slug" component={Emissions}/>
+					<Route exact path="/emissions/articles/:postId/:slug" component={PageArticleEmission}/>
 			</div>
 		)
 	}
