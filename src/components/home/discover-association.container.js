@@ -1,4 +1,4 @@
-// Composant Liste des dernières chroniques sur la Home
+// Composant Bloc définition de l'association sur la Home
 // ==========================================================
 
 import React, { Component } from 'react';

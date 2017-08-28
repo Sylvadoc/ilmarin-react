@@ -29,6 +29,8 @@ class ArticleEmissionDesktop2Skeleton extends Component {
 					<Header />
 					<main role="main" className="m-page">
 						article {post.title.rendered}
+						{post.acf.widget_soundcloud_ou_podomatic && <span dangerouslySetInnerHTML={ {__html: post.acf.widget_soundcloud_ou_podomatic} }></span>}
+						{post.acf.widget_de_la_video_youtube && <span dangerouslySetInnerHTML={ {__html: post.acf.widget_de_la_video_youtube} }></span>}
 					</main>
 					<Footer />
 				</div>
