@@ -10,6 +10,7 @@ import DesktopArticleEmissionsSkeleton from './skeletons/article.emissions-deskt
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
+import { REST_URL } from '../../constants/pathname'
 
 class ArticleEmissionRoot extends Component {
 
@@ -24,7 +25,7 @@ class ArticleEmissionRoot extends Component {
 		const postId = this.props.match.params.postId;
 
 		// Capture du post X
-		let dataPostURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/posts";
+		let dataPostURL = REST_URL + "/posts";
 		fetch(dataPostURL + "/" + postId + "?_embed")
 			.then(res => res.json())
 			.then(res => {

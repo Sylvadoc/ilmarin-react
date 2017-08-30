@@ -4,6 +4,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../constants/pathname'
+
 export class ContainerAllChroniques extends Component {
 
 	constructor() {
@@ -15,7 +18,7 @@ export class ContainerAllChroniques extends Component {
 
 	componentDidMount() {
 		// appel du json de wordpress consacré aux livres
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?_embed=1&per_page=25";
+		let dataURL = REST_URL + "/livre?_embed=1&per_page=25";
 		fetch(dataURL)
 			.then(res => res.json())
 			.then(res => {

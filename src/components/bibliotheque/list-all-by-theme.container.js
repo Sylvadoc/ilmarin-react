@@ -4,6 +4,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../constants/pathname'
+
 export class ContainerAllGenres extends Component {
 
     constructor() {
@@ -15,7 +18,7 @@ export class ContainerAllGenres extends Component {
 
     componentDidMount() {
         // appel du json de wordpress consacré à la taxonomie "thème"
-        let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/themes?per_page=20";
+        let dataURL = REST_URL + "/themes?per_page=20";
         fetch(dataURL)
             .then(res => res.json())
             .then(res => {

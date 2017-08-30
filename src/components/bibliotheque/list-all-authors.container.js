@@ -4,6 +4,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../constants/pathname'
+
 export class ContainerListAuthors extends Component {
 
     constructor() {
@@ -14,8 +17,8 @@ export class ContainerListAuthors extends Component {
     }
 
     componentDidMount() {
-        // appel du json de wordpress consacré à la taxonomie "genre"
-        let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/auteur?per_page=20&_embed=1";
+        // appel du json de wordpress consacré aux auteurs
+        let dataURL = REST_URL + "/auteur?per_page=20&_embed=1";
         fetch(dataURL)
             .then(res => res.json())
             .then(res => {

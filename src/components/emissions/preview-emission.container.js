@@ -1,8 +1,11 @@
-// Composant Liste des dernières article d'une émission
+// Composant Liste des derniers article d'une émission
 // ==========================================================
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../constants/pathname'
 
 export class ContainerPostsEmissions extends Component {
 
@@ -20,7 +23,7 @@ export class ContainerPostsEmissions extends Component {
 		const { categorie } = this.props;
 
 		// appel du json de wordpress consacré à la catégorie
-		let dataCatURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
+		let dataCatURL = REST_URL + "/categories";
 		// seulement les pages dont le parent est "nos émissions"
 		fetch(dataCatURL + "/" + categorie)
 			.then(res => res.json())
@@ -31,7 +34,7 @@ export class ContainerPostsEmissions extends Component {
 			});
 
 		// appel du json de wordpress consacré aux articles pour tel catégorie
-		let dataPostsURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/posts";
+		let dataPostsURL = REST_URL + "/posts";
 		// seulement les pages dont le parent est "nos émissions"
 		fetch(dataPostsURL + "?categories=" + categorie + "&orderby=date&_embed=1&per_page=6")
 			.then(res => res.json())

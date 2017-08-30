@@ -10,6 +10,7 @@ import DesktopSkeleton from './skeletons/livre-desktop.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../../utils/helmet';
+import { REST_URL } from '../../../constants/pathname'
 
 class LivreRoot extends Component {
 
@@ -23,7 +24,7 @@ class LivreRoot extends Component {
 	componentDidMount() {
         // data du livre X
 		const itemId = this.props.match.params.itemId;
-		let dataLivreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre/" + itemId + "?_embed";
+		let dataLivreURL = REST_URL + "/livre/" + itemId + "?_embed";
 		fetch(dataLivreURL)
 			.then(res => res.json())
 			.then(res => {

@@ -4,6 +4,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../../constants/pathname'
+
 export class ContainerDiscoverAlso extends Component {
 
 	constructor() {
@@ -26,7 +29,7 @@ export class ContainerDiscoverAlso extends Component {
 		const { genre } = this.props;
 
 		// appel du json de wordpress consacré aux livres du même genre
-		let AllLivresParGenreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?genre=" + genre + "&_embed=1&per_page=6";
+		let AllLivresParGenreURL = REST_URL + "/livre?genre=" + genre + "&_embed=1&per_page=6";
 		fetch(AllLivresParGenreURL)
 			.then(res => res.json())
 			.then(res => {
@@ -36,7 +39,7 @@ export class ContainerDiscoverAlso extends Component {
 			});
 
 		// appel du json de wordpress consacré aux derniers livres
-		let AllLastLivresURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?_embed=1&per_page=6";
+		let AllLastLivresURL = REST_URL + "/livre?_embed=1&per_page=6";
 		fetch(AllLastLivresURL)
 			.then(res => res.json())
 			.then(res => {

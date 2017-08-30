@@ -10,6 +10,7 @@ import DesktopEmissionsSkeleton from './skeletons/emissions-desktop.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
+import { REST_URL } from '../../constants/pathname'
 
 class EmissionsRoot extends Component {
 
@@ -24,7 +25,7 @@ class EmissionsRoot extends Component {
         const catId = this.props.match.params.catId;
 
         // Définition de la categorie X
-        let dataCatURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
+        let dataCatURL = REST_URL + "/categories";
         fetch(dataCatURL + "/" + catId)
             .then(res => res.json())
             .then(res => {

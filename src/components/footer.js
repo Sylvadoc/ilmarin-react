@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 // tierces
 import { random } from 'lodash';
 
+// constantes
+import { REST_URL } from '../constants/pathname'
+
 export class Footer extends Component {
 
     constructor() {
@@ -22,7 +25,7 @@ export class Footer extends Component {
 
     componentDidMount() {
         // appel du json de wordpress consacré aux pages
-        let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/pages";
+        let dataURL = REST_URL + "/pages";
         // seulement les pages dont le parent est Contactez-nous
         fetch(dataURL + "?parent=494")
             .then(res => res.json())
