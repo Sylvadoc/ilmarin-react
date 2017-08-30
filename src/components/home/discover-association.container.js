@@ -3,6 +3,9 @@
 
 import React, { Component } from 'react';
 
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../constants/pathname'
+
 export class ContainerDiscoverAssociation extends Component {
 
 	constructor() {
@@ -15,7 +18,7 @@ export class ContainerDiscoverAssociation extends Component {
 	componentDidMount() {
 
 		// appel du json de wordpress consacré aux pages
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/pages";
+		let dataURL = REST_URL + "/pages";
 		// seulement les pages dont le parent est "L'association"
 		fetch(dataURL + "?parent=561&orderby=menu_order")
 			.then(res => res.json())

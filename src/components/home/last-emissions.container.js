@@ -3,6 +3,9 @@
 
 import React, { Component } from 'react';
 
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../constants/pathname'
+
 // composants
 import PreviewEmissionContainer from '../emissions/preview-emission.container'
 
@@ -18,7 +21,7 @@ export class ContainerLastEmissions extends Component {
 	componentDidMount() {
 
 		// appel du json de wordpress consacré aux catégories
-		let dataURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
+		let dataURL = REST_URL + "/categories";
 		// seulement les pages dont le parent est "nos émissions"
 		fetch(dataURL + "?parent=163&order=desc")
 			.then(res => res.json())

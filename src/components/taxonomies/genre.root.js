@@ -10,6 +10,7 @@ import GenreSkeleton from './skeletons/genre.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
+import { REST_URL } from '../../constants/pathname'
 
 class GenreRoot extends Component {
 
@@ -24,7 +25,7 @@ class GenreRoot extends Component {
     componentDidMount() {
         const itemId = this.props.match.params.itemId;
         // liste de tous les livres du genre X
-        let allBooksByGenreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?genre=" + itemId + "&_embed=1";
+        let allBooksByGenreURL = REST_URL + "/livre?genre=" + itemId + "&_embed=1";
         fetch(allBooksByGenreURL)
             .then(res => res.json())
             .then(res => {
@@ -33,7 +34,7 @@ class GenreRoot extends Component {
                 })
             });
         // Définition du thème X
-        let genreURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/genre/" + itemId;
+        let genreURL = REST_URL + "/genre/" + itemId;
         fetch(genreURL)
             .then(res => res.json())
             .then(res => {

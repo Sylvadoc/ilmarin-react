@@ -3,6 +3,9 @@
 
 import React, { Component } from 'react';
 
+// constantes, variables, fonctions utiles à la bonne confection de la page
+import { REST_URL } from '../../constants/pathname'
+
 // composants
 import PreviewPrixContainer from '../prix-elbakin/preview-prix.container'
 
@@ -19,7 +22,7 @@ export class ContainerDiscoverPrix extends Component {
 	componentDidMount() {
 
 		// appel du json de wordpress consacré aux pages
-		let dataPrixSsCatURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
+		let dataPrixSsCatURL = REST_URL + "/categories";
 		// seulement les pages dont le parent est "Le prix Elbakin.net"
 		fetch(dataPrixSsCatURL + "?parent=228&_embed=1&orderby=count")
 			.then(res => res.json())
@@ -30,7 +33,7 @@ export class ContainerDiscoverPrix extends Component {
 			});
 
 		// appel du json de la catégorie "prix elbakin.net"
-		let dataPrixURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/categories";
+		let dataPrixURL = REST_URL + "/categories";
 		// seulement les pages dont le parent est "Le prix Elbakin.net"
 		fetch(dataPrixURL + "/228?_embed")
 			.then(res => res.json())

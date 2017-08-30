@@ -10,6 +10,7 @@ import AwardSkeleton from './skeletons/recompense.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
+import { REST_URL } from '../../constants/pathname'
 
 class RecompenseRoot extends Component {
 
@@ -24,7 +25,7 @@ class RecompenseRoot extends Component {
 	componentDidMount() {
 		const itemId = this.props.match.params.itemId;
 		// liste de tous les livres avec recompense X
-		let allBooksByAwardURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?recompense=" + itemId + "&_embed=1";
+		let allBooksByAwardURL = REST_URL + "/livre?recompense=" + itemId + "&_embed=1";
 		fetch(allBooksByAwardURL)
 			.then(res => res.json())
 			.then(res => {
@@ -33,7 +34,7 @@ class RecompenseRoot extends Component {
 				})
 			});
 		// Définition de recompense X
-		let awardURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/recompense/" + itemId;
+		let awardURL = REST_URL + "/recompense/" + itemId;
 		fetch(awardURL)
 			.then(res => res.json())
 			.then(res => {

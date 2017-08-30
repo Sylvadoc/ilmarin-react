@@ -10,6 +10,7 @@ import ThemeSkeleton from './skeletons/theme.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { getPageCss } from '../utils/helmet';
+import { REST_URL } from '../../constants/pathname'
 
 class ThemeRoot extends Component {
 
@@ -24,7 +25,7 @@ class ThemeRoot extends Component {
     componentDidMount() {
         const itemId = this.props.match.params.itemId;
         // liste de tous les livres du theme X
-        let allBooksByThemeURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/livre?themes=" + itemId + "&_embed=1";
+        let allBooksByThemeURL = REST_URL + "/livre?themes=" + itemId + "&_embed=1";
         fetch(allBooksByThemeURL)
             .then(res => res.json())
             .then(res => {
@@ -33,7 +34,7 @@ class ThemeRoot extends Component {
                 })
             });
         // Définition du thème X
-        let themeURL = "http://www.elbakin.net/taniquetil/wp-json/wp/v2/themes/" + itemId;
+        let themeURL = REST_URL + "/themes/" + itemId;
         fetch(themeURL)
             .then(res => res.json())
             .then(res => {
