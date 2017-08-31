@@ -20,6 +20,7 @@ import PageTheme from './components/taxonomies/theme.root'
 import PageGenre from './components/taxonomies/genre.root'
 import PageRecompense from './components/taxonomies/recompense.root'
 import PageArticleEmission from './components/emissions/article.emissions.root'
+import PageArticlePrix from './components/prix-elbakin/prix-elbakin.root'
 
 // composants divers
 import SpriteSvg from './components/sprite-svg'
@@ -31,18 +32,19 @@ class App extends Component {
 		return (
 			<div id="app">
 				<SpriteSvg />
-				<Route exact path="/" component={Home}/>
-				<Route exact path="/bibliotheque" component={Bibliotheque}/>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/bibliotheque" component={Bibliotheque} />
 					<Route path="/bibliotheque/:itemId/:slug" component={PageLivre} />
                     <Route path="/auteur/:itemId/:slug" component={PageAuteur} />
                     <Route path="/edition/:itemId/:slug" component={PageMaisonEdition} />
                     <Route path="/theme/:itemId/:slug" component={PageTheme} />
                     <Route path="/genre/:itemId/:slug" component={PageGenre} />
 					<Route path="/recompense/:itemId/:slug" component={PageRecompense} />
-				<Route exact path="/tolkien" component={Tolkien}/>
-				<Route exact path="/fantasy" component={Fantasy}/>
-				<Route exact path="/emissions/:catId/:slug" component={Emissions}/>
-					<Route exact path="/emissions/articles/:postId/:slug" component={PageArticleEmission}/>
+				<Route exact path="/tolkien" component={Tolkien} />
+				<Route exact path="/fantasy" component={Fantasy} />
+				<Route exact path="/emissions/:catId/:slug" component={Emissions} />
+					<Route path="/emissions/articles/:postId/:slug" component={PageArticleEmission} />
+				<Route path="/prix-elbakin/:postId/:slug" component={PageArticlePrix} />
 			</div>
 		)
 	}
