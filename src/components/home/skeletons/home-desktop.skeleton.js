@@ -13,6 +13,7 @@ import Footer from '../../footer'
 import Navigation from '../../navigation'
 
 // specifique page
+import ContainerOtherNews from '../other-news.container'
 import LastNewItemBiblio from '../discover-new-bibliotheque.container'
 import DiscoverAssociation from '../discover-association.container'
 import LastEmissions from '../last-emissions.container'
@@ -35,6 +36,7 @@ class HomeDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header page={page} />
 					<main role="main" className="m-page">
+						<ContainerOtherNews />
 						<LastNewItemBiblio />
 						<LastEmissions />
 						<ContainerPrix />
