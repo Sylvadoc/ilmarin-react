@@ -3,8 +3,9 @@
 
 import React, { Component } from 'react';
 
-// constantes, variables, fonctions utiles à la bonne confection de la page
-//import { REST_URL } from '../../constants/pathname'
+// les composants de la page
+import PreviewArticles from '../actualites/preview-list-articles.container'
+import PreviewInterviews from '../actualites/preview-list-interviews.container'
 
 export class ContainerOtherNews extends Component {
 
@@ -14,43 +15,11 @@ export class ContainerOtherNews extends Component {
 				<section id="other_news" className="grey-section">
 					<div className="row">
 						<span className="simili-title">Le reste de <strong>l&rsquo;actualité</strong></span>
-						<aside id="articles" className="small-12 medium-6 large-4 columns">
-							<article className="article_focus">
-								<div className="inner_content">
-									<a href="/">
-										<img src="img/illustrations/lotro.jpg" alt="Lotro" />
-										<p><span>Feuilleton Lotro,<br />En route vers le sud !</span></p>
-									</a>
-								</div>
-							</article>
-							<h2>Nos articles :</h2>
-							<ul>
-								<li><a href="page_article_itw.html">Elbakin.net fête ses quatorze ans d'existence</a></li>
-								<li><a href="page_article_itw.html">La Horde du Contrevent fête ses 10 ans !</a></li>
-								<li><a href="page_article_itw.html">La Route de la Soie de la fantasy</a></li>
-								<li><a href="page_article_itw.html">Ce que le Trône de Fer doit à J.R.R. Tolkien</a></li>
-								<li><a href="page_article_itw.html">Elf! The party is back</a></li>
-							</ul>
-						</aside>
 
-						<aside id="itws" className="small-12 medium-6 large-4 columns">
-							<article className="article_focus">
-								<div className="inner_content">
-									<a href="/">
-										<img src="img/illustrations/prix.jpg" alt="Soirée prix" />
-										<p><span>La soirée du Prix Elbakin.net 2014 !</span></p>
-									</a>
-								</div>
-							</article>
-							<h2>Nos interviews :</h2>
-							<ul>
-								<li><a href="/">Kamui Fujiwara, auteur de Dragon Quest : Emblem of Roto</a></li>
-								<li><a href="/">Imaginales 2014, un entretien avec Olivier Gay</a></li>
-								<li><a href="/">Imaginales 2014, un entretien avec Victor Dixen</a></li>
-								<li><a href="/">Joe Abercrombie répond aux questions d'Elbakin.net</a></li>
-								<li><a href="/">Un entretien avec Pierre Pevel sur Haut-Royaume</a></li>
-							</ul>
-						</aside>
+						<PreviewArticles categorie={249} />
+
+						<PreviewInterviews categorie={252} />
+
 						<div className="small-12 medium-12 large-4 columns">
 							<aside id="chrono">
 								<div className="header_chrono">
