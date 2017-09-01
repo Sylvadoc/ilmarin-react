@@ -1,4 +1,4 @@
-// Composant Liste des derniers article d'une émission
+// Composant Liste des dernières interviews
 // ==========================================================
 
 import React, { Component } from 'react';
@@ -24,7 +24,7 @@ export class ContainerPreviewListInterviews extends Component {
 
 		// appel du json de wordpress consacré à la catégorie
 		let dataCatURL = REST_URL + "/categories";
-		// seulement les pages dont le parent est "nos émissions"
+		// seulement les pages dont le parent est "nos interviews"
 		fetch(dataCatURL + "/" + categorie)
 			.then(res => res.json())
 			.then(res => {
@@ -35,7 +35,7 @@ export class ContainerPreviewListInterviews extends Component {
 
 		// appel du json de wordpress consacré aux articles pour tel catégorie
 		let dataPostsURL = REST_URL + "/posts";
-		// seulement les pages dont le parent est "nos émissions"
+		// seulement les pages dont le parent est "nos interviews"
 		fetch(dataPostsURL + "?categories=" + categorie + "&orderby=date&_embed=1&per_page=6")
 			.then(res => res.json())
 			.then(res => {
