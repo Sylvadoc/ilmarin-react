@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { REST_URL } from '../../constants/pathname'
 
 // outils
-//import { random } from 'lodash';
+import moment from 'moment';
 
 export class ContainerChrono extends Component {
 
@@ -64,8 +64,14 @@ export class ContainerChrono extends Component {
 
 			// construction de la liste de news
 			let allNews = this.state.news.map((post, index) => {
+
+				const newsDate = moment(post.date).format("DD/MM");
+
 				return (
-					<li key={"news-li-" + index}><span>{ post.date }</span><Link to={"/actualites/news/" + post.id + "/" + post.slug} dangerouslySetInnerHTML={ {__html: post.title.rendered} }></Link></li>
+					<li key={"news-li-" + index}>
+						<span>{newsDate}</span>
+						<Link to={"/actualites/news/" + post.id + "/" + post.slug} dangerouslySetInnerHTML={ {__html: post.title.rendered} }></Link>
+					</li>
 				)
 			});
 
