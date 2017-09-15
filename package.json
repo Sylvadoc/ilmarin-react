@@ -43,6 +43,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "jshint": "^2.9.5"
+    "jshint": "^2.9.5",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
   }
 }
