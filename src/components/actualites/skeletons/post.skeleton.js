@@ -1,9 +1,10 @@
-// Composant article d'une catégorie Emission
-// ===============================================
+// Squelette de la page post
+// =============================================
 
 // methodes et fonctions react ou associées
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+//import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 import { closeBurger } from '../../../action-creators';
 
@@ -11,16 +12,22 @@ import { closeBurger } from '../../../action-creators';
 import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
+import Breadcrumb from '../../breadcrumb'
 
-class ArticleEmissionDesktop2Skeleton extends Component {
+// special
+
+
+class PostSkeleton extends Component {
 
 	componentDidMount() {
+		// fermeture préventive de la navigation
 		this.props.closeBurger();
 	}
 
 	render() {
 
 		const { burgerIsDisplayed, post } = this.props;
+		const page = "page-news";
 
 		return (
 			<div>
@@ -28,9 +35,10 @@ class ArticleEmissionDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
 					<main role="main" className="m-page">
+						<Breadcrumb page={page} item={post} />
+
 						<h1 dangerouslySetInnerHTML={ {__html: post.title.rendered} } />
-						{post.acf.widget_soundcloud_ou_podomatic && <span dangerouslySetInnerHTML={ {__html: post.acf.widget_soundcloud_ou_podomatic} }></span>}
-						{post.acf.widget_de_la_video_youtube && <span dangerouslySetInnerHTML={ {__html: post.acf.widget_de_la_video_youtube} }></span>}
+
 					</main>
 					<Footer />
 				</div>
@@ -45,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({ closeBurger }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleEmissionDesktop2Skeleton);
+export default connect(mapStateToProps, mapDispatchToProps)(PostSkeleton);
