@@ -17,6 +17,7 @@ import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
 import Breadcrumb from '../../breadcrumb'
+import Chrono from '../../actualites/chrono-list.container'
 
 class PostSkeleton extends Component {
 
@@ -79,7 +80,7 @@ class PostSkeleton extends Component {
 								</article>
 							</div>
 							<div className="small-12 medium-4 large-4 sidebar columns">
-								chrono
+								<Chrono categorie={208} />
 							</div>
 						</div>
 

@@ -70,7 +70,7 @@ export class ContainerChrono extends Component {
 				return (
 					<li key={"news-li-" + index}>
 						<span>{newsDate}</span>
-						<Link to={"/actualites/news/" + post.id + "/" + post.slug} dangerouslySetInnerHTML={ {__html: post.title.rendered} }></Link>
+						<Link to={"/actualites/articles/" + post.id + "/" + post.slug} dangerouslySetInnerHTML={ {__html: post.title.rendered} }></Link>
 					</li>
 				)
 			});
@@ -95,7 +95,7 @@ export class ContainerChrono extends Component {
 							<li>1 / 10</li>
 							<li><Link to="/" title="page suivante"><span className="icon icon-keyboard-arrow-right"></span><span className="text">suivant</span></Link></li>
 						</ul>
-						<Link className="all-chrono" to={"/actualites/news/" + categorie}>Tous les chronos</Link>
+						<Link className="all-chrono" to={"/actualites/categorie/" + categorie}>Tous les chronos</Link>
 					</div>
 				</aside>
 			);
