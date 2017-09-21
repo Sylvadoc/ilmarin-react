@@ -40,13 +40,13 @@
         height: 650px;
     }
     @include media('>=large-plus-screen') {
-        height: 70vh;
+        /* a b c d e f g h i */
+        height: 60vh;
         grid-column-gap: 1%;
         grid-row-gap: 3%;
         grid-template-columns: repeat(5, 19.2%);
-        grid-template-areas: "a a b c c"
-                             "e f b d d"
-                             "e g h h i";
+        grid-template-areas: "a b c d e"
+                             "f g c h i";
     }
 }
 // ANIMATION DE LA UNE DU SITE
@@ -104,6 +104,53 @@
     transition-delay: 1.6s;
 }
 
-/* ============== R E S P O N S I V E
+/* ============== E N T R Y  C A R D
 ========================================================== */
+
+.entry-card {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    .entry-card__wrapper {
+        height: 100%;
+    }
+    .entry-card__date {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: lightblue;
+        color: white;
+        padding: 1rem;
+        overflow: hidden;
+    }
+    .entry-card__data {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        .entry-card__content {
+            background-color: rgba(white,.6);
+            padding: 1em;
+            position: relative;
+            z-index: 1;
+        }
+        .entry-card__cat {
+            font-family: $font-stack-caps;
+            a {
+                text-transform: lowercase;
+                font-variant: small-caps;
+                font-weight: bold;
+                &:not(:last-child) {
+                    margin-right: .5rem;
+                }
+            }
+        }
+        .entry-card__title {
+            font-family: $font-stack-condensed;
+            padding: 0;
+            margin: 1rem 0;
+            font-weight: lighter;
+        }
+    }
+}
 

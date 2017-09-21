@@ -4,7 +4,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-// les composants de la page
+// outils
+import moment from 'moment';
+import 'moment/locale/fr';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
 import { REST_URL } from '../../constants/pathname'
@@ -62,13 +64,48 @@ export class ContainerALaUne extends Component {
 			const catId = this.state.catALaUne.id;*/
 
 			// construction de la liste de news A La Une
-			let allArticles = this.state.postsALaUne.map((post, index) => {
+			const allArticles = this.state.postsALaUne.map((post, index) => {
+
+			// background image
+			const bgImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url : '';
+			const bgStyle = {
+				backgroundImage: 'url(' + bgImage + ')',
+				backgroundSize: 'cover',
+				backgroundRepeat: 'no-repeat',
+				backgroundPosition: 'center center'
+			};
+
+			// construction de la liste des tags
+			const allTags = post._embedded['wp:term'][1];
+			const postAllTags = allTags.map((tag, index) => {
 				return (
-					<div className={"grid-une__item grid-une__item_0" + index} key={"div-grid-" + index}>
-						<Link to={"/actualites/articles/" + post.id + "/" + post.slug}>
-							{post._embedded['wp:featuredmedia'] ? <img src={post._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={post._embedded['wp:featuredmedia'][0].alt_text} /> : 'pas de couverture' }
-							<span dangerouslySetInnerHTML={ {__html: post.title.rendered} } />
-						</Link>
+					<Link to={"/actualites/tag/" + tag.id + '/' + tag.slug} title={"Rechercher tous les articles concernant " + tag.name} key={"tag-post-" + index}>{tag.name}</Link>
+				)
+			});
+
+			// construction de la date
+			moment.locale('fr');
+			const newsDate = moment(post.date).format("L");
+
+				return (
+					<div className={"grid-une__item grid-une__item_0" + index} key={"div-grid-" + index} style={bgStyle}>
+						<div className="entry-card">
+							<div className="entry-card__wrapper">
+								<div className="entry-card__date">
+									{newsDate}
+								</div>
+								<div className="entry-card__data">
+									<div className="entry-card__content">
+										<span className="entry-card__cat">{postAllTags}</span>
+										<h2 className="entry-card__title">
+											<Link to={"/actualites/articles/" + post.id + "/" + post.slug}>
+												<span dangerouslySetInnerHTML={ {__html: post.title.rendered} } />
+											</Link>
+										</h2>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				)
 			});
