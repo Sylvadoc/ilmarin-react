@@ -66,26 +66,26 @@ export class ContainerALaUne extends Component {
 			// construction de la liste de news A La Une
 			const allArticles = this.state.postsALaUne.map((post, index) => {
 
-			// background image
-			const bgImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url : '';
-			const bgStyle = {
-				backgroundImage: 'url(' + bgImage + ')',
-				backgroundSize: 'cover',
-				backgroundRepeat: 'no-repeat',
-				backgroundPosition: 'center center'
-			};
+				// background image
+				const bgImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url : '';
+				const bgStyle = {
+					backgroundImage: 'url(' + bgImage + ')',
+					backgroundSize: 'cover',
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: 'center center'
+				};
 
-			// construction de la liste des tags
-			const allTags = post._embedded['wp:term'][1];
-			const postAllTags = allTags.map((tag, index) => {
-				return (
-					<Link to={"/actualites/tag/" + tag.id + '/' + tag.slug} title={"Rechercher tous les articles concernant " + tag.name} key={"tag-post-" + index}>{tag.name}</Link>
-				)
-			});
+				// construction de la liste des tags
+				const allTags = post._embedded['wp:term'][1];
+				const postAllTags = allTags.map((tag, index) => {
+					return (
+						<Link to={"/actualites/tag/" + tag.id + '/' + tag.slug} title={"Rechercher tous les articles concernant " + tag.name} key={"tag-post-" + index}>{tag.name}</Link>
+					)
+				});
 
-			// construction de la date
-			moment.locale('fr');
-			const newsDate = moment(post.date).format("L");
+				// construction de la date
+				moment.locale('fr');
+				const newsDate = moment(post.date).format("L");
 
 				return (
 					<div className={"grid-une__item grid-une__item_0" + index} key={"div-grid-" + index} style={bgStyle}>
