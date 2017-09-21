@@ -9,6 +9,11 @@
 
 # production
 /build
+/public/css
+/public/fonts
+/public/img
+/public/special
+/public/svg
 
 # misc
 .DS_Store
