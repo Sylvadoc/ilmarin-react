@@ -95,7 +95,7 @@ export class ContainerALaUne extends Component {
 									<div className="entry-card__content">
 										<span className="entry-card__cat">{postAllTags}</span>
 										<h2 className="entry-card__title">
-											<Link to={"/actualites/articles/" + post.id + "/" + post.slug}>
+											<Link to={"/actualites/news/" + post.id + "/" + post.slug}>
 												<span dangerouslySetInnerHTML={ {__html: post.title.rendered} } />
 											</Link>
 										</h2>

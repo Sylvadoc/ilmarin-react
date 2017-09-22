@@ -14,6 +14,7 @@ import Emissions from './components/emissions/emissions.root'
 
 // les différentes pages
 import PageNews from './components/actualites/post.root'
+import PageArticle from './components/actualites/articles-itws.root'
 import PageLivre from './components/bibliotheque/livres/livres.root'
 import PageAuteur from './components/bibliotheque/auteurs/author.root'
 import PageMaisonEdition from './components/taxonomies/maison-edition.root'
@@ -34,7 +35,9 @@ class App extends Component {
 			<div id="app">
 				<SpriteSvg />
 				<Route exact path="/" component={Home} />
-					<Route path="/actualites/articles/:postId/:slug" component={PageNews} />
+					<Route path="/actualites/news/:postId/:slug" component={PageNews} />
+					<Route path="/actualites/articles/:postId/:slug" component={PageArticle} />
+					<Route path="/actualites/interviews/:postId/:slug" component={PageArticle} />
 				<Route exact path="/bibliotheque" component={Bibliotheque} />
 					<Route path="/bibliotheque/:itemId/:slug" component={PageLivre} />
                     <Route path="/auteur/:itemId/:slug" component={PageAuteur} />
