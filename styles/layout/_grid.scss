@@ -239,7 +239,12 @@ body {
 /* ============== B L O C   N O S   A R T I C L E S
 ========================================================== */
 
-#other_news {padding: 2rem 0;}
+#other_news {
+    padding: 2rem 0;
+    aside {
+        min-height: 300px;
+    }
+}
 #articles, #itws {
 	h2 {
 		text-transform: uppercase;
@@ -269,4 +274,48 @@ body {
 	.m-page {
 		padding-top: 50px;
 	}
+}
+
+/* ============== S P I N N E R
+========================================================== */
+
+@keyframes pulse {
+    0%   {
+        transform: scale(1);
+        color: $orange-color-elbakin;
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        color: $base-color-elbakin;
+        transform: scale(1.3);
+    }
+}
+.is-rendering {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(white, 0.7);
+    z-index: 450;
+    transform-origin: center center;
+    justify-content: center;
+    .is-spinning {
+        display: flex;
+        margin: auto;
+        width: 100px;
+        height: 78px;
+        background-color: transparent;
+        color: $base-color-elbakin;
+        z-index: 451;
+        transform-origin: center center;
+        animation: pulse 1s infinite;
+        svg {
+            display: block;
+            margin: auto;
+            width: 100%;
+        }
+    }
 }
