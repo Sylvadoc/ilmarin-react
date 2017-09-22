@@ -31,10 +31,7 @@ class GreatPostSkeleton extends Component {
 		// background image
 		const bgImage = post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url : '';
 		const bgStyle = {
-			backgroundImage: 'url(' + bgImage + ')',
-			backgroundSize: 'cover',
-			backgroundRepeat: 'no-repeat',
-			backgroundPosition: 'center center'
+			backgroundImage: 'url(' + bgImage + ')'
 		};
 
 		// construction de la date

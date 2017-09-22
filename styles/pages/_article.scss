@@ -12,7 +12,7 @@
 		}
 	}
 	.header_article {
-		margin-top: -190px;
+		margin-top: -205px;
 	}
 }
 
@@ -77,12 +77,12 @@
 
 .body-article {
 	background: white;
-	.intro {
+    div > p:first-of-type {
 		@include rem(1.8);
 		font-family: $font-stack-simili;
 		font-weight: 400;
 		margin-bottom: 1em;
-		&::first-letter {
+		&:first-letter {
 			display: block;
 			float: left;
 			font-family: "Palatino Linotype", Palatino, $font-stack-simili;
@@ -103,9 +103,9 @@
 	a {
 		color: $base-color-elbakin;
 	}
-	.complementary {
+	.wp-caption {
 		width: 30%;
-		.inner_comp {
+        a[rel^="attachment"] {
 			border: 1px solid #ccc;
 			padding: 1rem;
 			width: 130%;
@@ -114,28 +114,40 @@
 				width: 100%;
 			}
 		}
+		figcaption {
+		    display: none;
+		}
 	}
-	.align_right {
+	.alignright {
 		float: right;
 		margin: 0 0 1em 2em;
+        a[rel^="attachment"] {
+            display: block;
+            transform: translate3d(4em,0,0);
+        }
 	}
-	.align_left {
+	.alignleft {
 		float: left;
 		margin: 0 2em 1em 0;
-		.inner_comp {
+		a[rel^="attachment"] {
+		    display: block;
 			transform: translate3d(-4em,0,0);
 		}
 	}
-	.quote {
+	blockquote {
 		color: $base-color-elbakin;
 		display: block;
 		font-family: $font-stack-special;
 		font-size: $h2-size;
 		font-style: italic;
 		width: 33%;
-		q {
+		/* align default */
+        float: right;
+        margin: 0 0 1em 2em;
+		p {
 			display: block;
 			width: 133%;
+            font-size: $h2-size;
 			&:before {
 				@include rem(5);
 				content: "\e625";
@@ -183,15 +195,15 @@
 			margin: 0 auto;
 			float: none;
 		}
-		.quote {
+		blockquote {
 			width: 80%;
 			clear: both;
 			float: none;
-			q {
+			p {
 				width: 100%;
 			}
 		}
-		.align_right, .align_left {
+		.alignright, .alignleft {
 			float: none;
 			margin: 0 auto 2em auto;
 			.inner_comp {
