@@ -18,6 +18,9 @@ import ContainerAllChroniques from './../list-all-chroniques.container';
 import ContainerListAllGenres from './../list-all-by-genre.container'
 import ContainerListAllThemes from './../list-all-by-theme.container'
 import ContainerListAllAuthors from './../list-all-authors.container'
+import ContainerMonthBook from './../book-of-the-month.container'
+import ContainerRandomBook from './../random-book.container'
+import ContainerThemedListBooks from './../list-themed-books.container'
 
 class BibliothequeDesktop2Skeleton extends Component {
 
@@ -49,6 +52,21 @@ class BibliothequeDesktop2Skeleton extends Component {
 								</div>
 								<div className="small-12 medium-12 large-4 columns">
 									<ContainerListAllAuthors />
+								</div>
+							</div>
+						</section>
+
+						<section id="most">
+							<div className="row">
+								<span className="simili-title">Pour vous aider à <strong>choisir</strong></span>
+								<div className="small-12 medium-12 large-6 columns">
+									<div className="row">
+										<ContainerMonthBook />
+										<ContainerRandomBook />
+									</div>
+								</div>
+								<div className="small-12 medium-12 large-6 columns">
+									<ContainerThemedListBooks />
 								</div>
 							</div>
 						</section>
