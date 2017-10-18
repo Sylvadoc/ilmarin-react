@@ -536,6 +536,7 @@
 		@extend %clearfix;
 		border-radius: 0;
 		background: transparent;
+        padding: 0 1rem 1rem 1rem;
 		h2 {
 			margin-bottom: .5em !important;
 		}
@@ -548,10 +549,17 @@
 			em {
 				color: #666;
 				font-family: $font-stack-special;
+				a {
+				    display: inline;
+				    overflow: hidden;
+				}
 			}
 			a {
 				display: block;
 				overflow: hidden;
+				img {
+				    max-height: none;
+				}
 				p {
 					display: block;
 					font-family: $font-stack-headings;
