@@ -9,7 +9,10 @@ import { connect } from 'react-redux';
 import { toggleBurger } from '../action-creators';
 
 // composants inherents à la composition de la page
+import {InstantSearch, Index, SearchBox, Hits, Configure} from 'react-instantsearch/dom';
 
+// constantes
+import { ALGOLIA } from '../constants/api-key'
 
 class Navigation extends Component {
 
@@ -25,16 +28,19 @@ class Navigation extends Component {
 						<img src="/img/logo_elbakin_nav.png" alt="Elbakin.net" />
 					</div>
 					<div className="section-palantir">
-						<form className="form">
-							<div className="s-l">
-								<input type="text" id="search-keyword" />
-								<label htmlFor="search-keyword">Rechercher sur le site :</label>
-							</div>
-							<div className="s-r">
-								<button className="btn btn_find inline_btn"><span className="icon icon-search"></span><span className="text-icon">rechercher</span></button>
-							</div>
-							<p><strong>Exemples :</strong> <a href="/">Jaworski</a>, <a href="/">Pevel</a>, <a href="/">Le Seigneur des Anneaux</a></p>
-						</form>
+                        <div>
+                            <InstantSearch appId={ALGOLIA.APP_ID} apiKey={ALGOLIA.API_KEY} indexName={ALGOLIA.INDEX_NAME.LIVRE}>
+                                <SearchBox/>
+                                <Configure hitsPerPage={5} />
+                                <Index indexName={ALGOLIA.INDEX_NAME.LIVRE}>
+                                    <Hits />
+                                </Index>
+                                <Index indexName={ALGOLIA.INDEX_NAME.CYCLE}>
+                                    <Hits />
+                                </Index>
+                            </InstantSearch>
+                        </div>
+                        <p><strong>Exemples :</strong> <a href="/">Jaworski</a>, <a href="/">Pevel</a>, <a href="/">Le Seigneur des Anneaux</a></p>
 					</div>
 					<div className="nav-second">
 						<ul className="classic-nav" role="navigation">

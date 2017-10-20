@@ -468,6 +468,7 @@
 
 #les_listes {
 	@extend %clearfix;
+    min-height: 250px;
 	h2 {
 		margin: 0 0 .5em 0;
 	}
@@ -496,6 +497,7 @@
 				img {
 					width: 100%;
 					height: auto;
+                    max-height: 100px;
 				}
 				p {
 					background: white;
@@ -537,6 +539,7 @@
 		border-radius: 0;
 		background: transparent;
         padding: 0 1rem 1rem 1rem;
+        min-height: 250px;
 		h2 {
 			margin-bottom: .5em !important;
 		}

@@ -1,4 +1,5 @@
 @import "../vendors/include-media";
+@import "../vendors/algolia";
 
 /********************************************************************************************************************************************************************************
 ********************* N A V I G A T I O N *****************
@@ -117,12 +118,6 @@
 			margin: auto;
 		}
 	}
-	.section-palantir {
-		display: flex;
-		flex-wrap: wrap;
-		width: 80%;
-		padding: 0 3rem 3rem 0;
-	}
 	.nav-second {
 		display: flex;
 		flex-direction: column;
@@ -195,66 +190,6 @@
 		margin: .5rem 0;
 	}
 }
-.section-palantir {
-	form {
-		position: relative;
-		width: 100%;
-		label {
-			transition: all .3s;
-			@include rem(2);
-			position: absolute;
-			top: 3.2rem;
-			left: 1rem;
-			color: #ccc;
-			font-style: italic;
-			text-transform: none;
-			font-family: $font-stack-common;
-			&.focused {
-				top: 0;
-			}
-		}
-		.s-l, .s-r {
-			padding-top: 2rem;
-		}
-		.s-l {
-			width: 85%;
-			float: left;
-			input {
-				@include rem(2);
-				border: 1px solid #ccc;
-				line-height: 55px;
-				margin: 0;
-				padding: 1rem;
-				height: 55px;
-				width: 100%;
-				&:focus {
-					outline: 0;
-					border: 0;
-					color: $base-color-elbakin;
-					border-bottom: 2px solid $base-color-elbakin;
-				}
-				&:focus ~ label {
-					top: -1rem;
-					color: black;
-				}
-			}
-		}
-		.s-r {
-			width: 15%;
-			float: left;
-			button {
-				width: 100%;
-				.icon {
-					display: none;
-				}
-			}
-		}
-		p {
-			padding-top: 1rem;
-			clear: both;
-		}
-	}
-}
 .feature-section {
 	width: 100%;
 	text-align: center;
@@ -315,6 +250,25 @@
 		margin: 0;
 		font-style: italic;
 	}
+}
+
+/* ============== R E C H E R C H E
+========================================================== */
+
+.section-palantir {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 80%;
+  padding: 0 3rem 3rem 0;
+  position: relative;
+  form {
+    width: 100%;
+    p {
+      padding-top: 1rem;
+      clear: both;
+    }
+  }
 }
 
 /* ============== R E S P O N S I V E
