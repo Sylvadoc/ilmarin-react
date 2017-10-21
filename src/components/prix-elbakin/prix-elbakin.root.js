@@ -40,15 +40,14 @@ class ArticlePrixRoot extends Component {
 		if (this.state.post) {
 
 			const post = this.state.post;
-			const postTitle = post.title.rendered;
 
 			return (
-				<div className="page-prix">
+				<div className="page-article">
 					<Helmet
 						link={[
-							getPageCss('chronique')
+							getPageCss('article')
 						]}
-						title={ postTitle }
+                        title={post.title.rendered + " ~ Elbakin.net"}
 					/>
 					<ArticlePrixSkeleton post={post} />
 				</div>

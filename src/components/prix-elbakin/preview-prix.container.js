@@ -35,7 +35,7 @@ export class ContainerYearPrix extends Component {
 
 		// appel du json de wordpress consacré aux articles pour tel catégorie
 		let dataPostsURL = REST_URL + "/posts";
-		// seulement les pages dont le parent est "nos émissions"
+		// seulement les pages dont le parent est "prix elbakin"
 		fetch(dataPostsURL + "?categories=" + categorie + "&orderby=date&_embed=1&per_page=6")
 			.then(res => res.json())
 			.then(res => {
