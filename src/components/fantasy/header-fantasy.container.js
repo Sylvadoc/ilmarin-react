@@ -2,36 +2,73 @@
 // =============================================
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+// constantes
+import { REST_URL } from '../../constants/pathname'
 
 export class HeaderFantasy extends Component {
 
+	constructor() {
+		super();
+		this.state = {
+			pagesExergue: []
+		}
+	}
+
+	componentDidMount() {
+		// appel du json de wordpress consacré aux articles
+		let dataURL = REST_URL + "/posts";
+		// seulement les pages dont la catégorie est "exergue fantasy, sous categorie de la fantasy"
+		// seulement les deux derniers, triés par date
+		fetch(dataURL + "?categories=267&orderby=date&_embed=1&per_page=2")
+			.then(res => res.json())
+			.then(res => {
+				this.setState({
+					pagesExergue: res
+				})
+			});
+	}
+
 	render() {
 
-		return (
-			<section id="header_section" className="header_section fantasy_section">
-				<div className="row">
-					<div className="small-12 columns">
-						<h1>La fantasy</h1>
-						<div className="flipping-quote quote-01">
-							<span className="author"><span></span></span>
-							<blockquote className="quote">
-								<q>La Fantasy est une activité humaine naturelle. Elle n'anéantit sûrement pas la raison, ni même ne l'outrage, et n'émousse pas non plus l'appétit de vérité scientifique, ni n’en trouble la perception. Bien au contraire. Plus la raison est claire et pénétrante, meilleure sera la Fantasy qu'elle engendre.</q>
-								<span>J.R.R. Tolkien : Du conte de fées, 1947</span>
-							</blockquote>
-							<a className="more" href="/">Découvrir la fantasy</a>
-						</div>
-						<div className="flipping-quote quote-02">
-							<span className="author"><span></span></span>
-							<blockquote className="quote">
-								<q>Je n'ai jamais cru à ces catégories qui cloisonnent la littérature, et en particulier à ces catégories du fantastique, de l'étrange, du merveilleux, du lugubre, du singulier&hellip; Il y a des quantités de dénominations qui ne correspondent pas à des démarcations réelles. Je crois qu'on tente d'établir des démarcations imaginaires dans un ensemble qui est homogène et où il y a des éclairages différents, des reflets différents.</q>
-								<span>Julien Gracq : Revue Jules Verne n°10, 2001</span>
-							</blockquote>
-							<a className="more" href="/">Découvrir ses principaux courants</a>
+		if (this.state.pagesExergue.length > 0) {
+
+			// construction de la liste des pages Exergue Fantasy
+			let pagesExergueList = this.state.pagesExergue.map((post, index) => {
+				const bgStyle = {
+					backgroundImage: 'url(' + post.acf.photo_citation.sizes.medium + ')'
+				};
+				return (
+					<div className={"flipping-quote quote-0" + index}>
+						<span className="author"><span style={bgStyle}></span></span>
+						<blockquote className="quote">
+							<span className="q" dangerouslySetInnerHTML={ {__html: post.acf.citation_pour_exergue} } />
+							<span>{ post.acf.reference_citation ? post.acf.reference_citation : ''}</span>
+						</blockquote>
+						<Link className="more" to={"/fantasy/" + post.id + "/" + post.slug}>
+							{ post.acf.titre_court_article ? post.acf.titre_court_article : post.title.rendered }
+						</Link>
+					</div>
+				)
+			});
+
+			return (
+				<section id="header_section" className="header_section fantasy_section">
+					<div className="row">
+						<div className="small-12 columns">
+							<h1>La fantasy</h1>
+							{ pagesExergueList }
 						</div>
 					</div>
-				</div>
-			</section>
-		);
+				</section>
+			);
+
+		} else {
+
+			return false;
+
+		}
 	}
 }
 
