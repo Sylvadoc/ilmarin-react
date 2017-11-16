@@ -117,19 +117,18 @@
 	padding: 2rem 0;
 }
 #begin_fantasy {
-	.medium-4 h2 {
-		border-radius: 5px 5px 0 0;
-		background: white;
-		color: #BE2700;
-		margin: 0;
-		padding: 1rem 1rem 0 1rem;
-	}
-	.article_focus {
-		border-radius: 0 0 5px 5px;
-		&+ .article_focus {
-			margin-top: 1rem;
-		}
-	}
+    .flex-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .article_focus {
+            width: calc(50% - .5em);
+            margin-bottom: 1em;
+            &:nth-child(even) {
+                margin-left: 1em;
+            }
+        }
+    }
 }
 #editorial_section {
 	h2, h2 a {
@@ -168,7 +167,7 @@
             transform-style: preserve-3d;
 			transition: all .3s;
 		}
-		.quote-01 {
+		.quote-00 {
 			.quote {
 				transform-origin: left top;
 				transform: rotateY(20.0001deg);
@@ -178,7 +177,7 @@
 				transform: rotateY(-20.0001deg);
 			}
 		}
-		.quote-02 {
+		.quote-01 {
 			.quote {
 				transform-origin: right top;
 				transform: rotateY(-20.0001deg);
@@ -195,12 +194,12 @@
 		.flipping-quote {
 			position: static;
 		}
-		.quote-01 {
+		.quote-00 {
 			width: auto;
 			float: left;
 			margin-bottom: 2em;
 		}
-		.quote-02 {
+		.quote-01 {
 			clear: left;
 			float: right;
 			width: auto;

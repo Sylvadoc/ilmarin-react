@@ -14,6 +14,8 @@ import Navigation from '../../navigation'
 
 // special
 import HeaderFantasy from './../header-fantasy.container';
+import CommencerFantasy from './../commencer-fantasy.container'
+import NosEmissions from './../../home/last-emissions.container'
 
 class FantasyDesktop2Skeleton extends Component {
 
@@ -32,6 +34,31 @@ class FantasyDesktop2Skeleton extends Component {
 					<Header />
 					<main role="main" className="m-page">
 						<HeaderFantasy />
+						<section id="begin_fantasy" className="grey-section">
+							<span className="simili-title">Pour <strong>commencer</strong>&hellip;</span>
+							<div className="row">
+								<div className="small-12 medium-8 columns">
+									<CommencerFantasy/>
+								</div>
+								<div className="small-12 medium-4 columns">
+									<h2>Quelques figures de <em>fantasy</em></h2>
+									<article className="article_focus">
+										<div className="inner_content">
+											<a href="/">
+												<img src="images/illustrations/elric.jpg" alt="Elric" />
+												<p><span>Elric de Melnibonë</span></p>
+											</a>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+												tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+												quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat.</p>
+										</div>
+									</article>
+								</div>
+							</div>
+						</section>
+						<hr className="section-jump" />
+						<NosEmissions/>
 					</main>
 					<Footer />
 				</div>

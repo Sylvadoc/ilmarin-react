@@ -47,8 +47,8 @@ export class Footer extends Component {
 	render() {
 
         // meteo
-        const weather = this.state.weather[random(this.state.weather.length)];
-        const cities = this.state.cities[random(this.state.cities.length)];
+        const weather = this.state.weather[random(1, this.state.weather.length)];
+        const cities = this.state.cities[random(1, this.state.cities.length)];
 
         // construction de la liste des pages contactez-nous
         let pagesContactList = this.state.pagesContact.map((page, index) => {
