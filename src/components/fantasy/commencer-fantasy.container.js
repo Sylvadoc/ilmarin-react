@@ -1,4 +1,4 @@
-// Composant Approfondir fantasy
+// Composant Commencer fantasy
 // =============================================
 
 import React, { Component } from 'react';
