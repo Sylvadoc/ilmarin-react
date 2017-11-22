@@ -262,6 +262,12 @@
   width: 80%;
   padding: 0 3rem 3rem 0;
   position: relative;
+  .algolia {
+    position: absolute;
+    top: 8px;
+    right: 75px;
+    color: rgba(black,.5);
+  }
   form {
     width: 100%;
     p {
