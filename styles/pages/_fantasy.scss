@@ -7,6 +7,7 @@
 .page-fantasy {
 	.the-header {
 		background: transparent;
+		position: relative;
 		.inner-wrap {
 			background: transparent;
 		}
@@ -132,6 +133,12 @@
     h2 {
         color: $base-color-elbakin;
         margin: 0 0 1em 0;
+    }
+}
+#figures-fantasy {
+    .shadow-btn {
+        margin-top: 1em;
+        float: right;
     }
 }
 #editorial_section {

@@ -5,12 +5,11 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { toggleBurger } from '../action-creators';
 
-// composants inherents à la composition de la page
-
 class Header extends Component {
+
 	render() {
 
 		const { page } = this.props;
@@ -42,52 +41,53 @@ class Header extends Component {
 
 		return (
 			<header role="banner" className="the-header m-header">
-				<div className="inner-wrap">
-					{brand}
-					<ul className="visit">
-						<li>
-							<button className="menu-trigger" id="trigger" title="Parcourir le menu du site" onClick={this.props.toggleBurger}>
+				{brand}
+				<div className="the-header__container">
+					<div className="the-header__container-inner">
+						<div className="the-header__container-inner-part-one">
+							<span role="button" className="menu-trigger" id="trigger" title="Parcourir le menu du site" onClick={this.props.toggleBurger}>
 								<span className="icon icon-burger" aria-hidden="true"></span>
 								<span>Explorer</span>
-							</button>
-						</li>
-						<li>
-							<a href="/forum" title="Visiter le forum">
-								<span className="icon icon-bubbles" aria-hidden="true"></span>
+							</span>
+							<a href="/forum" className="btn-forum" title="Visiter le forum">
+								<svg viewBox="0 0 100 100" width="30" height="30" aria-hidden="true" focusable="false">
+									<use xlinkHref="#bubbles"></use>
+								</svg>
 								<span>Forum</span>
 							</a>
-						</li>
-					</ul>
-					<ul className="aside_menu">
-						<li>
+						</div>
+						<div className="the-header__container-inner-part-two">
 							<ul className="social">
 								<li>
 									<a href="https://www.facebook.com/Elbakin.net" title="Profil Facebook Elbakin.net [nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
-										<span className="icon icon-facebook" aria-hidden="true"></span>
-										<span className="text">Facebook</span>
+										<svg viewBox="0 0 100 100" width="30" height="30" aria-hidden="true" focusable="false" aria-label="Facebook">
+											<use xlinkHref="#facebook"></use>
+										</svg>
 									</a>
 								</li>
 								<li>
 									<a href="https://twitter.com/elbakin" title="Compte Twitter Elbakin.net [nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
-										<span className="icon icon-twitter" aria-hidden="true"></span>
-										<span className="text">Twitter</span>
+										<svg viewBox="0 0 100 100" width="30" height="30" aria-hidden="true" focusable="false" aria-label="Twitter">
+											<use xlinkHref="#twitter"></use>
+										</svg>
 									</a>
 								</li>
 								<li>
 									<a href="https://www.youtube.com/ElbakinNetFantasy" title="Chaîne YouTube Elbakin.net [nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
-										<span className="icon icon-google-plus" aria-hidden="true"></span>
-										<span className="text">YouTube</span>
+										<svg viewBox="0 0 100 100" width="30" height="30" aria-hidden="true" focusable="false" aria-label="Youtube">
+											<use xlinkHref="#youtube2"></use>
+										</svg>
 									</a>
 								</li>
 							</ul>
-						</li>
-						<li>
-							<a href="form_inscription.html" title="Se connecter au site">
+							<Link to="/compte/" className="btn-compte">
 								<span>Se connecter</span>
-								<span className="icon icon-user" aria-hidden="true"></span>
-							</a>
-						</li>
-					</ul>
+								<svg viewBox="0 0 100 100" width="30" height="30" aria-hidden="true" focusable="false" aria-label="Youtube">
+									<use xlinkHref="#user"></use>
+								</svg>
+							</Link>
+						</div>
+					</div>
 				</div>
 			</header>
 		)

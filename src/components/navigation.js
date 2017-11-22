@@ -24,9 +24,9 @@ class Navigation extends Component {
 			<nav id="garde" className={"overlay " + (burgerIsDisplayed ? 'open lock-overflow' : '')}>
 				<div className="flex-enhanced-navigation">
 					<button className="menu-close" title="Fermer le menu" onClick={this.props.toggleBurger}><span className="icon icon-cross"></span></button>
-					<div className="nav-logo">
+					<Link className="nav-logo" to="/">
 						<img src="/img/logo_elbakin_nav.png" alt="Elbakin.net" />
-					</div>
+					</Link>
 					<div className="section-palantir">
                         <div>
                             <InstantSearch appId={ALGOLIA.APP_ID} apiKey={ALGOLIA.API_KEY} indexName={ALGOLIA.INDEX_NAME.LIVRE}>
@@ -41,6 +41,9 @@ class Navigation extends Component {
                             </InstantSearch>
                         </div>
                         <p><strong>Exemples :</strong> <a href="/">Jaworski</a>, <a href="/">Pevel</a>, <a href="/">Le Seigneur des Anneaux</a></p>
+						<svg className="algolia" viewBox="0 0 100 100" width="30" height="30" aria-label="Recherche avec (c) Algolia" aria-hidden="true" focusable="false">
+							<use xlinkHref="#algolia-mark-black"></use>
+						</svg>
 					</div>
 					<div className="nav-second">
 						<ul className="classic-nav" role="navigation">
