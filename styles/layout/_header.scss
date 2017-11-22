@@ -1,44 +1,5 @@
 @import "../vendors/include-media";
 
-	/* ====== Concerning Logo
-	======================================= */
-
-	@keyframes LogoArrives {
-		0%   {
-			opacity: 0;
-			transform: translate3d(0,-2rem,0);
-		}
-		100% {
-			opacity: 1;
-			transform: translate3d(0,0,0);
-		}
-	}
-		/* ================================ */
-		@keyframes Appear {
-			0%   {
-				opacity: 0;
-				transform: scale(0);
-			}
-			100% {
-				opacity: 1;
-				transform: scale(1);
-			}
-		}
-
-	/* ====== Concerning title logo
-	======================================= */
-
-	@keyframes ElbakinArrives {
-		0%   {
-			opacity: 0;
-			transform: translate3d(0,1rem,0);
-		}
-		100% {
-			opacity: 1;
-			transform: translate3d(0,-1rem,0);
-		}
-	}
-
 	/* ====== ShowPanel
 	======================================= */
 
@@ -72,137 +33,121 @@
 /********************************************************************************************************************************************************************************/
 
 .the-header {
-	transition: height .3s;
-	@extend %clearfix;
-	position: relative;
     margin-bottom: 1em;
-    @include media('>medium-plus-screen') {
-        clip-path: polygon(50% 100%, 100% 90%, 100% 0, 0 0, 0 90%);
-    }
-	.inner-wrap {
-		height: 190px;
-		overflow: hidden;
+    min-height: 150px;
 
-	}
 	/* ====== LOGO
 	======================================= */
+
 	.branding {
-		display: block;
-		margin: 0 auto;
 		width: 150px;
-		position: relative;
-		.logotype {
-			animation: LogoArrives cubic-bezier(.68,-0.55,.27,1.55) 1s 1;
-		}
-		.elbakin {
-			animation: ElbakinArrives cubic-bezier(.68,-0.55,.27,1.55) 1s 1;
-			transform: translate3d(0,-1rem,0);
-		}
-		a {	display: block;	}
-	}
-	.appear {
-		animation: Appear .5s 1;
+		position: absolute;
+		top: 0;
+		left: calc(50% - 75px);
+		a {
+		    display: block;
+        }
 	}
 
-	/* ====== MENU HEADER SIMPLE
+	/* ====== MENU HEADER
 	======================================= */
 
-	ul {
-		list-style: none none;
-		margin: 0;
-		padding: 0;
-		text-align: center;
-		li {
-			display: inline-block;
-		}
-		a {
-			display: block;
-			padding: .3rem .6rem;
-		}
-		a:hover, a:focus, a:visited { text-decoration: none; outline: 0; }
-	}
-	.visit {
-		left: 1rem;
-		position: absolute;
-		text-transform: uppercase;
-		top: 1rem;
-		z-index: 100;
-		li {
-			background: #fff;
-			margin-right: 1px;
-			&:last-child { margin: 0; }
-		}
-	}
-	.aside_menu {
-		position: absolute;
-		right: 1rem;
-		top: 1rem;
-		text-transform: uppercase;
-		.social {
-		    background-color: white;
-            margin-right: 10px;
-			li { background: transparent; }
-			.icon-twitter {color: #55ACEE;}
-			.icon-facebook {color: #47639E;}
-			.icon-google-plus {color: #DD4B39;}
-		}
-	}
-	&.sticky {
-		background: rgba(white,0.95) !important;
-		height: 50px;
-		padding: 0;
-		position: fixed;
-		top: 0;
-		width: 100%;
-		z-index: 100;
-		.inner-wrap {
-			background: none;
-			height: auto;
-		}
-		.aside_menu, .visit {
-			top: 1.3rem;
-		}
-		li {
-			background: transparent;
-		}
-		.visit {
-			span + span {
-				@extend %visuallyhidden;
-			}
-		}
-		.social, .network { display: none;}
-		.branding {
-			width: 50px;
-			.elbakin {
-				display: none;
-			}
-		}
-	}
+    .the-header__container-inner {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+        align-items: flex-start;
+        /* design */
+        padding: 1rem;
+        background-color: rgba(black, .4);
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .the-header__container-inner-part-one, .the-header__container-inner-part-two {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: center;
+    }
+    .the-header__container-inner-part-two {
+
+    }
+
+    /* ====== SOCIAL
+    ======================================= */
+
+    .social {
+        list-style: none none;
+        display: flex;
+        margin-right: 2rem;
+        li {
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+        a[href*="facebook"] {
+            color: $facebook;
+        }
+        a[href*="twitter"] {
+            color: $twitter;
+        }
+        a[href*="youtube"] {
+            color: $youtube;
+        }
+    }
+
+    /* ====== LEFT
+    ======================================= */
+
+    .menu-trigger {
+        color: white;
+        margin-right: 1rem;
+        cursor: pointer;
+        span {
+            margin-left: .5rem;
+        }
+        .icon-burger {
+            color: white;
+        }
+        &:hover, &:focus {
+            span {
+                color: white;
+                text-decoration: underline;
+            }
+        }
+    }
+    .btn-forum {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        color: white;
+        svg {
+            margin-right: .5rem;
+        }
+    }
+
+    /* ====== RIGHT
+    ======================================= */
+
+    .btn-compte {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        color: white;
+        svg {
+            margin-left: .5rem;
+        }
+    }
+
 }
 
 /* ============== R E S P O N S I V E
 ========================================================== */
 
-@include media('<=tiny-plus-screen') {
-	header {
-		&.sticky {
-			.panel {
-				padding: 0 9% 0 23%;
-			}
-		}
-	}
-}
-@include media('>tiny-plus-screen','<=small-plus-screen') {
-	header {
-		&.sticky {
-			.aside_menu {
-				span:first-child {
-					display: none;
-				}
-			}
-		}
-	}
-}
+
 
 /* ============== H E A D  S E C T I O N
 ========================================================== */

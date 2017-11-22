@@ -27,8 +27,9 @@ $tempFont : 91011112;
 /********************************************************************************************************************************************************************************/
 
 html {
-	font-size: 62.5%;
-	font-size: calc(1em * 0.625);
+    font-size: 62.5%;
+    // IE9-11 fix
+    font-size: calc(1em * 0.625);
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
@@ -541,11 +542,11 @@ p {
 
 	.icon-burger {
 	    transition: all .4s;
-		background-color: $base-color-link;
+		background-color: white;
 		height: 2px;
 		width: 15px;
 		&:before, &:after {
-			background-color: $base-color-link;
+			background-color: white;
 			content: '';
 			display: block;
 			width: 15px;
@@ -566,14 +567,16 @@ p {
 			transition: transform 350ms;
 		}
 	}
-	.mp-pushed {
+	.overlay-open {
 		.icon-burger {
-		    transform: translate3d(30px,0,0) rotate(0deg);
+		    background-color: transparent;
 			&:before {
-                transform: translate3d(30px,4px,0) rotate(-45deg);
+                background-color: white;
+                transform: translate3d(0,4px,0) rotate(-45deg);
 			}
 			&:after {
-                transform: translate3d(30px,-4px,0) rotate(45deg);
+                background-color: white;
+                transform: translate3d(0,-4px,0) rotate(45deg);
 			}
 		}
 	}
