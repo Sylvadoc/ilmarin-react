@@ -138,12 +138,9 @@
 		right: 1rem;
 		top: 1rem;
 		text-transform: uppercase;
-		li {
-			background: #fff;
-			margin-left: 1px;
-			&:last-child { margin: 0;}
-		}
 		.social {
+		    background-color: white;
+            margin-right: 10px;
 			li { background: transparent; }
 			.icon-twitter {color: #55ACEE;}
 			.icon-facebook {color: #47639E;}

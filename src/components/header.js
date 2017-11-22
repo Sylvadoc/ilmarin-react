@@ -9,11 +9,48 @@ import { connect } from 'react-redux';
 import { toggleBurger } from '../action-creators';
 
 // composants inherents à la composition de la page
+let lastScrollTop = 0;
+let delta = 5;
 
 class Header extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			headerVisibility: true
+		};
+		this.handleScroll = this.handleScroll.bind(this);
+	}
+
+	// SCROLL
+	handleScroll() {
+		let st = window.pageYOffset;
+		if (Math.abs(lastScrollTop - st) <= delta) {
+			return;
+		}
+
+		if (st > lastScrollTop && st > 190) {
+			// Scroll Down
+			this.setState({ headerVisibility: false });
+		} else {
+			// Scroll Up
+			this.setState({ headerVisibility: true });
+		}
+		lastScrollTop = st;
+	}
+
+	componentDidMount() {
+		window.addEventListener('scroll', this.handleScroll);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.handleScroll);
+	}
+
 	render() {
 
 		const { page } = this.props;
+		const headerClasses = `the-header m-header ${this.state.headerVisibility ? ' header-visible' : ' header-invisible'}`;
 
 		let brand;
 		if (page === 'page-home') {
@@ -41,7 +78,7 @@ class Header extends Component {
 		}
 
 		return (
-			<header role="banner" className="the-header m-header">
+			<header role="banner" className={headerClasses}>
 				<div className="inner-wrap">
 					{brand}
 					<ul className="visit">
