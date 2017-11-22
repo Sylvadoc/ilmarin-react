@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { closeBurger } from '../../../action-creators';
 
 // composants
@@ -41,10 +42,11 @@ class FantasyDesktop2Skeleton extends Component {
 								<div className="small-12 medium-8 columns">
 									<CommencerFantasy/>
 								</div>
-								<div className="small-12 medium-4 columns">
+								<aside id="figures-fantasy" className="small-12 medium-4 columns">
 									<h2>Quelques figures de <em>fantasy</em></h2>
 									<FigureFantasy/>
-								</div>
+									<Link to="/fantasy/figures/" className="shadow-btn dark-shadow-btn">Toutes les figures</Link>
+								</aside>
 							</div>
 						</section>
 						<hr className="section-jump" />
