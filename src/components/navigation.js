@@ -21,9 +21,8 @@ class Navigation extends Component {
 		const { burgerIsDisplayed } = this.props;
 
 		return (
-			<nav id="garde" className={"overlay " + (burgerIsDisplayed ? 'open lock-overflow' : '')}>
+			<nav id="garde" className={"overlay " + (burgerIsDisplayed ? 'open' : '')}>
 				<div className="flex-enhanced-navigation">
-					<button className="menu-close" title="Fermer le menu" onClick={this.props.toggleBurger}><span className="icon icon-cross"></span></button>
 					<Link className="nav-logo" to="/">
 						<img src="/img/logo_elbakin_nav.png" alt="Elbakin.net" />
 					</Link>

@@ -9,7 +9,7 @@ import App from './App'
 
 import registerServiceWorker from './registerServiceWorker';
 
-const target = document.querySelector('#root')
+const target = document.querySelector('#root');
 
 render(
 	<Provider store={store}>
