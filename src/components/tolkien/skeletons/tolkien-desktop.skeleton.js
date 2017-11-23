@@ -12,6 +12,9 @@ import Header from '../../header'
 import Footer from '../../footer'
 import Navigation from '../../navigation'
 
+// special
+import HeaderTolkien from './../header-tolkien.container';
+
 class TolkienDesktop2Skeleton extends Component {
 
 	componentDidMount() {
@@ -28,7 +31,7 @@ class TolkienDesktop2Skeleton extends Component {
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
 					<main role="main" className="m-page">
-						page Tolkien
+						<HeaderTolkien />
 					</main>
 					<Footer />
 				</div>
