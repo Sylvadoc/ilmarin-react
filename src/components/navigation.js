@@ -39,7 +39,7 @@ class Navigation extends Component {
                                 </Index>
                             </InstantSearch>
                         </div>
-                        <p><strong>Exemples :</strong> <a href="/">Jaworski</a>, <a href="/">Pevel</a>, <a href="/">Le Seigneur des Anneaux</a></p>
+                        <p><strong>Exemples :</strong> <a href="/">Jaworski</a>, <Link to="/auteur/514/pierre-pevel">Pevel</Link>, <a href="/">Le Seigneur des Anneaux</a></p>
 						<svg className="algolia" viewBox="0 0 100 100" width="30" height="30" aria-label="Recherche avec (c) Algolia" aria-hidden="true" focusable="false">
 							<use xlinkHref="#algolia-mark-black"></use>
 						</svg>
@@ -83,7 +83,12 @@ class Navigation extends Component {
 							</li>
 						</ul>
 						<div className="aside-btn">
-							<a href="/forum" className="shadow-btn dark-shadow-btn"><span className="icon icon-bubbles" aria-hidden="true"></span> forum</a>
+							<a href="/forum" className="shadow-btn dark-shadow-btn">
+                                <svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" focusable="false">
+                                    <use xlinkHref="#bubbles"></use>
+                                </svg>
+                                <span>forum</span>
+                            </a>
 						</div>
 					</div>
 					<div className="feature-nav">
@@ -130,22 +135,25 @@ class Navigation extends Component {
 						<p>&copy; 2000 - 2018 &middot; Elbakin.net / Tous droits réservés.</p>
 						<ul className="social">
 							<li>
-								<a href="https://www.facebook.com/Elbakin.net" title="Profil Facebook Elbakin.net [Nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
-									<span className="icon icon-facebook" aria-hidden="true"></span>
-									<span className="text">Facebook</span>
-								</a>
+                                <a href="https://www.facebook.com/Elbakin.net" title="Profil Facebook Elbakin.net [nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
+                                    <svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" focusable="false" aria-label="Facebook">
+                                        <use xlinkHref="#facebook"></use>
+                                    </svg>
+                                </a>
 							</li>
 							<li>
-								<a href="https://twitter.com/elbakin" title="Compte Twitter Elbakin.net [Nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
-									<span className="icon icon-twitter" aria-hidden="true"></span>
-									<span className="text">Twitter</span>
-								</a>
+                                <a href="https://twitter.com/elbakin" title="Compte Twitter Elbakin.net [nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
+                                    <svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" focusable="false" aria-label="Twitter">
+                                        <use xlinkHref="#twitter"></use>
+                                    </svg>
+                                </a>
 							</li>
 							<li>
-								<a href="https://www.youtube.com/ElbakinNetFantasy" title="Chaîne YouTube Elbakin.net [Nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
-									<span className="icon icon-google-plus" aria-hidden="true"></span>
-									<span className="text">YouTube</span>
-								</a>
+                                <a href="https://www.youtube.com/ElbakinNetFantasy" title="Chaîne YouTube Elbakin.net [nouvelle fenêtre]" target="_blank" rel="noopener noreferrer">
+                                    <svg viewBox="0 0 100 100" width="20" height="20" aria-hidden="true" focusable="false" aria-label="Youtube">
+                                        <use xlinkHref="#youtube2"></use>
+                                    </svg>
+                                </a>
 							</li>
 						</ul>
 					</div>
