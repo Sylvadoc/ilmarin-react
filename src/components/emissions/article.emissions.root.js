@@ -65,7 +65,14 @@ class ArticleEmissionRoot extends Component {
 					<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 						<Header />
 						<main role="main" className="m-page">
-							<DesktopArticleEmissionsSkeleton post={post} />
+							<section id="header_section" className="header_section emission_section">
+								<div className="row">
+									<div className="small-12 columns">
+										<h1 className="global-title">Les émissions</h1>
+									</div>
+									<DesktopArticleEmissionsSkeleton post={post} />
+								</div>
+							</section>
 						</main>
 						<Footer />
 					</div>
