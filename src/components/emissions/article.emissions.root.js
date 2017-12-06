@@ -4,8 +4,14 @@
 // generation de la page
 import React, { Component } from 'react';
 import Helmet from "react-helmet";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { closeBurger } from '../../action-creators';
 
-// les composants de la page
+// composants
+import Header from '../header'
+import Footer from '../footer'
+import Navigation from '../navigation'
 import DesktopArticleEmissionsSkeleton from './skeletons/article.emissions-desktop.skeleton';
 
 // constantes, variables, fonctions utiles à la bonne confection de la page
@@ -22,6 +28,9 @@ class ArticleEmissionRoot extends Component {
 	}
 
 	componentDidMount() {
+
+		this.props.closeBurger();
+
 		const postId = this.props.match.params.postId;
 
 		// Capture du post X
@@ -37,6 +46,8 @@ class ArticleEmissionRoot extends Component {
 
 	render() {
 
+		const { burgerIsDisplayed } = this.props;
+
 		if (this.state.post) {
 
 			const post = this.state.post;
@@ -50,7 +61,14 @@ class ArticleEmissionRoot extends Component {
 						]}
 						title={ postTitle }
 					/>
-					<DesktopArticleEmissionsSkeleton post={post} />
+					<Navigation />
+					<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
+						<Header />
+						<main role="main" className="m-page">
+							<DesktopArticleEmissionsSkeleton post={post} />
+						</main>
+						<Footer />
+					</div>
 				</div>
 			)
 		} else {
@@ -58,4 +76,11 @@ class ArticleEmissionRoot extends Component {
 		}
 	}
 }
-export default ArticleEmissionRoot;
+
+const mapStateToProps = ({ header }) => ({ burgerIsDisplayed: header.burgerIsDisplayed });
+
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({ closeBurger }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleEmissionRoot);
