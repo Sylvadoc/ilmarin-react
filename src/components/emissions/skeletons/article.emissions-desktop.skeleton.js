@@ -19,7 +19,7 @@ class ArticleEmissionDesktop2Skeleton extends Component {
 		const { post } = this.props;
 
 		// construction de l'image
-		const postImage = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium ? <span><img itemProp="image" src={post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt={post._embedded['wp:featuredmedia'][0].alt_text} /></span> : <span><img itemProp="image" src={post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url} alt={post._embedded['wp:featuredmedia'][0].alt_text} /></span>;
+		// const postImage = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium ? <span><img itemProp="image" src={post._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url} alt={post._embedded['wp:featuredmedia'][0].alt_text} /></span> : <span><img itemProp="image" src={post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url} alt={post._embedded['wp:featuredmedia'][0].alt_text} /></span>;
 
 		// construction de la date
 		moment.locale('fr');
@@ -59,12 +59,9 @@ class ArticleEmissionDesktop2Skeleton extends Component {
 					<article className="main_news" itemScope itemType="http://schema.org/Article">
 						<p className="a-propos">Le <time itemProp="dateCreated" dateTime={post.date_gmt}>{newsDate}</time> par <em itemProp="creator"><span className="icon icon-user"></span> {post._embedded['author'][0].name}</em></p>
 						<h1 itemProp="name" className="the-title" dangerouslySetInnerHTML={ {__html: post.title.rendered} } />
-						<p className="pod-nb"><span>épisode #{post.acf.episode_de_lemission}</span></p>
 						<p className="tags">{postAllTags}</p>
 						<section itemProp="articleBody" className="body-article">
-							<div className="complementary">
-								{postImage}
-							</div>
+							<p className="pod-nb"><span>épisode #{post.acf.episode_de_lemission}</span></p>
 							<div dangerouslySetInnerHTML={ {__html: post.content.rendered} } />
 							{rowTabs}
 							<div className="footer_article">
