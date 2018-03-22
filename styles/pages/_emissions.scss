@@ -10,8 +10,8 @@
 		}
 	}
 	#header_section {
-		padding-top: 190px;
-		margin-top: -190px;
+		padding-top: 19rem;
+		margin-top: -19rem;
 	}
 }
 
@@ -210,10 +210,9 @@
 		margin-bottom: 2rem;
 	}
 }
-#player {
+#player, #youtube {
 	iframe {
 		width: 100%;
-		background: black;
 	}
 }
 #dl-episode {
