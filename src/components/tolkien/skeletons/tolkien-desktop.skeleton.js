@@ -17,6 +17,7 @@ import HeaderTolkien from './../header-tolkien.container';
 import EssaisListTolkien from './../essais-list.container';
 import ArticlesListTolkien from './../articles-list.container';
 import IntroductionTolkien from "./../introduction-tolkien.container";
+import TraductionTolkien from "./../traduction-tolkien.container";
 
 class TolkienDesktop2Skeleton extends Component {
 
@@ -42,6 +43,7 @@ class TolkienDesktop2Skeleton extends Component {
                                 <ArticlesListTolkien />
                                 <div className="small-12 medium-12 large-6 columns">
                                     <IntroductionTolkien />
+                                    <TraductionTolkien />
                                     <aside id="corrections">
                                         <h2>Le projet de correction</h2>
                                         <p>Grâce à la patience et l'acharnement de plusieurs éminences de notre forum, retrouvez ici toutes les corrections dont la version française aurait bien besoin !</p>
