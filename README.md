@@ -17,3 +17,8 @@
 ## Utilisation
 
 1. `npm start`
+
+## Preview en preprod
+
+Nous utilisons heroku pour déployer le site en version production. Le déploiement se fait automatiquement lorsqu'un commit se fait sur la release.
+* [Preprod Ilmarin](http://radiant-journey-53743.herokuapp.com/)
