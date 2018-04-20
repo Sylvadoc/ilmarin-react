@@ -40,11 +40,19 @@
 	======================================= */
 
 	.branding {
-		width: 150px;
+		width: 100px;
 		position: absolute;
-		top: 0;
-		left: calc(50% - 75px);
+		top: 56px;
+		left: calc(50% - 50px);
+        color: white;
+        svg {
+            display: block;
+            color: inherit;
+            width: 100px;
+            height: 75px;
+        }
 		a {
+		    color: inherit;
 		    display: block;
         }
 	}
@@ -62,8 +70,8 @@
         padding: 1rem;
         background-color: rgba(black, .4);
         svg {
-            width: 20px;
-            height: 20px;
+            width: 2rem;
+            height: 2rem;
         }
     }
     .the-header__container-inner-part-one, .the-header__container-inner-part-two {

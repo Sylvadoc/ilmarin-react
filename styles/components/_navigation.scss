@@ -93,7 +93,7 @@
 			width: 100%;
 		}
 		p, ul {
-			padding-top: 3rem;
+			padding-top: 2rem;
 			display: flex;
 		}
 		ul {
@@ -102,11 +102,21 @@
 				margin: 0 0 0 1rem;
 			}
 			a {
-				@include rem(2.5);
+				display: block;
 			}
-			.icon-twitter {color: #55ACEE;}
-			.icon-facebook {color: #47639E;}
-			.icon-google-plus {color: #DD4B39;}
+            svg {
+              width: 2rem;
+              height: 2rem;
+            }
+            a[href*="facebook"] {
+                color: $facebook;
+            }
+            a[href*="twitter"] {
+                color: $twitter;
+            }
+            a[href*="youtube"] {
+                color: $youtube;
+            }
 		}
 	}
 	.nav-logo {
@@ -127,8 +137,16 @@
 			padding-top: 2rem;
 			text-align: center;
 			a {
-				display: inline-block;
-				margin: 0;
+				display: inline-flex;
+				margin: 0 auto;
+                justify-content: space-between;
+                align-items: center;
+                align-content: center;
+                svg {
+                    width: 2rem;
+                    height: 2rem;
+                    margin-right: 1rem;
+                }
 			}
 		}
 	}

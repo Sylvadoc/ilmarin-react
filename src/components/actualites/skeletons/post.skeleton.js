@@ -18,6 +18,7 @@ import Footer from '../../footer'
 import Navigation from '../../navigation'
 import Breadcrumb from '../../breadcrumb'
 import Chrono from '../../actualites/chrono-list.container'
+import SocialPostFooter from '../../social-post-footer.container'
 
 class PostSkeleton extends Component {
 
@@ -66,11 +67,7 @@ class PostSkeleton extends Component {
 										</div>
 										<div dangerouslySetInnerHTML={ {__html: post.content.rendered} } />
 										<div className="footer_article">
-											<div className="social_tools">
-												<a href="/" rel="noreferrer noopener">facebook</a>
-												<a href="/" rel="noreferrer noopener">twitter</a>
-												<a href="/" rel="noreferrer noopener">google +</a>
-											</div>
+											<SocialPostFooter />
 											<div className="other-tools">
 												{post.acf.forum && <a href={post.acf.forum} className="btn_simple btn_comment"><span className="icon icon-bubbles"></span> Commenter sur le forum</a>}
 												{post.acf.source && <a href={post.acf.source} target="_blank" rel="noreferrer noopener nofollow" className="btn_simple">Source</a>}

@@ -5,12 +5,15 @@
 * [React router](https://github.com/ReactTraining/react-router)
 * [Wordpress REST API](https://developer.wordpress.org/rest-api/reference/)
 
+## Prérequis
+
+* [node](https://nodejs.org/en/) version 8.10.0 ou supérieur
+* npm version 5.6.0 ou supérieur
+
 ## Installation
 
-### `npm i`
-### `gulp default`
+1. `npm i`
 
 ## Utilisation
 
-### `gulp default`
-### `npm start`
+1. `npm start`
