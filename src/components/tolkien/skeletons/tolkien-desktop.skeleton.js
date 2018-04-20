@@ -36,19 +36,14 @@ class TolkienDesktop2Skeleton extends Component {
 					<Header />
 					<main className="m-page">
 						<HeaderTolkien />
-                        <section id="tolkien_thoughts">
+                        <section id="tolkien_thoughts" className="grey-section">
                             <span className="simili-title"> Découvrir <span className="amp">&amp;</span> <strong>Comprendre</strong></span>
                             <div className="row">
-                                <EssaisListTolkien />
-                                <ArticlesListTolkien />
-                                <div className="small-12 medium-12 large-6 columns">
-                                    <IntroductionTolkien />
-                                    <TraductionTolkien />
-                                    <aside id="corrections">
-                                        <h2>Le projet de correction</h2>
-                                        <p>Grâce à la patience et l'acharnement de plusieurs éminences de notre forum, retrouvez ici toutes les corrections dont la version française aurait bien besoin !</p>
-                                        <a className="btn btn_default" href="/">Les corrections</a>
-                                    </aside>
+                                <EssaisListTolkien categorie={273} />
+                                <ArticlesListTolkien categorie={274} />
+                                <div className="small-12 medium-12 large-4 columns">
+                                    <IntroductionTolkien categorie={275} />
+                                    <TraductionTolkien categorie={276} />
                                 </div>
                             </div>
                         </section>
