@@ -34,7 +34,7 @@ class TolkienDesktop2Skeleton extends Component {
 				<Navigation />
 				<div className={"m-scene " + (burgerIsDisplayed ? 'overlay-open lock-overflow' : '')}>
 					<Header />
-					<main role="main" className="m-page">
+					<main className="m-page">
 						<HeaderTolkien />
                         <section id="tolkien_thoughts">
                             <span className="simili-title"> Découvrir <span className="amp">&amp;</span> <strong>Comprendre</strong></span>
