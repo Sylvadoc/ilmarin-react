@@ -143,7 +143,7 @@ body {
 ============================================================================== */
 
 .article_focus {
-	background: white;
+	background-color: white;
 	padding: 1em;
 	border-radius: 5px;
 	.inner_content {
@@ -154,8 +154,6 @@ body {
 			img {
 				width: 100%;
 				height: auto;
-				// en attendant de pouvoir mettre des miniatures differentes par catégories
-                max-height: 200px;
 			}
 			p {
 				display: block;
