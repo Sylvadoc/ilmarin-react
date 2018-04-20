@@ -8,9 +8,10 @@
     "node": "8.10.0"
   },
   "scripts": {
+    "postinstall": "gulp default",
     "start": "gulp default && react-scripts start",
     "now-start": "serve --single ./build",
-    "build": "react-scripts build",
+    "build": "react-scripts build && gulp default",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
