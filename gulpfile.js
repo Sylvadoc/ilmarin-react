@@ -9,11 +9,8 @@ var gulp = require('gulp'),
 	imageminSvgo = require('imagemin-svgo'),
 	svgSprite = require('gulp-svg-sprite'),
     rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
     livereload = require('gulp-livereload'),
-    sourcemaps = require('gulp-sourcemaps'),
-    del = require('del');
+    sourcemaps = require('gulp-sourcemaps')
 
 // configuration des chemins
 var SASS_FILES_DIR = './styles';
