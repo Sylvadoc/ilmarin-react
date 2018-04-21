@@ -7,20 +7,16 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     imagemin = require('gulp-imagemin'),
 	imageminSvgo = require('imagemin-svgo'),
-	pngquant = require('imagemin-pngquant'),
 	svgSprite = require('gulp-svg-sprite'),
     rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
     livereload = require('gulp-livereload'),
-    sourcemaps = require('gulp-sourcemaps'),
-    del = require('del');
+    sourcemaps = require('gulp-sourcemaps')
 
 // configuration des chemins
 var SASS_FILES_DIR = './styles';
 var SASS_FILES_PATH = SASS_FILES_DIR + '/**/*.scss';
 var BUNDLED_CSS_FILES_PATH = './public/css';
-var ASSETS_FILES_PATH = './assets/**/*';
+var ASSETS_FILES_PATH = './assets';
 var BUNDLED_ASSETS_FILES_PATH = './public';
 var ASSETS_FONTS_PATH = './assets/fonts/**/*';
 var ASSETS_IMGS_PATH = './assets/img/**/*';
@@ -37,7 +33,6 @@ var autoprefixerOptions = {
 };
 var imageminConfig = {
 	progressive: true,
-	use: [pngquant()],
 	svgoPlugins: [
 		{
 			removeViewBox: false
