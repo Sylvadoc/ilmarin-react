@@ -18,6 +18,7 @@ import EssaisListTolkien from './../essais-list.container';
 import ArticlesListTolkien from './../articles-list.container';
 import IntroductionTolkien from "./../introduction-tolkien.container";
 import TraductionTolkien from "./../traduction-tolkien.container";
+import DiscoverTolkienLibrary from "../discover-tolkien-bibliotheque.container";
 
 class TolkienDesktop2Skeleton extends Component {
 
@@ -47,6 +48,7 @@ class TolkienDesktop2Skeleton extends Component {
                                 </div>
                             </div>
                         </section>
+                        <DiscoverTolkienLibrary />
 					</main>
 					<Footer />
 				</div>
