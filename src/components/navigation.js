@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
-import { toggleBurger } from '../action-creators';
+import { toggleBurger } from '../store/action-creators';
 
 // composants inherents à la composition de la page
 import {InstantSearch, Index, SearchBox, Hits, Configure} from 'react-instantsearch/dom';

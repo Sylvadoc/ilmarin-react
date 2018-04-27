@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { toggleBurger } from '../action-creators';
+import { toggleBurger } from '../store/action-creators';
 
 // tierces
 import { throttle } from 'lodash';

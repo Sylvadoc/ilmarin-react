@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import Helmet from "react-helmet";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { closeBurger } from '../../action-creators';
+import { closeBurger } from '../../store/action-creators';
 
 // composants
 import Header from '../header'

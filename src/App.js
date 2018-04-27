@@ -3,7 +3,11 @@
 
 // methodes et fonctions react ou associées
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route } from "react-router-dom";
+
+// redux
+import { connect } from 'react-redux';
+import { setMessage } from './store/appReducer';
 
 // les différentes sections
 import Home from './components/home/home.root'
@@ -29,30 +33,44 @@ import SpriteSvg from './components/sprite-svg'
 
 class App extends Component {
 
+    componentDidMount() {
+        if(!this.props.message) {
+            this.props.updateMessage("Hi, I'm from client!");
+        }
+    }
+
 	render() {
 
 		return (
 			<div id="app">
+                <h1>Redux: { this.props.message }</h1>
 				<SpriteSvg />
-				<Route exact path="/" component={Home} />
-					<Route path="/actualites/news/:postId/:slug" component={PageNews} />
-					<Route path="/actualites/articles/:postId/:slug" component={PageArticle} />
-					<Route path="/actualites/interviews/:postId/:slug" component={PageArticle} />
-				<Route exact path="/bibliotheque" component={Bibliotheque} />
-					<Route path="/bibliotheque/:itemId/:slug" component={PageLivre} />
+                <Route exact path="/" component={Home} />
+                    <Route path="/actualites/news/:postId/:slug" component={PageNews} />
+                    <Route path="/actualites/articles/:postId/:slug" component={PageArticle} />
+                    <Route path="/actualites/interviews/:postId/:slug" component={PageArticle} />
+                <Route exact path="/bibliotheque" component={Bibliotheque} />
+                    <Route path="/bibliotheque/:itemId/:slug" component={PageLivre} />
                     <Route path="/auteur/:itemId/:slug" component={PageAuteur} />
                     <Route path="/edition/:itemId/:slug" component={PageMaisonEdition} />
                     <Route path="/theme/:itemId/:slug" component={PageTheme} />
                     <Route path="/genre/:itemId/:slug" component={PageGenre} />
-					<Route path="/recompense/:itemId/:slug" component={PageRecompense} />
-				<Route exact path="/tolkien" component={Tolkien} />
-				<Route exact path="/fantasy" component={Fantasy} />
-				<Route exact path="/emissions/:catId/:slug" component={Emissions} />
-					<Route path="/emissions/articles/:postId/:slug" component={PageArticleEmission} />
-				<Route path="/prix-elbakin/:postId/:slug" component={PageArticlePrix} />
+                    <Route path="/recompense/:itemId/:slug" component={PageRecompense} />
+                <Route exact path="/tolkien" component={Tolkien} />
+                <Route exact path="/fantasy" component={Fantasy} />
+                <Route exact path="/emissions/:catId/:slug" component={Emissions} />
+                    <Route path="/emissions/articles/:postId/:slug" component={PageArticleEmission} />
+                <Route path="/prix-elbakin/:postId/:slug" component={PageArticlePrix} />
 			</div>
 		)
 	}
 }
 
-export default App;
+export default connect(
+    ({ app }) => ({
+        message: app.message,
+    }),
+    dispatch => ({
+        updateMessage: (messageText) => dispatch(setMessage(messageText)),
+    })
+)(App);

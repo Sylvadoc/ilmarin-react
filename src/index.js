@@ -1,21 +1,26 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
-import store, { history } from './store'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Loadable from 'react-loadable';
+import { Provider as ReduxProvider } from 'react-redux';
 
 // application
-import App from './App'
+import App from './App';
 
-import registerServiceWorker from './registerServiceWorker';
+// store
+import configureStore from './store/configureStore';
+const store = configureStore( window.__REDUX_STATE__ || {} );
 
-const target = document.querySelector('#root');
-
-render(
-	<Provider store={store}>
-		<ConnectedRouter history={history}>
-			<App />
-		</ConnectedRouter>
-	</Provider>, target
+const AppBundle = (
+    <ReduxProvider store={store}>
+        <App />
+    </ReduxProvider>
 );
-registerServiceWorker();
+
+window.onload = () => {
+    Loadable.preloadReady().then(() => {
+        ReactDOM.hydrate(
+            AppBundle,
+            document.getElementById('root')
+        );
+    });
+};

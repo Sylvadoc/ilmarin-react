@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { closeBurger } from '../../../action-creators';
+import { closeBurger } from '../../../store/action-creators';
 
 // outils
 import moment from 'moment';
