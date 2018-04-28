@@ -94,39 +94,47 @@ class Navigation extends Component {
 					<div className="feature-nav">
 						<ul>
 							<li>
-								<div className="feature-section clickable">
+								<div className="feature-section">
 									<img src="/img/illustrations/section_02.jpg" aria-hidden="true" alt="image illustrant la section fantasy" />
-									<div className="cartouche">
-										<h3><Link to="/fantasy">La fantasy</Link></h3>
-										<p>Découvrir la fantasy, ses origines, ses héros&hellip;</p>
-									</div>
+									<Link to="/fantasy" className="cartouche">
+                                        <div className="inner-cartouche">
+                                            <h3>La fantasy</h3>
+                                            <p>Découvrir la fantasy, ses origines, ses héros&hellip;</p>
+                                        </div>
+									</Link>
 								</div>
 							</li>
 							<li>
-								<div className="feature-section clickable">
+								<div className="feature-section">
 									<img src="/img/illustrations/section_03.jpg" aria-hidden="true" alt="image illustrant la section bibliothèque" />
-									<div className="cartouche">
-										<h3><Link to="/bibliotheque">Bibliothèque</Link></h3>
-										<p>Chronique de romans, de bédés, de mangas, de jeux&hellip;</p>
-									</div>
+									<Link to="/bibliotheque" className="cartouche">
+                                        <div className="inner-cartouche">
+                                            <h3>Bibliothèque</h3>
+                                            <p>Chronique de romans, de bédés, de mangas, de jeux&hellip;</p>
+                                        </div>
+									</Link>
 								</div>
 							</li>
 							<li>
-								<div className="feature-section clickable">
+								<div className="feature-section">
 									<img src="/img/illustrations/section_01.jpg" aria-hidden="true" alt="image illustrant la section Tolkien" />
-									<div className="cartouche">
-										<h3><Link to="/tolkien">J.R.R. Tolkien</Link></h3>
-										<p>&Eacute;tude de ses &oelig;uvres, sa vie, son univers&hellip;</p>
-									</div>
+									<Link to="/tolkien" className="cartouche">
+                                        <div className="inner-cartouche">
+                                            <h3>J.R.R. Tolkien</h3>
+                                            <p>&Eacute;tude de ses &oelig;uvres, sa vie, son univers&hellip;</p>
+                                        </div>
+									</Link>
 								</div>
 							</li>
 							<li>
-								<div className="feature-section clickable">
+								<div className="feature-section">
 									<img src="/img/illustrations/section_04.jpg" aria-hidden="true" alt="image illustrant les émissions" />
-									<div className="cartouche">
-										<h3><Link to="/emissions">Les émissions</Link></h3>
-										<p>Podcasts, Dessine-moi un Dragon, Culture particulière, Procastination</p>
-									</div>
+                                    <Link to="/emissions" className="cartouche">
+                                        <div className="inner-cartouche">
+                                            <h3>Les émissions</h3>
+                                            <p>Podcasts, Dessine-moi un Dragon, Culture particulière, Procastination</p>
+                                        </div>
+									</Link>
 								</div>
 							</li>
 						</ul>
