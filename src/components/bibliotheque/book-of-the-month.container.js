@@ -38,9 +38,11 @@ export class ContainerMonthsBook extends Component {
 					return (
 						<div className="inner_content" key={"month-book-" + index}>
 							<Link to={"/bibliotheque/" + book.id + '/' + book.slug}>
-								{book._embedded['wp:featuredmedia'] ? <img
+								<span className="wrap-img">
+                                    {book._embedded['wp:featuredmedia'] ? <img
 										src={book._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url}
 										alt={"Couverture du livre " + book.title.rendered}/> : 'pas de couverture' }
+                                </span>
 								<p><span dangerouslySetInnerHTML={ {__html: book.title.rendered} }/></p>
 							</Link>
 							<em>De <Link to={"/auteur/" + book.acf.auteur[0].ID + '/' + book.acf.auteur[0].post_name}>{book.acf.auteur[0].post_title}</Link></em>

@@ -58,7 +58,7 @@ export class ContainerPreviewListInterviews extends Component {
 			const mainInterview =
 				<div className="inner_content">
 					<Link to={"/actualites/interviews/" + posts[0].id + "/" + posts[0].slug}>
-						{posts[0]._embedded['wp:featuredmedia'] ? <img src={posts[0]._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={posts[0]._embedded['wp:featuredmedia'][0].alt_text} /> : 'pas de couverture' }
+                        <span className="wrap-img">{posts[0]._embedded['wp:featuredmedia'] ? <img src={posts[0]._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={posts[0]._embedded['wp:featuredmedia'][0].alt_text} /> : 'pas de couverture' }</span>
 						<p><span dangerouslySetInnerHTML={ {__html: posts[0].title.rendered} } /></p>
 					</Link>
 				</div>;

@@ -40,7 +40,9 @@ export class ContainerRandomBook extends Component {
 			let randomedBook =
 				<div className="inner_content">
 					<Link to={"/bibliotheque/" + randomBook.id + '/' + randomBook.slug}>
-						{randomBook._embedded['wp:featuredmedia'] ? <img src={randomBook._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + randomBook.title.rendered} /> : 'pas de couverture' }
+                        <span className="wrap-img">
+						    {randomBook._embedded['wp:featuredmedia'] ? <img src={randomBook._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url} alt={"Couverture du livre " + randomBook.title.rendered} /> : 'pas de couverture' }
+						</span>
 						<p><span dangerouslySetInnerHTML={ {__html: randomBook.title.rendered} } /></p>
 					</Link>
 					<em>De <Link to={"/auteur/" + randomBook.acf.auteur[0].ID + '/' + randomBook.acf.auteur[0].post_name}>{randomBook.acf.auteur[0].post_title}</Link></em>

@@ -151,10 +151,19 @@ body {
 		a {
 			display: block;
 			overflow: hidden;
-			img {
-				width: 100%;
-				height: auto;
-			}
+            .wrap-img {
+                position: relative;
+                display: block;
+                height: 166px;
+                img {
+                    position: absolute;
+                    top: 50%; left: 50%;
+                    transform: translate3d(-50%, -50%,0);
+                    width: 100%;
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
 			p {
 				display: block;
 				font-family: $font-stack-headings;
