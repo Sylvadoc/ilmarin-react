@@ -95,7 +95,7 @@ class Navigation extends Component {
 						<ul>
 							<li>
 								<div className="feature-section">
-									<img src="/img/illustrations/section_02.jpg" aria-hidden="true" alt="image illustrant la section fantasy" />
+									<img src="/img/section_02.jpg" aria-hidden="true" alt="image illustrant la section fantasy" />
 									<Link to="/fantasy" className="cartouche">
                                         <div className="inner-cartouche">
                                             <h3>La fantasy</h3>
@@ -106,7 +106,7 @@ class Navigation extends Component {
 							</li>
 							<li>
 								<div className="feature-section">
-									<img src="/img/illustrations/section_03.jpg" aria-hidden="true" alt="image illustrant la section bibliothèque" />
+									<img src="/img/section_03.jpg" aria-hidden="true" alt="image illustrant la section bibliothèque" />
 									<Link to="/bibliotheque" className="cartouche">
                                         <div className="inner-cartouche">
                                             <h3>Bibliothèque</h3>
@@ -117,7 +117,7 @@ class Navigation extends Component {
 							</li>
 							<li>
 								<div className="feature-section">
-									<img src="/img/illustrations/section_01.jpg" aria-hidden="true" alt="image illustrant la section Tolkien" />
+									<img src="/img/section_01.jpg" aria-hidden="true" alt="image illustrant la section Tolkien" />
 									<Link to="/tolkien" className="cartouche">
                                         <div className="inner-cartouche">
                                             <h3>J.R.R. Tolkien</h3>
@@ -128,7 +128,7 @@ class Navigation extends Component {
 							</li>
 							<li>
 								<div className="feature-section">
-									<img src="/img/illustrations/section_04.jpg" aria-hidden="true" alt="image illustrant les émissions" />
+									<img src="/img/section_04.jpg" aria-hidden="true" alt="image illustrant les émissions" />
                                     <Link to="/emissions" className="cartouche">
                                         <div className="inner-cartouche">
                                             <h3>Les émissions</h3>
