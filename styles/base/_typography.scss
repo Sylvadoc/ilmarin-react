@@ -13,11 +13,11 @@ $tempFont : 91011112;
 
 @font-face {
 	font-family: 'icomoon';
-	src:url('/fonts/special/icomoon.eot?$tempFont');
-	src:url('/fonts/special/icomoon.eot?#iefix$tempFont') format('embedded-opentype'),
-		url('/fonts/special/icomoon.woff?$tempFont') format('woff'),
-		url('/fonts/special/icomoon.ttf?$tempFont') format('truetype'),
-		url('/fonts/special/icomoon.svg?$tempFont#icomoon') format('svg');
+	src:url('/fonts/icomoon.eot?$tempFont');
+	src:url('/fonts/icomoon.eot?#iefix$tempFont') format('embedded-opentype'),
+		url('/fonts/icomoon.woff?$tempFont') format('woff'),
+		url('/fonts/icomoon.ttf?$tempFont') format('truetype'),
+		url('/fonts/icomoon.svg?$tempFont#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
