@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "history": "^4.6.3",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.10",
     "moment": "^2.22.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
