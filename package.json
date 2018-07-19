@@ -31,7 +31,7 @@
     "react-scripts": "1.0.13",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "serve": "^6.5.5"
+    "serve": "^7.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
