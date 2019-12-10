@@ -1,3 +1,5 @@
+[![Dependency Status](https://david-dm.org/sylvadoc/ilmarin-react.svg)](https://david-dm.org/sylvadoc/ilmarin-react)
+
 ## Technologies
 
 * [Create React App](https://github.com/facebookincubator/create-react-app)
